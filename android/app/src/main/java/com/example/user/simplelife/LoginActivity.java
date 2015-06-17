@@ -157,19 +157,26 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-            trys
-            {
-                Socket s = new Socket("192.168.1.90",1028);
-                DataOutputStream outs = new DataOutputStream(s.getOutputStream());
-                outs.writeUTF("/Login jobamei@hotmail.com aaaa");
-                DataInputStream inputs = new DataInputStream(s.getInputStream());
-                String returnCode = inputs.readUTF();
-                Log.d("[Socket]",returnCode);
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
+            new Thread() {
+                public void run() {
+                    try
 
+                    {
+                        Socket s = new Socket("192.168.1.71", 1028);
+                        DataOutputStream outs = new DataOutputStream(s.getOutputStream());
+                        outs.writeUTF("/Login jobamei@hotmail.com aaaa");
+                        DataInputStream inputs = new DataInputStream(s.getInputStream());
+                        String returnCode = inputs.readUTF();
+                        Log.d("[Socket]", returnCode);
+                    } catch (
+                            IOException e
+                            )
+
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }.start();
             Intent intent = new Intent(LoginActivity.this, ApplianceActivity.class);
             startActivity(intent);
         }

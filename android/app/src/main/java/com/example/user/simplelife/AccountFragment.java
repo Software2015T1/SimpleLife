@@ -56,9 +56,6 @@ public class AccountFragment extends Fragment {
         return v;
     }
 
-    private void changeFragment(Fragment f) {
-    }
-
 
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
