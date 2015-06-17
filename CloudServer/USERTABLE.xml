@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <root>
-  <usermail.com.tw>
-    <Password>xxxx</Password>
-    <ControllerID>ID1</ControllerID>
-  </usermail.com.tw>
-  <user2mail.com.tw>
-    <Password>oooo</Password>
-    <ControllerID>ID2</ControllerID>
-  </user2mail.com.tw>
+  <User Name="helloworld@hotmail.com">
+    <Password>ajajaj</Password>
+    <ControllerID></ControllerID>
+  </User>
+  <User Name="aa@hotmail.com">
+    <Password>bbbb</Password>
+    <ControllerID></ControllerID>
+  </User>
+  <User Name="jobamei@hotmail.com">
+    <Password>aaaa</Password>
+    <ControllerID>MC02</ControllerID>
+  </User>
 </root>

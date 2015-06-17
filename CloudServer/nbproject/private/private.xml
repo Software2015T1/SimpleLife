@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Desktop/CloudServer/src/cloudserver/UserTable.java</file>
-            <file>file:/D:/Desktop/CloudServer/src/cloudserver/CommandParser.java</file>
-            <file>file:/D:/Desktop/CloudServer/src/cloudserver/CloudServer.java</file>
-            <file>file:/D:/Desktop/CloudServer/src/cloudserver/Client.java</file>
+            <file>file:/C:/Users/Smith/Documents/NetBeansProjects/CloudServer/src/cloudserver/UserTable.java</file>
+            <file>file:/C:/Users/Smith/Documents/NetBeansProjects/CloudServer/src/cloudserver/ControllerSocketTable.java</file>
+            <file>file:/C:/Users/Smith/Documents/NetBeansProjects/CloudServer/src/cloudserver/CloudServer.java</file>
+            <file>file:/C:/Users/Smith/Documents/NetBeansProjects/CloudServer/src/cloudserver/Client.java</file>
+            <file>file:/C:/Users/Smith/Documents/NetBeansProjects/CloudServer/src/cloudserver/ClientTest.java</file>
+            <file>file:/C:/Users/Smith/Documents/NetBeansProjects/CloudServer/src/cloudserver/MCTest.java</file>
+            <file>file:/C:/Users/Smith/Documents/NetBeansProjects/CloudServer/src/cloudserver/Fowarder.java</file>
         </group>
     </open-files>
 </project-private>

@@ -38,6 +38,7 @@ public class UserTableCreator
     {
         try
         {
+           if(new File(UserTablePath).exists()==false)return false;
            SAXReader reader = new SAXReader();
            Document doc = reader.read(UserTablePath);
            Element root = doc.getRootElement();
@@ -46,7 +47,7 @@ public class UserTableCreator
            {
                 Element password = user.element("Password");
                 Element controllerID = user.element("ControllerID");
-                _table.put(user.getName(),new UserInformation(password.getText(),controllerID.getText(), null));
+                _table.put(user.attributeValue("Name"),new UserInformation(password.getText(),controllerID.getText(), null));
            }
 
            return true;

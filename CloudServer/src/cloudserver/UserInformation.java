@@ -5,6 +5,7 @@
  */
 package cloudserver;
 import java.net.Socket;
+import java.util.List;
 /**
  *
  * @author Smith
@@ -31,5 +32,13 @@ public class UserInformation
     public Socket getUserSocket()
     {
         return this._s;
+    }
+    public void setSocket(Socket s)
+    {
+        this._s = s;
+    }
+    public void setMController(String mcID)
+    {
+        this._controllerID = mcID;
     }
 }

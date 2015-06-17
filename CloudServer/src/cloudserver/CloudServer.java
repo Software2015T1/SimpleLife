@@ -12,7 +12,6 @@ package cloudserver;
 import java.io.IOException;
 import java.net.*;
 import java.io.*;
-import java.util.List;
 
 public class CloudServer
 {
@@ -21,9 +20,9 @@ public class CloudServer
      * @param args the command line arguments
      */
     public final static int PORT =1028;
-    public final String IP_ADDRESS = "127.0.0.1";
+    public final static String IP_ADDRESS = "127.0.0.1";
     public static UserTable userTable;
-   
+    public static ControllerSocketTable csTable;
     public static void main(String[] args)
     {
         ServerSocket server = null;
@@ -31,13 +30,13 @@ public class CloudServer
         {
             // TODO code application logic here
             userTable = UserTableCreator.createUserTable();
+            csTable = ControllerSocketTableCreator.createCSTable();
             server = new ServerSocket(PORT);
             System.out.println("Server created. waiting for client...");
             new CommandListener().start();
             while(true)
             {
                 Socket s = server.accept();
-                System.out.println("Connect from: " + s.getInetAddress());
                 Client client = new Client(s);
                 client.start();
             }
@@ -51,6 +50,7 @@ public class CloudServer
 }
 class CommandListener extends Thread
 {
+    @Override
     public void run()
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -58,15 +58,28 @@ class CommandListener extends Thread
         {
             try
             {
-                String command = reader.readLine();
-                if(command.equals("list"))
+                String[] command = reader.readLine().split(" ");
+                if(command[0].equals("list"))
                 {
                    CloudServer.userTable.print();
+                   CloudServer.csTable.print();
                 }
-                else if(command.equals("exit"))
+                else if(command[0].equals("exit"))
                 {
-                    System.exit(MIN_PRIORITY);
+                   System.exit(MIN_PRIORITY);
                 }
+                else if(command[0].equals("save"))
+                {
+                    CloudServer.userTable.SaveXml();
+                    CloudServer.csTable.SaveXml();
+                    System.out.println("Table saving...");
+                }
+                else if(command[0].equals("AddMC"))
+                {
+                    CloudServer.csTable.addAuthenticationController(command[1]);
+                    System.out.println("MC added: " + command[1]);
+                }
+               
                 
             } catch (IOException ex)
             {
