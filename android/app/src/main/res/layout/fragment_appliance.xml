@@ -2,30 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/ibtnAddAppliance"
-        android:layout_marginTop="87dp"
-        android:src="@drawable/plus_button"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:layout_marginLeft="62dp"
-        android:layout_marginStart="62dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
+    <GridView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/action_add_appliance"
-        android:id="@+id/txtAdd_Appliance"
-        android:layout_below="@+id/ibtnAddAppliance"
-        android:layout_alignLeft="@+id/ibtnAddAppliance"
-        android:layout_alignStart="@+id/ibtnAddAppliance"
-        android:textSize="10dp"
-        android:layout_alignParentTop="false"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="-2dp" />
+        android:id="@+id/gridView_appliance"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

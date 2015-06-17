@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +29,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,6 +114,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      */
     public void attemptLogin() {
         if (mAuthTask != null) {
+
             return;
         }
 
@@ -151,6 +157,19 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            trys
+            {
+                Socket s = new Socket("192.168.1.90",1028);
+                DataOutputStream outs = new DataOutputStream(s.getOutputStream());
+                outs.writeUTF("/Login jobamei@hotmail.com aaaa");
+                DataInputStream inputs = new DataInputStream(s.getInputStream());
+                String returnCode = inputs.readUTF();
+                Log.d("[Socket]",returnCode);
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+
             Intent intent = new Intent(LoginActivity.this, ApplianceActivity.class);
             startActivity(intent);
         }
