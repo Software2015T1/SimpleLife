@@ -1,0 +1,21 @@
+<resources>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_title">Simple Life</string>
+    <string name="prompt_name">User Name</string>
+    <string name="prompt_email">Email Address</string>
+    <string name="prompt_password">Password (8 - 20 char)</string>
+    <string name="prompt_confirm_password">Confirm Password</string>
+    <string name="action_register">Create an Account</string>
+    <string name="action_register_short">Sign Up</string>
+    <string name="action_sign_in">Get Started</string>
+    <string name="action_sign_in_short">Log In</string>
+    <string name="action_back">  </string>
+
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_short_password">This password is too short</string>
+    <string name="error_long_password">This password is too long</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+</resources>
