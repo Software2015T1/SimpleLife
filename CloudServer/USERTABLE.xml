@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <usermail.com.tw>
+    <Password>xxxx</Password>
+    <ControllerID>ID1</ControllerID>
+  </usermail.com.tw>
+  <user2mail.com.tw>
+    <Password>oooo</Password>
+    <ControllerID>ID2</ControllerID>
+  </user2mail.com.tw>
+</root>
