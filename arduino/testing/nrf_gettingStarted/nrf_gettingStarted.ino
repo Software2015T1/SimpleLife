@@ -129,7 +129,7 @@ void performAction(unsigned short rawMessage){
 
   if (action == 0 || action ==1){
       callback = action;
-      doAction(id, action);
+      //doAction(id, action);
   }else if(action == 2){
       callback = getState(id);
   }
