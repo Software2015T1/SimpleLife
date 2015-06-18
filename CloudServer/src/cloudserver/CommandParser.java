@@ -21,6 +21,7 @@ enum MissionType
 }
 public class CommandParser
 {
+    private final String LoginCode = "FC829937FE3884EA52B8092A2290BEF3";
     static MissionType parse(String command,String[] par)
     {
         MissionType type = MissionType.None;
