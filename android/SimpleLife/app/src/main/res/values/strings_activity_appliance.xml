@@ -4,4 +4,6 @@
     <string name="name_add_appliance">Add a product</string>
     <string name="name_account">Account</string>
     <string name="name_main_controller">Main Controller</string>
+    <string name="name_connect_to">Connect to SimpleLife</string>
+    <string name="step_1of5">Step 1 of 5</string>
 </resources>

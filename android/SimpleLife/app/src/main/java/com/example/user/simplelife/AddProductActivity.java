@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.user.simplelife.AddMainController.Add_MainControllerActivity;
+
 
 public class AddProductActivity extends ActionBarActivity {
 
@@ -29,7 +31,7 @@ public class AddProductActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 0){
                     Intent intent = new Intent();
-                    intent.setClass(AddProductActivity.this, Add_MainContollerActivity.class);
+                    intent.setClass(AddProductActivity.this, Add_MainControllerActivity.class);
                     startActivity(intent);
                 }
                 else if(position == 1){

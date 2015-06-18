@@ -4,12 +4,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.simplelife.Add_MainContollerActivity">
+    tools:context="com.example.user.simplelife.AddMainController.Add_MainControllerActivity">
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/ibtnBack_addmain"
         android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -20,17 +20,33 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/name_main_controller"
-        android:id="@+id/textView"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/textTitle_addmain"
+        android:layout_alignTop="@+id/ibtnBack_addmain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:text="@string/name_connect_to"
+        android:id="@+id/textSubtitle_addmain"
+        android:layout_below="@+id/textTitle_addmain"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ibtnBack_addmain"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@+id/ibtnBack_addmain"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/addmain_step_layout">
+
+    </RelativeLayout>
+
 </RelativeLayout>

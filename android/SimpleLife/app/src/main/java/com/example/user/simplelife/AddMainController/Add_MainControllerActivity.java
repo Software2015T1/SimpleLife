@@ -1,17 +1,29 @@
-package com.example.user.simplelife;
+package com.example.user.simplelife.AddMainController;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class Add_MainContollerActivity extends ActionBarActivity {
+import com.example.user.simplelife.R;
+
+
+public class Add_MainControllerActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_main_contoller);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Step1Fragment fragment = new Step1Fragment();
+        fragmentTransaction.add(R.id.addmain_step_layout, fragment);
+        fragmentTransaction.commit();
     }
 
     @Override
