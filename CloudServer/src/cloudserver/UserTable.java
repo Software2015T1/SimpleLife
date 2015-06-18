@@ -123,5 +123,9 @@ public class UserTable
     {
         return this._userTable.get(username).getControllerID();
     }
+    public void removeAccount(String acc)
+    {
+        this._userTable.remove(acc);
+    }
     
 }

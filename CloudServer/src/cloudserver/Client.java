@@ -42,12 +42,14 @@ public class Client extends Thread
                 case USER_LOGIN:
                     returnCode = CloudServer.userTable.authenticate(par[0],par[1],_s);
                     outs.writeUTF(returnCode);
+                    if("R002".equals(returnCode))
                     System.out.println("Login:"+par[0]+" is logging...");
                 break;
                 case NEW_ACCOUNT:
                     UserInformation info = new UserInformation(par[1],"",_s);
                     returnCode = CloudServer.userTable.add(par[0], info);
                     outs.writeUTF(returnCode);
+                    if(returnCode.equals("R001"))
                     System.out.println("User Account Created: "+par[0]);
                 break;
                 case MAIN_CONTROLLER_CONNECT:
@@ -61,6 +63,7 @@ public class Client extends Thread
                     {
                         CloudServer.userTable.AddMC(par[3],par[2]);
                         outs.writeUTF("R005");
+                        System.out.println("user: "+par[0]+" add MC: "+par[2]);
                     }
                     else
                     {

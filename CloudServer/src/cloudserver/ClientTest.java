@@ -10,6 +10,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 
 /**
@@ -31,8 +33,17 @@ public class ClientTest {
                 outs = new DataOutputStream(s.getOutputStream());
                 inputs = new DataInputStream(s.getInputStream());
                 br = new BufferedReader(new InputStreamReader(System.in));
-                System.out.print("Input command: ");
+
+                System.out.print("account: ");
+                String account = br.readLine();
+                System.out.print("password: ");
+                String password = Md5.md5(br.readLine());
+                System.out.print("Input commandPrefix: ");
                 String cmd = br.readLine();
+                System.out.print("Input commandPar: ");
+                String par = br.readLine();
+                cmd = cmd+" "+account+" "+password+par;
+                System.out.println(cmd);
                 outs.writeUTF(cmd);
                 String returnCode = inputs.readUTF();
                 System.out.println("Return frome Server: "+returnCode);
@@ -53,6 +64,7 @@ public class ClientTest {
             }
             
         }
-        
+     
     }
+
 }

@@ -16,9 +16,7 @@ import java.io.*;
 public class CloudServer
 {
 
-    /**
-     * @param args the command line arguments
-     */
+
     public final static int PORT =1028;
     public final static String IP_ADDRESS = "127.0.0.1";
     public static UserTable userTable;
@@ -28,7 +26,6 @@ public class CloudServer
         ServerSocket server = null;
         try
         {
-            // TODO code application logic here
             userTable = UserTableCreator.createUserTable();
             csTable = ControllerSocketTableCreator.createCSTable();
             server = new ServerSocket(PORT);
@@ -79,7 +76,11 @@ class CommandListener extends Thread
                     CloudServer.csTable.addAuthenticationController(command[1]);
                     System.out.println("MC added: " + command[1]);
                 }
-               
+                else if(command[0].equals("DeleteAccount"))
+                {
+                    CloudServer.userTable.removeAccount(command[1]);
+                    System.out.println("remove account: "+ command[1]);
+                }
                 
             } catch (IOException ex)
             {
