@@ -33,6 +33,8 @@ public class ApplianceFragment extends Fragment {
     private String[] imgText = {
             "Add product"
     };
+    private SimpleAdapter adapter;
+    private List<Map<String, Object>> items = new ArrayList<>();
 
     public void onAttach(Activity activity){
         super.onAttach(activity);
@@ -43,14 +45,13 @@ public class ApplianceFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_appliance, container, false);
-        List<Map<String, Object>> items = new ArrayList<>();
         for (int i = 0; i < image.length; i++) {
             Map<String, Object> item = new HashMap<>();
             item.put("image", image[i]);
             item.put("text", imgText[i]);
             items.add(item);
         }
-        SimpleAdapter adapter = new SimpleAdapter(getActivity(),
+        adapter = new SimpleAdapter(getActivity(),
                 items, R.layout.grid_item, new String[]{"image", "text"},
                 new int[]{R.id.image, R.id.text});
 
@@ -60,11 +61,19 @@ public class ApplianceFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 if(position == gridView.getCount() - 1)
                 {
                     Intent intent = new Intent(getActivity(), AddProductActivity.class);
                     startActivity(intent);
                 }
+                Toast.makeText(getActivity(), "you click "+imgText[position],
+                        Toast.LENGTH_SHORT).show();
+                Map<String, Object> item = new HashMap<>();
+                item.put("image", R.drawable.plus_button);
+                item.put("text",  "Add product");
+                items.add(item);
+                adapter.notifyDataSetChanged();
             }
 
 
