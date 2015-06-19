@@ -1,35 +1,23 @@
-package com.example.user.simplelife.AddMainController;
+package com.example.user.simplelife;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-import com.example.user.simplelife.R;
-
-
-public class Add_MainControllerActivity extends FragmentActivity {
+public class AddFavoriteActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_main_contoller);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Step1Fragment fragment = new Step1Fragment();
-        fragmentTransaction.add(R.id.addmain_step_layout, fragment);
-        fragmentTransaction.commit();
+        setContentView(R.layout.activity_add_favorite);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_main_contoller, menu);
+        getMenuInflater().inflate(R.menu.menu_add_favorite, menu);
         return true;
     }
 

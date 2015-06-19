@@ -67,6 +67,10 @@
             android:name=".Add_OtherActivity"
             android:label="@string/title_activity_add__other" >
         </activity>
+        <activity
+            android:name=".AddFavoriteActivity"
+            android:label="@string/title_activity_add_favorite" >
+        </activity>
     </application>
 
 </manifest>

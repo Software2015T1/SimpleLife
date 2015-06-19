@@ -2,6 +2,7 @@
 <resources>
     <string name="action_add_appliance">Add Product</string>
     <string name="name_add_appliance">Add a product</string>
+    <string name="name_favorite">Favorite</string>
     <string name="name_account">Account</string>
     <string name="name_main_controller">Main Controller</string>
     <string name="name_connect_to">Connect to SimpleLife</string>

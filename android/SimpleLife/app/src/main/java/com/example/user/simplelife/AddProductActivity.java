@@ -9,13 +9,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.user.simplelife.AddMainController.Add_MainControllerActivity;
-
 
 public class AddProductActivity extends ActionBarActivity {
 
     private ListView list;
-    private ListAdapter adapter;
+    private AddProduct_ListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +21,7 @@ public class AddProductActivity extends ActionBarActivity {
         setContentView(R.layout.activity_add_product);
 
         list = (ListView) findViewById(R.id.listView_addproduct);
-        adapter = new ListAdapter(this);
+        adapter = new AddProduct_ListAdapter(this);
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

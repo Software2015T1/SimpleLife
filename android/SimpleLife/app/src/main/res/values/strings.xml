@@ -17,4 +17,5 @@
     <string name="title_activity_add__air">Add_AirActivity</string>
     <string name="title_activity_add__tv">Add_TVActivity</string>
     <string name="title_activity_add__other">Add_OtherActivity</string>
+    <string name="title_activity_add_favorite">AddFavoriteActivity</string>
 </resources>
