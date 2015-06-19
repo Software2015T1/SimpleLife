@@ -1,6 +1,7 @@
 package com.example.user.simplelife;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -59,8 +60,11 @@ public class ApplianceFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "you click "+imgText[position],
-                        Toast.LENGTH_SHORT).show();
+                if(position == gridView.getCount() - 1)
+                {
+                    Intent intent = new Intent(getActivity(), AddProductActivity.class);
+                    startActivity(intent);
+                }
             }
 
 

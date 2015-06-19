@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 
@@ -53,7 +54,15 @@ public class AddProductActivity extends ActionBarActivity {
                     startActivity(intent);
                 }
             }
+        });
 
+        ImageButton btnBack = (ImageButton) findViewById(R.id.ibtnBack_addproduct);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddProductActivity.this, ApplianceActivity.class);
+                startActivity(intent);
+            }
         });
 
     }
