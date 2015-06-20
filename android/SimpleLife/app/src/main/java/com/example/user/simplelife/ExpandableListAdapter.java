@@ -1,10 +1,12 @@
 package com.example.user.simplelife;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -42,10 +44,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.expandable_childrow, null);
         }
-
         TextView txtChild = (TextView) convertView.findViewById(R.id.textWhere_addfavorite);
-        txtChild.setText(child.getName().toString());
-
+        txtChild.setText(child.getName());
         return convertView;
     }
 

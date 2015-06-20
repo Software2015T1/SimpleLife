@@ -2,9 +2,12 @@ package com.example.user.simplelife;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +29,47 @@ public class AddFavoriteActivity extends Activity {
         expListItems = prepareListData();
         listAdapter = new ExpandableListAdapter(AddFavoriteActivity.this, expListItems);
         listView.setAdapter(listAdapter);
+
+        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+
+                String group_name = expListItems.get(groupPosition).getName();
+
+                ArrayList<Expandable_Child> ch_list = expListItems.get(
+                        groupPosition).getItems();
+
+                String child_name = ch_list.get(childPosition).getName();
+                showToastMsg(group_name + "\n" + child_name);
+                Log.v("fuck you",group_name + "\n" + child_name);
+                return false;
+            }
+        });
+
+        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                String group_name = expListItems.get(groupPosition).getName();
+                showToastMsg(group_name + "\n Expanded");
+                Log.v("fuck you", group_name+" click");
+                return false;
+            }
+        });
+
+        listView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                String group_name = expListItems.get(groupPosition).getName();
+                showToastMsg(group_name + "\n Expanded");
+                Log.v("fuck you", group_name+" collapse");
+            }
+        });
+
+
     }
 
     private ArrayList<Expandable_Parent> prepareListData() {
@@ -39,17 +83,15 @@ public class AddFavoriteActivity extends Activity {
         };
 
         String childNames[] = {
-                "test"
+                "test","test2"
         };
 
         ArrayList<Expandable_Parent> list = new ArrayList<>();
-        ArrayList<Expandable_Child> chList;
-        Expandable_Parent parent = new Expandable_Parent();
-        for(int image : images) {
-            parent.setImage(image);
-        }
-        for (String parentName : parentNames) {
-            parent.setName(parentName);
+        for (int i = 0; i < parentNames.length ;i++) {
+            Expandable_Parent parent = new Expandable_Parent();
+            ArrayList<Expandable_Child> chList;
+            parent.setImage(images[i]);
+            parent.setName(parentNames[i]);
             chList = new ArrayList<>();
             for(int j = 0;j < childNames.length; j++) {
                 Expandable_Child child = new Expandable_Child();
@@ -85,4 +127,9 @@ public class AddFavoriteActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void showToastMsg(String Msg) {
+        Toast.makeText(getApplicationContext(), Msg, Toast.LENGTH_SHORT).show();
+    }
 }
+
