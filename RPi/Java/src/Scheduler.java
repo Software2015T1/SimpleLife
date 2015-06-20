@@ -2,7 +2,7 @@ import java.util.Date;
 import java.util.ArrayList; 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-public class Scheduler{
+public class Scheduler extends Thread{
 	
 	//http://www.ewdna.com/2011/12/java-timer.html
 	private ArrayList<Job> joblist;
@@ -48,14 +48,16 @@ public class Scheduler{
 		joblist.remove(j);
 		return true;
 	}
-	boolean checkList(){
-		if (Math.abs(new Date().getTime()- joblist.get(0).getTime())<60*1000){
+	void run(){
+		while(1){
+			if(joblist.size()==0)continue;
+			if(Math.abs(new Date().getTime()- joblist.get(0).getTime())<60*1000){
 			//RF send command
 			//remove this job
 			
-			socket.sendCmd()
+				socket.sendCmd()
+			}
 		}
-		return true;
 	}
 }
 class Job{
