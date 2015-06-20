@@ -50,8 +50,13 @@ public class Scheduler extends Thread{
 	}
 	void run(){
 		while(1){
+			/*try{
+				Thread.sleep(1000);
+			}catch (InterruptedException e){
+				e.printStackTrace();
+			}*/
 			if(joblist.size()==0)continue;
-			if(Math.abs(new Date().getTime()- joblist.get(0).getTime())<60*1000){
+			if(Math.abs(new Date().getTime()- joblist.get(0).getTime())<120*1000){
 			//RF send command
 			//remove this job
 			
