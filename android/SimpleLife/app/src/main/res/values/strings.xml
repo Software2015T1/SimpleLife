@@ -19,4 +19,6 @@
     <string name="title_activity_add__other">Add_OtherActivity</string>
     <string name="title_activity_add_favorite">AddFavoriteActivity</string>
     <string name="title_activity_main_controller">MainControllerActivity</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
+    <string name="title_activity_light">LightActivity</string>
 </resources>
