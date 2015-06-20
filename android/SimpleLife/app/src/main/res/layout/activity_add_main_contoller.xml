@@ -40,6 +40,12 @@
         android:layout_below="@+id/textSubtitle_addmain"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/addMain_layout"></FrameLayout>
+        android:id="@+id/addMain_layout">
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></fragment>
+    </FrameLayout>
 
 </RelativeLayout>
