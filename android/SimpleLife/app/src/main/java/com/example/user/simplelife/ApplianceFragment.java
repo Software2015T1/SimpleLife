@@ -30,9 +30,7 @@ public class ApplianceFragment extends Fragment {
     private int[] image = {
             R.drawable.plus_button
     };
-    private String[] imgText = {
-            "Add product"
-    };
+    private ArrayList<String> imgText =  new ArrayList<String>();
     private SimpleAdapter adapter;
     private List<Map<String, Object>> items = new ArrayList<>();
 
@@ -45,10 +43,11 @@ public class ApplianceFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_appliance, container, false);
+        imgText.add("Add Product");
         for (int i = 0; i < image.length; i++) {
             Map<String, Object> item = new HashMap<>();
             item.put("image", image[i]);
-            item.put("text", imgText[i]);
+            item.put("text", imgText.get(i));
             items.add(item);
         }
         adapter = new SimpleAdapter(getActivity(),
@@ -61,18 +60,20 @@ public class ApplianceFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        /*
                 if(position == gridView.getCount() - 1)
                 {
                     Intent intent = new Intent(getActivity(), AddProductActivity.class);
                     startActivity(intent);
                 }
-                Toast.makeText(getActivity(), "you click "+imgText[position],
+                */
+                Toast.makeText(getActivity(), "you click "+imgText.get(position),
                         Toast.LENGTH_SHORT).show();
                 Map<String, Object> item = new HashMap<>();
                 item.put("image", R.drawable.plus_button);
                 item.put("text",  "Add product");
                 items.add(item);
+                imgText.add("Add product");
                 adapter.notifyDataSetChanged();
             }
 
