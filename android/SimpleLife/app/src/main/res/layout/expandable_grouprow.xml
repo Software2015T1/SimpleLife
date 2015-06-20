@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PARENT -->
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1" android:paddingTop="0dip" android:layout_gravity="top"
+    >
+    <TableRow android:id="@+id/">
+        <ImageView
+            android:id="@+id/imageIcon_addFavorite"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_marginLeft="10dip"
+            android:src="@drawable/light_icon"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/textName_addFavorite"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dip"
+            android:text="@string/title_activity_home"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:id="@+id/DownIcon_addFavorite"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/down_icon"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10dp" />
+
+    </TableRow>
+</TableLayout>

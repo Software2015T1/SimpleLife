@@ -1,12 +1,13 @@
 package com.example.user.simplelife;
 
+import android.app.ExpandableListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class AddFavoriteActivity extends ActionBarActivity {
+public class AddFavoriteActivity extends ExpandableListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
