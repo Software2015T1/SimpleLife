@@ -1,4 +1,7 @@
-public class Socket{
+import java.util.*;
+import java.io.*;
+import java.net.*;
+public class RPiSocket{
 	
 
 	
@@ -22,13 +25,25 @@ public class Socket{
 		receiver.stopSafely();
 		server.close();
 	}*/
-	public start(){
-		String host="8.8.8.8";
-		int port="4567";
+	private DeviceInfo deviceInfo;
+	private DeviceController deviceController;
+	public void initial(DeviceInfo deviceInfo,DeviceController deviceController){
+		this.deviceInfo = deviceInfo;
+		this.deviceController = deviceController;
+		
+	}
+	private BufferedReader in;
+	private PrintWriter out;
+	public void start(){
+		
+		try{
+		
+		String host="192.168.1.52";
+		int port=4567;
 		Socket s = new Socket(host, port);
 		//final Reader from_sever = new InputStreamReader(s.getInputStream());
-		BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-		PrintWriter out = new PrintWriter(s.getOutputStream());
+		in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+		out = new PrintWriter(s.getOutputStream());
 		
 		while(s!=null){
 			String input = in.readLine();
@@ -37,7 +52,10 @@ public class Socket{
 				break;
 			parseCmd(input);
 		}
-		
+		}
+		catch(Exception e){
+			System.err.println(e);
+		}
 	//	BufferedReader from_user= new BufferedReader(new InputStreamReader(System.in));
 	
 	}
@@ -77,7 +95,7 @@ public class Socket{
 	public void sendCmd(String outputCmd){
 		out.println(outputCmd); 
 		out.flush(); 
-		if (outputCmd.equals("end")) 
-			break;
+		//if (outputCmd.equals("end")) 
+		//	break;
 	}
 }
