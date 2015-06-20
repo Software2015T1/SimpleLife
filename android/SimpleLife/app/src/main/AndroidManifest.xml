@@ -71,6 +71,10 @@
             android:name=".AddFavoriteActivity"
             android:label="@string/title_activity_add_favorite" >
         </activity>
+        <activity
+            android:name=".MainControllerActivity"
+            android:label="@string/title_activity_main_controller" >
+        </activity>
     </application>
 
 </manifest>
