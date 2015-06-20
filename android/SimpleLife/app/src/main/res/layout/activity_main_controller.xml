@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.user.simplelife.MainControllerActivity">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibtnBack_maincontroller"
+        android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="30pt"
+        android:layout_height="30pt"
+        android:id="@+id/imageCircle_Main"
+        android:layout_alignTop="@+id/ibtnBack_maincontroller"
+        android:layout_toRightOf="@+id/ibtnBack_maincontroller"
+        android:layout_toEndOf="@+id/ibtnBack_maincontroller"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/circle_controller"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textName_Main"
+        android:layout_below="@+id/imageCircle_Main"
+        android:layout_alignLeft="@+id/imageCircle_Main"
+        android:layout_alignStart="@+id/imageCircle_Main"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textContent_Main"
+        android:layout_alignTop="@+id/imageCircle_Main"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/imageCircle_Main"
+        android:layout_alignBottom="@+id/textName_Main"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imageCircle_Main"
+        android:layout_marginLeft="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageLine_Main"
+        android:src="@drawable/line"
+        android:layout_below="@+id/textName_Main"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridView_Main"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/imageLine_Main"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

@@ -11,19 +11,19 @@ import android.widget.TextView;
 /**
  * Created by User on 2015/6/18.
  */
-public class AddProduct_ListAdapter extends BaseAdapter {
+public class Light_ListAdapter extends BaseAdapter {
 
     private Context mContext;
     private static LayoutInflater inflater = null;
 
-    public AddProduct_ListAdapter(Context c) {
+    public Light_ListAdapter(Context c) {
         mContext = c;
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return icons_IDs.length;
+        return list.length;
     }
 
     @Override
@@ -40,24 +40,17 @@ public class AddProduct_ListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
 
-        view = inflater.inflate(R.layout.addproduct_list_item, null);
+        view = inflater.inflate(R.layout.light_list_item, null);
         TextView text = (TextView) view.findViewById(R.id.text_listitem_light);
-        ImageView image1 = (ImageView) view.findViewById(R.id.imageView_listitem1);
-        ImageView image2 = (ImageView) view.findViewById(R.id.imageView_listitem2);
+        ImageView image2 = (ImageView) view.findViewById(R.id.image_listitem_light);
 
-        image1.setImageResource(icons_IDs[position]);
-        text.setText(names[position]);
+        text.setText(list[position]);
         image2.setImageResource(R.drawable.right_icon2);
 
         return view;
     }
 
-    private Integer[] icons_IDs = {
-            R.drawable.maincontroller_icon, R.drawable.light_icon,
-            R.drawable.air_icon, R.drawable.tv_icon, R.drawable.other_icon
-    };
-
-    private String[] names = new String[] {
-            "Main Controller", "Light", "Air Conditioner", "Television", "Other"
+    private String[] list = new String[] {
+            "Time Setting","Proximity Setting","Energy Saver"
     };
 }

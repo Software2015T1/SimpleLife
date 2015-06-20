@@ -9,19 +9,12 @@
         android:layout_width="match_parent"
         android:id="@+id/linearLayout_listitem"
         android:layout_marginBottom="10dip">
-        <ImageView android:layout_height="26dp"
-            android:id="@+id/imageView_listitem1"
-            android:layout_width="31dp"
-            android:src="@drawable/maincontroller_icon"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
-            android:layout_alignParentTop="true"></ImageView>
+
         <TextView android:text="TextView"
             android:id="@+id/text_listitem_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginBottom="15dip"
@@ -32,7 +25,7 @@
         <ImageView
             android:layout_width="26dp"
             android:layout_height="23dp"
-            android:id="@+id/imageView_listitem2"
+            android:id="@+id/image_listitem_light"
             android:src="@drawable/right_icon2"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="35dp"
