@@ -54,7 +54,7 @@ public class Favorite_ListAdapter extends BaseAdapter {
     };
 
     private String[] names = new String[] {
-            
+
     };
 }
 
