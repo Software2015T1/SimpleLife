@@ -12,6 +12,10 @@ public class Scheduler{
 	public void initial(){
 		
 	}
+	boolean addJob(int targetID,boolean targetcmd,Date targetdate){
+		Job j = new(targetdate,targetID,targetcmd)
+		return addJob(j);
+	}
 	boolean addJob(Job j){
 		int i;
 		if(new Date().after(j.date))
@@ -34,7 +38,7 @@ public class Scheduler{
 		return true;
 	}
 	boolean checkList(){
-		if (new Date().getTime()- joblist.get(0).getTime()<60*1000){
+		if (Math.abs(new Date().getTime()- joblist.get(0).getTime())<60*1000){
 			//RF send command
 			//remove this job
 		}
@@ -50,4 +54,4 @@ class Job{
 		this.deviceID = id;
 		this.cmd = cmd;
 	}
-}
+}	
