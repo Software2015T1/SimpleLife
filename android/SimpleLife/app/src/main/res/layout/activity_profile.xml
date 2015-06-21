@@ -63,6 +63,46 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_NewPassword"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:enabled="false"
+            android:hint="@string/name_new_password" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_confirmPassword"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:enabled="false"
+            android:hint="@string/name_confirm_password"
+            android:layout_gravity="right" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_currentPassword"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:enabled="false"
+            android:hint="@string/name_current_password"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_save"
+            android:id="@+id/btnSaveNewPassword"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

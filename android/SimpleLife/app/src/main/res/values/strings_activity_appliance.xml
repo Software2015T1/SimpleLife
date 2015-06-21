@@ -51,7 +51,12 @@
     //profile
     <string name="name_profile">Profile</string>
     <string name="action_change_password">Change password</string>
+    <string name="name_new_password">new password</string>
+    <string name="name_confirm_password">confirm new password</string>
+    <string name="name_current_password">current password</string>
+    <string name="action_saveNewPassword">Save</string>
     <string name="action_logout">Logout</string>
+
 
     //contact us
     <string name="name_contact">Contact Us</string>
