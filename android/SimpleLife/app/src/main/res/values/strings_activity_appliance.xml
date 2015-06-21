@@ -5,6 +5,7 @@
     <string name="name_favorite">Favorite</string>
     <string name="name_add_favorite">Add to Favorite</string>
     <string name="name_account">Account</string>
+    <string name="action_search">search</string>
 
     //add main controller
     <string name="name_main_controller">Main Controller</string>
@@ -37,16 +38,24 @@
     <string name="addlight_step2">Name your light.</string>
 
     //add ID appliance(tv and air conditioner
-    <string name="step_1of4">Step 1 of 4</string>
-    <string name="step_2of4">Step 2 of 4</string>
-    <string name="step_3of4">Step 3 of 4</string>
-    <string name="step_4of4">Step 4 of 4</string>
+    <string name="step_1of3">Step 1 of 3</string>
+    <string name="step_2of3">Step 2 of 3</string>
+    <string name="step_3of3">Step 3 of 3</string>
     <string name="addIR_step1">Please choose or type in an Arduino ID.</string>
     <string name="addIR_connect">Connect to Arduino</string>
     <string name="addIR_HaveArduinoID">Already have one?</string>
     <string name="addIR_ArduinoID">Arduino ID</string>
     <string name="addIR_AddArduinoID">OR Add a new one</string>
     <string name="addIR_TypeArduinoID">Type in Arduino ID</string>
+    <string name="addIR_step2">What is the brand?</string>
+    <string name="addIR_ScanIR">Scan IR code</string>
+    <string name="addIR_step3">Please point your remote to main controller.</string>
+    <string name="addAir_step4">Name your air conditioner.</string>
+    <string name="name_tv">Televisions</string>
+    <string name="addTV_step4">Name your television.</string>
+
+    //add other appliance
+    <string name="name_other">Others</string>
 
     //profile
     <string name="name_profile">Profile</string>

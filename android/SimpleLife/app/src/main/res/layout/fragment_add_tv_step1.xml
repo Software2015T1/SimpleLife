@@ -6,11 +6,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ibtnBack_AddAir"
+        android:layout_below="@+id/ibtnBack_AddOther"
         android:layout_marginTop="28dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:layout_toEndOf="@+id/ibtnBack_AddAir"
+        android:layout_toEndOf="@+id/ibtnBack_AddOther"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="15dp"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/step_1of5"
+            android:text="@string/step_1of3"
             android:id="@+id/textStep1_addTV"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -42,25 +42,71 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp" />
 
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageStep1_addTV"
-            android:layout_below="@+id/textStep1_addTV"
-            android:layout_alignLeft="@+id/textStep1_addTV"
-            android:layout_alignStart="@+id/textStep1_addTV"
-            android:layout_marginTop="79dp" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addIR_step1"
+            android:id="@+id/textContent1_addtv"
+            android:layout_marginBottom="80dp"
+            android:layout_above="@+id/ibtnNext_addTV1"
+            android:layout_alignLeft="@+id/editTextID_addtv"
+            android:layout_alignStart="@+id/editTextID_addtv"
+            android:layout_marginRight="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/addmain_step1"
-            android:id="@+id/textContent1_addTV"
-            android:layout_marginBottom="115dp"
-            android:layout_above="@+id/ibtnNext_addTV1"
-            android:layout_toRightOf="@+id/imageStep1_addTV"
-            android:layout_toEndOf="@+id/imageStep1_addTV" />
+            android:text="@string/addIR_connect"
+            android:id="@+id/textConnect_addtv"
+            android:layout_below="@+id/textStep1_addAir"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="38dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addIR_HaveArduinoID"
+            android:id="@+id/textHaveID_addtv"
+            android:layout_below="@+id/textConnect_addtv"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="33dp"
+            android:layout_marginLeft="20dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_addtv"
+            android:layout_below="@+id/textHaveID_addtv"
+            android:layout_alignLeft="@+id/textHaveID_addtv"
+            android:layout_alignStart="@+id/textHaveID_addtv"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addIR_AddArduinoID"
+            android:id="@+id/textAddID_addtv"
+            android:layout_below="@+id/spinner_addtv"
+            android:layout_alignLeft="@+id/spinner_addtv"
+            android:layout_alignStart="@+id/spinner_addtv"
+            android:layout_marginTop="5dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextID_addtv"
+            android:layout_below="@+id/textAddID_addtv"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/textAddID_addtv"
+            android:layout_alignStart="@+id/textAddID_addtv"
+            android:layout_marginRight="20dp"
+            android:hint="@string/addIR_TypeArduinoID" />
 
     </RelativeLayout>
 </LinearLayout>

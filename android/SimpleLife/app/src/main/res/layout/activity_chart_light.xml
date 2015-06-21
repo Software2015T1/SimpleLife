@@ -31,7 +31,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/name_light"
         android:id="@+id/textTitle_chartLight"
-        android:layout_alignTop="@+id/ibtnBack_AddAir"
+        android:layout_alignTop="@+id/ibtnBack_AddOther"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp" />

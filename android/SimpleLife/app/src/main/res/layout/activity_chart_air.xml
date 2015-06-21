@@ -9,7 +9,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ibtnBack_AddAir"
+        android:id="@+id/ibtnBack_AddOther"
         android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -20,9 +20,9 @@
         android:layout_height="30dp"
         android:id="@+id/imageAirIcon_chart"
         android:src="@drawable/air_icon"
-        android:layout_alignTop="@+id/textTitle_AddAir"
-        android:layout_toLeftOf="@+id/textTitle_AddAir"
-        android:layout_toStartOf="@+id/textTitle_AddAir"
+        android:layout_alignTop="@+id/textTitle_AddOther"
+        android:layout_toLeftOf="@+id/textTitle_AddOther"
+        android:layout_toStartOf="@+id/textTitle_AddOther"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp" />
 
@@ -31,10 +31,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/name_air"
-        android:id="@+id/textTitle_AddAir"
-        android:layout_alignTop="@+id/ibtnBack_AddAir"
-        android:layout_alignLeft="@+id/textSubtitle_AddAir"
-        android:layout_alignStart="@+id/textSubtitle_AddAir"
+        android:id="@+id/textTitle_AddOther"
+        android:layout_alignTop="@+id/ibtnBack_AddOther"
+        android:layout_alignLeft="@+id/textSubtitle_AddOther"
+        android:layout_alignStart="@+id/textSubtitle_AddOther"
         android:layout_marginTop="5dp" />
 
     <TextView
@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/name_usage"
-        android:id="@+id/textSubtitle_AddAir"
-        android:layout_below="@+id/textTitle_AddAir"
+        android:id="@+id/textSubtitle_AddOther"
+        android:layout_below="@+id/textTitle_AddOther"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
