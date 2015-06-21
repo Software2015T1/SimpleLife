@@ -29,10 +29,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ibtnBack_contact"
-        android:layout_marginTop="20dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ibtnBack_profile"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -41,7 +41,8 @@
             android:text="@string/prompt_email"
             android:id="@+id/textEmail_profile"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp" />
 
         <EditText
             android:layout_width="match_parent"

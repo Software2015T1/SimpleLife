@@ -9,7 +9,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ibtnBack_chartAir"
+        android:id="@+id/ibtnBack_AddAir"
         android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/name_air"
-        android:id="@+id/textTitle_chartAir"
-        android:layout_alignTop="@+id/ibtnBack_chartAir"
+        android:id="@+id/textTitle_AddAir"
+        android:layout_alignTop="@+id/ibtnBack_AddAir"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp" />
 
@@ -30,15 +30,15 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/name_connect_to"
-        android:id="@+id/textSubtitle_chartAir"
-        android:layout_below="@+id/textTitle_chartAir"
+        android:id="@+id/textSubtitle_AddAir"
+        android:layout_below="@+id/textTitle_AddAir"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textSubtitle_chartAir"
+        android:layout_below="@+id/textSubtitle_AddAir"
         android:layout_centerHorizontal="true"
         android:id="@+id/addTV_layout"></LinearLayout>
 
