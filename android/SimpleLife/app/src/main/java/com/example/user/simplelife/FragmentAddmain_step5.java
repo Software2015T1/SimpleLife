@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 
@@ -41,7 +42,7 @@ public class FragmentAddmain_step5 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_addmain_step5, container, false);
-        ImageButton nextButton = (ImageButton) view.findViewById(R.id.btnDone_addmain);
+        Button nextButton = (Button) view.findViewById(R.id.btnDone_addmain);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onFragmentInteraction("next");

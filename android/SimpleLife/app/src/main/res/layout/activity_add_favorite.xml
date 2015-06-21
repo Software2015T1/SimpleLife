@@ -48,7 +48,10 @@
         android:layout_below="@+id/editText_addfavorite"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:childDivider="@null"
-        android:childIndicatorLeft="20dp" />
+        android:childDivider="@drawable/line_white"
+        android:childIndicatorLeft="20dp"
+        android:groupIndicator="@null"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:dividerHeight="1dp" />
 
 </RelativeLayout>

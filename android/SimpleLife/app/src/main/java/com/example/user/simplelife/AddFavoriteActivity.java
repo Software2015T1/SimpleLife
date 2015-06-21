@@ -52,7 +52,7 @@ public class AddFavoriteActivity extends Activity {
             parent.setImage(images[i]);
             parent.setName(parentNames[i]);
             chList = new ArrayList<>();
-            for(int j = 0;j < childNames.length; j++) {
+            for(int j = 0; j < childNames.length; j++) {
                 Expandable_Child child = new Expandable_Child();
                 child.setName(childNames[j]);
                 chList.add(child);

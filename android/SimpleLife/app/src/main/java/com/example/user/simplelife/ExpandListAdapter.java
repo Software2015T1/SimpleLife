@@ -25,6 +25,17 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
         this.groups = groups;
     }
 
+    public void addItem(Expandable_Child item, Expandable_Parent group) {
+        if (!groups.contains(group)) {
+            groups.add(group);
+        }
+        int index = groups.indexOf(group);
+        ArrayList<Expandable_Child> ch = groups.get(index).getItems();
+        ch.add(item);
+        groups.get(index).setItems(ch);
+    }
+
+
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
