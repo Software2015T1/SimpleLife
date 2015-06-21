@@ -9,15 +9,25 @@
     <string name="name_connect_to">Connect to SimpleLife</string>
     <string name="step_1of5">Step 1 of 5</string>
 
+    //profile
+    <string name="name_profile">Profile</string>
+    <string name="action_change_password">Change password</string>
+    <string name="action_logout">Logout</string>
 
+    //contact us
+    <string name="name_contact">Contact Us</string>
+    <string name="name_email_us">Email us</string>
+    <string name="name_email">simplelife@gmail.com</string>
+
+
+    //chart
     <string name="name_chart">Chart</string>
     <string name="name_whichMain">Which Main Controller?</string>
     <string name="name_light">Lights</string>
     <string name="name_air">Air Conditioners</string>
     <string name="name_usage">usage chart</string>
 
-
-
+    //setting
     <string name="name_time">Time Setting</string>
     <string name="name_turnOn_time">Turn on time</string>
     <string name="name_turnOff_time">Turn off time</string>
@@ -35,7 +45,7 @@
     <string name="name_ideal">Ideal Temperature</string>
     <string name="name_temperature">Your ideal temperature</string>
 
-
+    //remote
     <string name="number_1">1</string>
     <string name="number_2">2</string>
     <string name="number_3">3</string>

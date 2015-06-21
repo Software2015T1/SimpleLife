@@ -6,7 +6,75 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.user.simplelife.ContactUsActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibtnBack_contact"
+        android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/name_contact"
+        android:id="@+id/textTitle_contact"
+        android:layout_alignTop="@+id/ibtnBack_contact"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ibtnBack_contact"
+        android:layout_toStartOf="@+id/textTitle_contact"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/name_email_us"
+            android:id="@+id/textEmailUs_contact"
+            android:layout_alignTop="@+id/imageEmail_contact"
+            android:layout_toRightOf="@+id/imageEmail_contact"
+            android:layout_toEndOf="@+id/imageEmail_contact"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="52dp"
+            android:id="@+id/imageEmail_contact"
+            android:src="@drawable/email_icon"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/name_email"
+            android:id="@+id/textmEmail_contact"
+            android:layout_below="@+id/textEmailUs_contact"
+            android:layout_alignLeft="@+id/textEmailUs_contact"
+            android:layout_alignStart="@+id/textEmailUs_contact" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageLine_contact"
+            android:src="@drawable/line"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/textmEmail_contact"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
