@@ -5,9 +5,29 @@
     <string name="name_favorite">Favorite</string>
     <string name="name_add_favorite">Add to Favorite</string>
     <string name="name_account">Account</string>
+
+    //add main controller
     <string name="name_main_controller">Main Controller</string>
     <string name="name_connect_to">Connect to SimpleLife</string>
     <string name="step_1of5">Step 1 of 5</string>
+    <string name="step_2of5">Step 2 of 5</string>
+    <string name="step_3of5">Step 3 of 5</string>
+    <string name="step_4of5">Step 4 of 5</string>
+    <string name="step_5of5">Step 5 of 5</string>
+    <string name="addmain_step1">Please connect Main Controller</string>
+    <string name="addmain_step2">Share your home WIFI network to main controller.</string>
+    <string name="addmain_wifi">Share WIFI</string>
+    <string name="addmain_wifi_name">network name</string>
+    <string name="addmain_wifi_password">password</string>
+    <string name="addmain_step3">Please type in main controller's ID number.It's on</string>
+    <string name="addmain_id">ID number</string>
+    <string name="addmain_step4">Please type in your home address</string>
+    <string name="addmain_location">Your Location</string>
+    <string name="addmain_address">home address</string>
+    <string name="addmain_step5">Name your main controller.</string>
+    <string name="addmain_name">name</string>
+    <string name="addmain_done">Done</string>
+
 
     //profile
     <string name="name_profile">Profile</string>

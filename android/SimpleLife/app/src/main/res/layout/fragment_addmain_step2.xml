@@ -42,5 +42,65 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp" />
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageWifi_addmain"
+            android:src="@drawable/wifi_icon"
+            android:scaleType="fitCenter"
+            android:layout_below="@+id/textStep2_addmain"
+            android:layout_toLeftOf="@+id/textWifi_addmain"
+            android:layout_toStartOf="@+id/textWifi_addmain"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addmain_wifi"
+            android:id="@+id/textWifi_addmain"
+            android:textSize="30dp"
+            android:layout_alignTop="@+id/imageWifi_addmain"
+            android:layout_toRightOf="@+id/textStep2_addmain"
+            android:layout_toEndOf="@+id/textStep2_addmain"
+            android:layout_marginTop="35dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextNetwork_addmain"
+            android:layout_below="@+id/imageWifi_addmain"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/addmain_wifi_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextPassword_addmain"
+            android:hint="@string/addmain_wifi_password"
+            android:layout_below="@+id/editTextNetwork_addmain"
+            android:layout_alignLeft="@+id/editTextNetwork_addmain"
+            android:layout_alignStart="@+id/editTextNetwork_addmain"
+            android:layout_alignRight="@+id/editTextNetwork_addmain"
+            android:layout_alignEnd="@+id/editTextNetwork_addmain"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addmain_step2"
+            android:id="@+id/textContent2_addmain"
+            android:layout_above="@+id/ibtnNext_addmain2"
+            android:layout_alignLeft="@+id/editTextPassword_addmain"
+            android:layout_alignStart="@+id/editTextPassword_addmain"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="20dp" />
+
     </RelativeLayout>
 </LinearLayout>

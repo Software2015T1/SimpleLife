@@ -42,5 +42,40 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageStep3_addmain"
+            android:layout_below="@+id/textStep3_addmain"
+            android:layout_alignLeft="@+id/textStep3_addmain"
+            android:layout_alignStart="@+id/textStep3_addmain"
+            android:layout_marginTop="48dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextID_addmain"
+            android:layout_above="@+id/ibtnNext_addmain3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="164dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/addmain_id" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addmain_step3"
+            android:id="@+id/textContent3_addmain"
+            android:layout_above="@+id/ibtnNext_addmain3"
+            android:layout_alignLeft="@+id/editTextID_addmain"
+            android:layout_alignStart="@+id/editTextID_addmain"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="20dp" />
+
     </RelativeLayout>
 </LinearLayout>
