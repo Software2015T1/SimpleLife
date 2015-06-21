@@ -67,6 +67,7 @@ public class Client extends Thread
                     }
                     else
                     {
+                        
                         outs.writeUTF("R007");
                     }
                 break;
@@ -82,6 +83,15 @@ public class Client extends Thread
                     {
                         outs.writeUTF("R007");
                     }
+                break;
+                case ADMINISTRATOR_LOGIN:
+                    returnCode = CloudServer.userTable.authenticate(par[0],par[1],_s);
+                    outs.writeUTF(returnCode);
+                    if("R002".equals(returnCode))
+                    {
+                    System.out.println("Administrator Login:"+par[0]+" is logging...");
+                    }
+                    new Administrator(_s).start();
                 break;
                 case None:
                     outs.writeUTF("R999");

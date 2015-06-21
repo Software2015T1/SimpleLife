@@ -17,6 +17,7 @@ enum MissionType
     MAIN_CONTROLLER_CONNECT,
     ADD_MAINCONTROLLER,
     CONTROL_APPLIANCE,
+    ADMINISTRATOR_LOGIN,
     None,
 }
 public class CommandParser
@@ -59,6 +60,11 @@ public class CommandParser
                         par[2] = cmd[3];
                         type = MissionType.CONTROL_APPLIANCE;
                     break;
+                    case "/ALogin":
+                        par[0] = cmd[1];
+                        par[1] = cmd[2];
+                        type =MissionType.ADMINISTRATOR_LOGIN;
+                        break;
                 }
             }
             catch(Exception e)

@@ -69,13 +69,31 @@ public class UserTable
             }
         }
     }
-    
+    public String printToApp()
+    {
+        int i=1;
+        String lines ="";
+        for(String key:this._userTable.keySet())
+        {
+            UserInformation info = _userTable.get(key);
+            Socket s = info.getUserSocket();
+            if(s!=null)
+            {
+                lines += (i++)+". user name: "+key+" "+info.getControllerID()+" "+s.getInetAddress().toString()+"\n";
+            }
+            else
+            {
+                lines += (i++)+". user name: "+key+" "+info.getControllerID()+"\n";
+            }
+        }
+        return lines;
+    }
     public String add(String email,UserInformation info)
     {
         Set<String> emails = _userTable.keySet();
-        if(emails.contains(email))return "R00";
+        if(emails.contains(email))return "R000";
         _userTable.put(email, info);
-        return "R01";
+        return "R001";
         
     }
     public String authenticate(String username,String password,Socket client)

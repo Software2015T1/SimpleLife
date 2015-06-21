@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
@@ -123,8 +124,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String email = mEmailView.getText().toString();
+        final String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -154,31 +155,53 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            //showProgress(true);
+            //mAuthTask = new UserLoginTask(email, password);
+            //mAuthTask.execute((Void) null);
             new Thread() {
                 public void run() {
                     try
-
                     {
-                        Socket s = new Socket("192.168.1.71", 1028);
-                        DataOutputStream outs = new DataOutputStream(s.getOutputStream());
-                        outs.writeUTF("/Login jobamei@hotmail.com aaaa");
-                        DataInputStream inputs = new DataInputStream(s.getInputStream());
+                        String passwordMd5 = Md5.md5(password);
+                        UserProfile.Socket2Server = new Socket(getString(R.string.CloudServerIP),Integer.parseInt(getString(R.string.PORT)));
+                        DataInputStream inputs = new DataInputStream(UserProfile.Socket2Server.getInputStream());
+                        DataOutputStream outs= new DataOutputStream(UserProfile.Socket2Server.getOutputStream());
+                        outs.writeUTF("/Login "+email+" "+passwordMd5);
                         String returnCode = inputs.readUTF();
-                        Log.d("[Socket]", returnCode);
-                    } catch (
-                            IOException e
-                            )
+                        if(returnCode.equals("R002"))
+                        {
+                            UserProfile.password = passwordMd5;
+                            UserProfile.email = email;
+                            startActivity(new Intent(LoginActivity.this,ApplianceActivity.class));
+                        }
+                        else if(returnCode.equals("R003"))
+                        {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    new AlertDialog.Builder(LoginActivity.this).setMessage("User Name not Found").show();
+
+                                }
+                            });
+                        }
+                        else if(returnCode.equals("R004"))
+                        {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    new AlertDialog.Builder(LoginActivity.this).setMessage("Password incorrect").show();
+
+                                }
+                            });
+                        }
+                    } catch (IOException e)
 
                     {
                         e.printStackTrace();
                     }
                 }
             }.start();
-            Intent intent = new Intent(LoginActivity.this, ApplianceActivity.class);
-            startActivity(intent);
+
         }
     }
 
@@ -189,7 +212,18 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        boolean r =true;
+        if(password.length()<8 || password.length()>20) r =false;
+        boolean hasDigit = false;
+        boolean hasLetter =false;
+        for(int i=0;i<password.length();i++)
+        {
+            char c = password.charAt(i);
+            if(Character.isDigit(c))hasDigit=true;
+            if(Character.isLetter(c))hasLetter=true;
+        }
+        if(!hasDigit || !hasLetter) r =false;
+        return r;
     }
 
     /**

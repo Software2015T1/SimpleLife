@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -27,6 +28,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +48,7 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -53,7 +59,7 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    private EditText mCPasswordView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,11 +100,13 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
 
         mLoginFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
+        mCPasswordView =(EditText) findViewById(R.id.utxtComfirmpassword_register);
     }
 
     private void populateAutoComplete() {
         getLoaderManager().initLoader(0, null, this);
     }
+
 
 
     /**
@@ -114,11 +122,11 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
         // Reset errors.
         mEmailView.setError(null);
         mPasswordView.setError(null);
-
+        mCPasswordView.setError(null);
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
-
+        final String email = mEmailView.getText().toString();
+        final String password = mPasswordView.getText().toString();
+        final String cPassword = mCPasswordView.getText().toString();
         boolean cancel = false;
         View focusView = null;
 
@@ -139,7 +147,16 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
             focusView = mEmailView;
             cancel = true;
         }
+        if(cPassword.equals(password))
+        {
 
+        }
+        else
+        {
+           mCPasswordView.setError("Password is incorrect");
+            focusView = mCPasswordView;
+           cancel = true;
+        }
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
@@ -147,11 +164,45 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
-            Intent intent = new Intent(RegisterActivity.this, ApplianceActivity.class);
-            startActivity(intent);
+            //showProgress(true);
+            //mAuthTask = new UserLoginTask(email, password);
+            //mAuthTask.execute((Void) null);
+            new Thread()
+            {
+                public void run()
+                {
+                    String passwordMd5 = Md5.md5(password);
+                    try
+                    {
+                        UserProfile.Socket2Server = new Socket(getString(R.string.CloudServerIP),Integer.parseInt(getString(R.string.PORT)));
+                        DataInputStream inputs = new DataInputStream(UserProfile.Socket2Server.getInputStream());
+                        DataOutputStream outs = new DataOutputStream(UserProfile.Socket2Server.getOutputStream());
+                        outs.writeUTF("/Register "+email+" "+passwordMd5);
+                        String returnCode = inputs.readUTF();
+                        if(returnCode.equals("R001"))
+                        {
+                            UserProfile.email = email;
+                            UserProfile.password = passwordMd5;
+                            Intent intent = new Intent(RegisterActivity.this, ApplianceActivity.class);
+                            startActivity(intent);
+                        }
+                        else if(returnCode.equals("R000"))
+                        {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    new AlertDialog.Builder(RegisterActivity.this).setMessage("Email is already exists").show();
+
+                                }
+                            });
+                        }
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+
+                }
+            }.start();
         }
     }
 
@@ -162,7 +213,18 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        boolean r =true;
+        if(password.length()<8 || password.length()>20) r =false;
+        boolean hasDigit = false;
+        boolean hasLetter =false;
+        for(int i=0;i<password.length();i++)
+        {
+            char c = password.charAt(i);
+            if(Character.isDigit(c))hasDigit=true;
+            if(Character.isLetter(c))hasLetter=true;
+        }
+        if(!hasDigit || !hasLetter) r =false;
+        return r;
     }
 
     /**

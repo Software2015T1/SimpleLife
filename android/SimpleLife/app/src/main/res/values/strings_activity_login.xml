@@ -5,7 +5,7 @@
     <string name="prompt_title">Simple Life</string>
     <string name="prompt_name">User Name</string>
     <string name="prompt_email">Email Address</string>
-    <string name="prompt_password">Password (8 - 20 char)</string>
+    <string name="prompt_password">Password(8-20 char with digit)</string>
     <string name="prompt_confirm_password">Confirm Password</string>
     <string name="action_register">Create an Account</string>
     <string name="action_register_short">Sign Up</string>
@@ -18,4 +18,7 @@
     <string name="error_long_password">This password is too long</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+
+    <string name="CloudServerIP">192.168.1.183</string>
+    <string name="PORT">1028</string>
 </resources>
