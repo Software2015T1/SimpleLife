@@ -26,27 +26,27 @@ public class ClientTest {
         BufferedReader br =null;
         try 
         {
-
-            while(true)
-            {
                 Socket s = new Socket(CloudServer.IP_ADDRESS,CloudServer.PORT);
                 outs = new DataOutputStream(s.getOutputStream());
                 inputs = new DataInputStream(s.getInputStream());
                 br = new BufferedReader(new InputStreamReader(System.in));
-
                 System.out.print("account: ");
                 String account = br.readLine();
                 System.out.print("password: ");
                 String password = Md5.md5(br.readLine());
+            while(true)
+            {
+
                 System.out.print("Input commandPrefix: ");
                 String cmd = br.readLine();
                 System.out.print("Input commandPar: ");
                 String par = br.readLine();
-                cmd = cmd+" "+account+" "+password+par;
+                cmd = cmd+" "+account+" "+password+" "+par;
                 System.out.println(cmd);
                 outs.writeUTF(cmd);
                 String returnCode = inputs.readUTF();
                 System.out.println("Return frome Server: "+returnCode);
+                
                
             }
             

@@ -2,8 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
     android:id="@+id/linearLayout"
     android:background="#ff39affe">
+=======
+    android:id="@+id/ddd">
+>>>>>>> origin/master
 
     <RelativeLayout
         android:layout_width="match_parent"

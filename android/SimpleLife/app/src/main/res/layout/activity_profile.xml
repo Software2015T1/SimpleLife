@@ -78,8 +78,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:enabled="false"
-            android:hint="@string/name_new_password" />
+            android:hint="@string/name_new_password"
+            android:visibility="invisible"
+            android:inputType="textPassword"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -88,9 +89,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:enabled="false"
+            android:visibility="invisible"
             android:hint="@string/name_confirm_password"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:inputType="textPassword"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -99,9 +101,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:enabled="false"
+            android:visibility="invisible"
             android:hint="@string/name_current_password"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:inputType="textPassword"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -110,9 +113,13 @@
             android:id="@+id/btnSaveNewPassword"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
+<<<<<<< HEAD
             android:background="@drawable/other_icon"
             android:singleLine="true"
             android:textColor="#ffffffff" />
+=======
+            android:visibility="invisible"/>
+>>>>>>> origin/master
 
         <ImageView
             android:layout_width="wrap_content"
