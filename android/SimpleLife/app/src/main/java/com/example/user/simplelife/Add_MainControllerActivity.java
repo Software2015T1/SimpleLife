@@ -25,6 +25,7 @@ public class Add_MainControllerActivity extends FragmentActivity
     private float y1;
     private float y2;
     private int index;
+    private int frame_num;
     private ArrayList<Fragment> fragmentList;
 
     @Override
@@ -33,7 +34,8 @@ public class Add_MainControllerActivity extends FragmentActivity
         setContentView(R.layout.activity_add_main_contoller);
         fragmentList = new ArrayList<Fragment>();
         index = 0;
-        for(int i = 0 ; i< 5 ;i++){
+        frame_num = 5;
+        for(int i = 0 ; i< frame_num ;i++){
             switch(i){
                 case 0:
                     fragmentList.add(FragmentAddmain_step1.newInstance());
@@ -87,7 +89,7 @@ public class Add_MainControllerActivity extends FragmentActivity
     @Override
     public void onFragmentInteraction(String arg) {
         if(arg.equals("next")){
-            if(this.index!=4) {
+            if(this.index!=frame_num-1) {
                 this.index++;
                 changeFragment(fragmentList.get(this.index));
             }
@@ -108,7 +110,7 @@ public class Add_MainControllerActivity extends FragmentActivity
                     changeFragment(fragmentList.get(this.index));
                 }
             } else if(x2 - x1 > 50) {
-                if(this.index != 4){
+                if(this.index != frame_num-1){
                     this.index++;
                     changeFragment(fragmentList.get(this.index));
                 }

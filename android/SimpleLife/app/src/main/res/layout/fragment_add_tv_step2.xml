@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ibtnBack_chartAir"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@+id/ibtnBack_chartAir"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/relativeLayout"
+        android:background="@drawable/main_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/step_2of5"
+            android:id="@+id/textStep2_addTV"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="36dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="-5dp"
+            android:textSize="20dp" />
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:id="@+id/ibtnNext_addTV2"
+            android:src="@drawable/next_button"
+            android:scaleType="fitCenter"
+            android:background="#00000000"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageWifi_addTV"
+            android:src="@drawable/wifi_icon"
+            android:scaleType="fitCenter"
+            android:layout_below="@+id/textStep2_addTV"
+            android:layout_toLeftOf="@+id/textWifi_addTV"
+            android:layout_toStartOf="@+id/textWifi_addTV"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addmain_wifi"
+            android:id="@+id/textWifi_addTV"
+            android:textSize="30dp"
+            android:layout_alignTop="@+id/imageWifi_addTV"
+            android:layout_toRightOf="@+id/textStep2_addTV"
+            android:layout_toEndOf="@+id/textStep2_addTV"
+            android:layout_marginTop="35dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextNetwork_addTV"
+            android:layout_below="@+id/imageWifi_addTV"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/addmain_wifi_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextPassword_addTV"
+            android:hint="@string/addmain_wifi_password"
+            android:layout_below="@+id/editTextNetwork_addTV"
+            android:layout_alignLeft="@+id/editTextNetwork_addTV"
+            android:layout_alignStart="@+id/editTextNetwork_addTV"
+            android:layout_alignRight="@+id/editTextNetwork_addTV"
+            android:layout_alignEnd="@+id/editTextNetwork_addTV"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/addmain_step2"
+            android:id="@+id/textContent2_addTV"
+            android:layout_above="@+id/ibtnNext_addTV2"
+            android:layout_alignLeft="@+id/editTextPassword_addTV"
+            android:layout_alignStart="@+id/editTextPassword_addTV"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="20dp" />
+
+    </RelativeLayout>
+</LinearLayout>
