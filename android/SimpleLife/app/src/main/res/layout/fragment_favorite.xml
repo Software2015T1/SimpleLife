@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ff39affe">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,7 +11,8 @@
         android:id="@+id/textTitle_favorite"
         android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff9cd05" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +34,8 @@
         android:layout_below="@+id/textMainName_favorite"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -43,7 +46,9 @@
         android:layout_below="@+id/imageLine_favorite"
         android:divider="@null"
         android:layout_alignBottom="@+id/imageLine2_favorite"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -53,7 +58,9 @@
         android:layout_above="@+id/ibtnAddFavorite"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="15dp" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <ImageButton
         android:layout_width="250dp"
@@ -65,7 +72,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/textMainName_favorite"
         android:layout_alignStart="@+id/textMainName_favorite"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -75,6 +83,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="15dp" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
 </RelativeLayout>

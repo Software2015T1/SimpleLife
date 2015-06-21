@@ -4,7 +4,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.simplelife.AddFavoriteActivity">
+    tools:context="com.example.user.simplelife.AddFavoriteActivity"
+    android:background="#ff39affe">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff9cd05" />
 
     <ImageButton
         android:layout_width="30dp"
@@ -39,7 +41,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:hint="@string/action_search" />
 
     <ExpandableListView
         android:layout_width="wrap_content"

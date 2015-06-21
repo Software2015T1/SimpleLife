@@ -4,7 +4,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.simplelife.MainControllerActivity">
+    tools:context="com.example.user.simplelife.MainControllerActivity"
+    android:background="#ff39affe">
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -13,7 +14,8 @@
         android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#00000000" />
 
     <ImageView
         android:layout_width="30pt"
@@ -34,7 +36,8 @@
         android:layout_below="@+id/imageCircle_Main"
         android:layout_alignLeft="@+id/imageCircle_Main"
         android:layout_alignStart="@+id/imageCircle_Main"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,7 +51,8 @@
         android:layout_alignBottom="@+id/textName_Main"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/imageCircle_Main"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:textColor="#ffffffff" />
 
     <ImageView
         android:layout_width="wrap_content"

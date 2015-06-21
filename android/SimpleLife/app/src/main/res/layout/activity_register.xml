@@ -5,7 +5,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.simplelife.RegisterActivity">
+    tools:context="com.example.user.simplelife.RegisterActivity"
+    android:background="#ff39affe">
 
     <!-- Login progress -->
 
@@ -23,7 +24,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ibtnBack_register"
-                android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha" />
+                android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+                android:background="#00000000" />
 
             <AutoCompleteTextView
                 android:id="@+id/utxtName_register"
@@ -33,7 +35,8 @@
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
 
             <AutoCompleteTextView android:id="@+id/utxtEmail_register" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:hint="@string/prompt_email"
@@ -63,7 +66,10 @@
             <Button android:id="@+id/btnRegister_register" style="?android:textAppearanceSmall"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="@string/action_register"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#ffffffff"
+                android:singleLine="true"
+                android:background="@drawable/other_icon" />
 
         </LinearLayout>
     </ScrollView>
