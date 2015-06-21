@@ -15,12 +15,12 @@ import java.util.ArrayList;
 /**
  * Created by User on 2015/6/20.
  */
-public class ExpandableListAdapter extends BaseExpandableListAdapter {
+public class ExpandListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private ArrayList<Expandable_Parent> groups;
 
-    public ExpandableListAdapter(Context context, ArrayList<Expandable_Parent> groups) {
+    public ExpandListAdapter(Context context, ArrayList<Expandable_Parent> groups) {
         this.context = context;
         this.groups = groups;
     }
@@ -29,11 +29,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public Object getChild(int groupPosition, int childPosition) {
         ArrayList<Expandable_Child> childList = groups.get(groupPosition).getItems();
+        Log.v("fuck you", "in get child");
         return childList.get(childPosition);
     }
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
+        Log.v("fuck you", "in get child id");
         return childPosition;
     }
 
@@ -46,12 +48,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
         TextView txtChild = (TextView) convertView.findViewById(R.id.textWhere_addfavorite);
         txtChild.setText(child.getName());
+        Log.v("fuck you", child.getName());
         return convertView;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
         ArrayList<Expandable_Child> childList = groups.get(groupPosition).getItems();
+        Log.v("fuck you","in get child count");
         return childList.size();
     }
 
@@ -82,7 +86,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         txtParent.setText(group.getName());
         ImageView imageParent = (ImageView) convertView.findViewById(R.id.imageIcon_addFavorite);
         imageParent.setImageResource(group.getImage());
-
+        Log.v("fuck you",group.getName());
         return convertView;
     }
 

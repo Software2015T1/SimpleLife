@@ -16,7 +16,7 @@ import java.util.List;
 
 public class AddFavoriteActivity extends Activity {
 
-    ExpandableListAdapter listAdapter;
+    ExpandListAdapter listAdapter;
     ExpandableListView listView;
     ArrayList<Expandable_Parent> expListItems;
 
@@ -27,49 +27,8 @@ public class AddFavoriteActivity extends Activity {
 
         listView = (ExpandableListView) findViewById(R.id.expandableListView);
         expListItems = prepareListData();
-        listAdapter = new ExpandableListAdapter(AddFavoriteActivity.this, expListItems);
+        listAdapter = new ExpandListAdapter (AddFavoriteActivity.this, expListItems);
         listView.setAdapter(listAdapter);
-
-        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-
-                String group_name = expListItems.get(groupPosition).getName();
-
-                ArrayList<Expandable_Child> ch_list = expListItems.get(
-                        groupPosition).getItems();
-
-                String child_name = ch_list.get(childPosition).getName();
-                showToastMsg(group_name + "\n" + child_name);
-                Log.v("fuck you",group_name + "\n" + child_name);
-                return false;
-            }
-        });
-
-        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                String group_name = expListItems.get(groupPosition).getName();
-                showToastMsg(group_name + "\n Expanded");
-                Log.v("fuck you", group_name+" click");
-                return false;
-            }
-        });
-
-        listView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                String group_name = expListItems.get(groupPosition).getName();
-                showToastMsg(group_name + "\n Expanded");
-                Log.v("fuck you", group_name+" collapse");
-            }
-        });
-
-
     }
 
     private ArrayList<Expandable_Parent> prepareListData() {
