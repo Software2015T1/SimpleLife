@@ -88,7 +88,7 @@ public class DeviceInfo{
 			deviceCnt++;
 		}
 		
-		deviceList[deviceCnt].setDevice(id,ardId,type);
+		
 		
 	}
 	//public int getDeviceInfo(){

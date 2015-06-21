@@ -74,6 +74,7 @@ public class RPiSocket{
 		
 		if (cmdArray[0].equals("/AddAppliance")){
 		//....
+			deviceInfo.addDeviceInfo(cmdArray[2],cmdArray[3],cmdArray[4],cmdArray[5]);
 		}
 		else if (cmdArray[0].equals("/ControlAppliance")){
 		//....
