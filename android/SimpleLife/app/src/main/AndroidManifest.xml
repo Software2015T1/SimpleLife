@@ -48,7 +48,7 @@
             android:label="@string/title_activity_add_product" >
         </activity>
         <activity
-            android:name=".AddMainContollerActivity"
+            android:name=".Add_MainControllerActivity"
             android:label="@string/title_activity_add_main_contoller" >
         </activity>
         <activity

@@ -1,18 +1,58 @@
 package com.example.user.simplelife;
 
+import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
+public class Add_MainControllerActivity extends FragmentActivity
+        implements FragmentAddmain_step1.OnFragmentInteractionListener, FragmentAddmain_step2.OnFragmentInteractionListener,
+        FragmentAddmain_step3.OnFragmentInteractionListener, FragmentAddmain_step4.OnFragmentInteractionListener, FragmentAddmain_step5.OnFragmentInteractionListener{
 
-public class Add_MainControllerActivity extends FragmentActivity {
+    private float x1;
+    private float x2;
+    private float y1;
+    private float y2;
+    private int index;
+    private ArrayList<Fragment> fragmentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_main_contoller);
+        fragmentList = new ArrayList<Fragment>();
+        index = 0;
+        for(int i = 0 ; i< 5 ;i++){
+            switch(i){
+                case 0:
+                    fragmentList.add(FragmentAddmain_step1.newInstance());
+                    break;
+                case 1:
+                    fragmentList.add(FragmentAddmain_step2.newInstance());
+                    break;
+                case 2:
+                    fragmentList.add(FragmentAddmain_step3.newInstance());
+                    break;
+                case 3:
+                    fragmentList.add(FragmentAddmain_step4.newInstance());
+                    break;
+                case 4:
+                    fragmentList.add(FragmentAddmain_step5.newInstance());
+                    break;
+            }
+        }
+        changeFragment(fragmentList.get(index));
 
     }
 
@@ -36,5 +76,44 @@ public class Add_MainControllerActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void changeFragment(Fragment f) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.addMain_layout, f);
+        transaction.commitAllowingStateLoss();
+    }
+
+    @Override
+    public void onFragmentInteraction(String arg) {
+        if(arg.equals("next")){
+            if(this.index!=4) {
+                this.index++;
+                changeFragment(fragmentList.get(this.index));
+            }
+        }
+    }
+
+    public boolean onTouchEvent(MotionEvent event) {
+        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+            x1 = event.getX();
+            y1 = event.getY();
+        }
+        if(event.getAction() == MotionEvent.ACTION_UP) {
+            x2 = event.getX();
+            y2 = event.getY();
+            if(x1 - x2 > 50) {
+                if(this.index != 0){
+                    this.index--;
+                    changeFragment(fragmentList.get(this.index));
+                }
+            } else if(x2 - x1 > 50) {
+                if(this.index != 4){
+                    this.index++;
+                    changeFragment(fragmentList.get(this.index));
+                }
+            }
+        }
+        return super.onTouchEvent(event);
     }
 }

@@ -60,13 +60,13 @@ public class ApplianceFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        /*
+
                 if(position == gridView.getCount() - 1)
                 {
                     Intent intent = new Intent(getActivity(), AddProductActivity.class);
                     startActivity(intent);
                 }
-                */
+
                 Toast.makeText(getActivity(), "you click "+imgText.get(position),
                         Toast.LENGTH_SHORT).show();
                 Map<String, Object> item = new HashMap<>();

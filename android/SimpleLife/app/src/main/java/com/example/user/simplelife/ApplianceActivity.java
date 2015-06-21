@@ -4,6 +4,7 @@ package com.example.user.simplelife;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,16 +20,16 @@ public class ApplianceActivity extends FragmentActivity {
         tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
         //home tab
-        tabHost.addTab(tabHost.newTabSpec("home").setIndicator("",getResources().getDrawable(R.drawable.tab_home)), ApplianceFragment.class, null);
+        tabHost.addTab(tabHost.newTabSpec("home").setIndicator("", ResourcesCompat.getDrawable(getResources(),R.drawable.tab_home, null)), ApplianceFragment.class, null);
 
         //favorite tab
-        tabHost.addTab(tabHost.newTabSpec("Favorite").setIndicator("",getResources().getDrawable(R.drawable.tab_favorite)), FavoriteFragment.class, null);
+        tabHost.addTab(tabHost.newTabSpec("Favorite").setIndicator("",ResourcesCompat.getDrawable(getResources(), R.drawable.tab_favorite, null)), FavoriteFragment.class, null);
 
         //chart tab
-        tabHost.addTab(tabHost.newTabSpec("Chart").setIndicator("",getResources().getDrawable(R.drawable.tab_chart)), ChartFragment.class, null);
+        tabHost.addTab(tabHost.newTabSpec("Chart").setIndicator("",ResourcesCompat.getDrawable(getResources(), R.drawable.tab_chart,null)), ChartFragment.class, null);
 
         //setting tab
-        tabHost.addTab(tabHost.newTabSpec("Account").setIndicator("",getResources().getDrawable(R.drawable.tab_account)), AccountFragment.class, null);
+        tabHost.addTab(tabHost.newTabSpec("Account").setIndicator("",ResourcesCompat.getDrawable(getResources(), R.drawable.tab_account, null)), AccountFragment.class, null);
 
     }
 
