@@ -3,10 +3,6 @@
     <string name="title_activity_register">Register</string>
     <string name="title_activity_appliance">ApplianceActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="step_2of5">Step 2 of 5</string>
-    <string name="step_3of5">Step 3 of 5</string>
-    <string name="step_4of5">Step 4 of 5</string>
-    <string name="step_5of5">Step 5 of 5</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

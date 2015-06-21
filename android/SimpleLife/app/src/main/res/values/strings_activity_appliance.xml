@@ -19,7 +19,7 @@
     <string name="addmain_wifi">Share WIFI</string>
     <string name="addmain_wifi_name">network name</string>
     <string name="addmain_wifi_password">password</string>
-    <string name="addmain_step3">Please type in main controller's ID number.It's on</string>
+    <string name="addmain_step3">"Please type in main controller's ID number.It's on the top of the main controller."</string>
     <string name="addmain_id">ID number</string>
     <string name="addmain_step4">Please type in your home address</string>
     <string name="addmain_location">Your Location</string>

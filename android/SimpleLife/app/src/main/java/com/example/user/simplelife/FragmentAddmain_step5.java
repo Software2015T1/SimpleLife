@@ -41,7 +41,7 @@ public class FragmentAddmain_step5 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_addmain_step5, container, false);
-        ImageButton nextButton = (ImageButton) view.findViewById(R.id.ibtnNext_addmain5);
+        ImageButton nextButton = (ImageButton) view.findViewById(R.id.btnDone_addmain);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onFragmentInteraction("next");
