@@ -6,34 +6,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 
-public class LightActivity extends ActionBarActivity {
+public class AirConditionerActivity extends ActionBarActivity {
 
     private ListView listView;
-    private Light_ListAdapter adapter;
-
+    private Air_ListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_light);
+        setContentView(R.layout.activity_air_conditioner);
 
-        listView = (ListView) findViewById(R.id.listView_light);
-        adapter = new Light_ListAdapter(this);
+        listView = (ListView) findViewById(R.id.listView_air);
+        adapter = new Air_ListAdapter(this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-
-        ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_air);
-        btnOn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
             }
         });
@@ -42,7 +32,7 @@ public class LightActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_light, menu);
+        getMenuInflater().inflate(R.menu.menu_air_conditioner, menu);
         return true;
     }
 

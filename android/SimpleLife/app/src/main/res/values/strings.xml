@@ -21,4 +21,6 @@
     <string name="title_activity_main_controller">MainControllerActivity</string>
     <string name="title_activity_main_activity2">MainActivity2Activity</string>
     <string name="title_activity_light">LightActivity</string>
+    <string name="title_activity_tv">TVActivity</string>
+    <string name="title_activity_air_conditioner">AirConditionerActivity</string>
 </resources>

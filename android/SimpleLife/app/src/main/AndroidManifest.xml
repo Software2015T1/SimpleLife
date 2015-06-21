@@ -83,6 +83,14 @@
             android:name=".LightActivity"
             android:label="@string/title_activity_light" >
         </activity>
+        <activity
+            android:name=".TVActivity"
+            android:label="@string/title_activity_tv" >
+        </activity>
+        <activity
+            android:name=".AirConditionerActivity"
+            android:label="@string/title_activity_air_conditioner" >
+        </activity>
     </application>
 
 </manifest>
