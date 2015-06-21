@@ -18,11 +18,11 @@ enum MissionType
     ADD_MAINCONTROLLER,
     CONTROL_APPLIANCE,
     ADMINISTRATOR_LOGIN,
+    USER_CHANGEPASSWORD,
     None,
 }
 public class CommandParser
 {
-    private final String LoginCode = "FC829937FE3884EA52B8092A2290BEF3";
     static MissionType parse(String command,String[] par)
     {
         MissionType type = MissionType.None;
@@ -64,6 +64,12 @@ public class CommandParser
                         par[0] = cmd[1];
                         par[1] = cmd[2];
                         type =MissionType.ADMINISTRATOR_LOGIN;
+                        break;
+                    case "/ChangePassword":
+                        par[0] = cmd[1];
+                        par[1] = cmd[2];
+                        par[2] = cmd[3];
+                        type =MissionType.USER_CHANGEPASSWORD;
                         break;
                 }
             }

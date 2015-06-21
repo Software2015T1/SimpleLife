@@ -15,7 +15,7 @@ import java.io.*;
 
 public class Client extends Thread
 {
-    private final int NUMofPAR = 5;
+    public static final int NUMofPAR = 5;
     private final Socket _s;
     public Client(Socket s)
     {
@@ -44,6 +44,7 @@ public class Client extends Thread
                     outs.writeUTF(returnCode);
                     if("R002".equals(returnCode))
                     System.out.println("Login:"+par[0]+" is logging...");
+                    new AppUser(new UserInformation(par[0],"", _s)).start();
                 break;
                 case NEW_ACCOUNT:
                     UserInformation info = new UserInformation(par[1],"",_s);
@@ -58,32 +59,6 @@ public class Client extends Thread
                     if(returnCode.equals("R008"))
                     System.out.println("Controller connect: "+par[0]+" from: "+_s.getInetAddress());
                 break;
-                case ADD_MAINCONTROLLER:
-                    if(CloudServer.userTable.authenticate(par[0], par[1]))
-                    {
-                        CloudServer.userTable.AddMC(par[3],par[2]);
-                        outs.writeUTF("R005");
-                        System.out.println("user: "+par[0]+" add MC: "+par[2]);
-                    }
-                    else
-                    {
-                        
-                        outs.writeUTF("R007");
-                    }
-                break;
-                case CONTROL_APPLIANCE:
-                    if(CloudServer.userTable.authenticate(par[0], par[1]))
-                    {
-                        Socket s = cstable.getControllerSocket(par[2]);
-                        returnCode = new Fowarder().send(command, s);
-                        outs.writeUTF(returnCode);
-                        System.out.println("User: "+par[0]+" send command to MC: "+par[2]);
-                    }
-                    else
-                    {
-                        outs.writeUTF("R007");
-                    }
-                break;
                 case ADMINISTRATOR_LOGIN:
                     returnCode = CloudServer.userTable.authenticate(par[0],par[1],_s);
                     outs.writeUTF(returnCode);
@@ -95,13 +70,19 @@ public class Client extends Thread
                 break;
                 case None:
                     outs.writeUTF("R999");
+                break; 
+                default:
+                    this._s.close();
+                    outs.writeUTF("R998");
                 break;
+
                     
             }
         } catch (IOException ex)
         {
             System.out.println(ex.toString());
         }
+
 
     }
 }

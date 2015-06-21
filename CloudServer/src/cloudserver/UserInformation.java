@@ -41,4 +41,8 @@ public class UserInformation
     {
         this._controllerID = mcID;
     }
+    public void setPassword(String password)
+    {
+        this._password = password;
+    }
 }

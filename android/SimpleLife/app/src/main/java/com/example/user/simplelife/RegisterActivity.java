@@ -181,7 +181,12 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
                         String returnCode = inputs.readUTF();
                         if(returnCode.equals("R001"))
                         {
-                            UserProfile.email = email;
+                            UserProfile.Dispose();
+                            UserProfile.Socket2Server = new Socket(getString(R.string.CloudServerIP),Integer.parseInt(getString(R.string.PORT)));
+                            inputs = new DataInputStream(UserProfile.Socket2Server.getInputStream());
+                            outs = new DataOutputStream(UserProfile.Socket2Server.getOutputStream());
+                            outs.writeUTF("/Login "+email+" "+passwordMd5);
+                            UserProfile.email =email;
                             UserProfile.password = passwordMd5;
                             Intent intent = new Intent(RegisterActivity.this, ApplianceActivity.class);
                             startActivity(intent);
