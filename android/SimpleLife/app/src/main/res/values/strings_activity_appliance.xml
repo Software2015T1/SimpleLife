@@ -10,6 +10,14 @@
     <string name="step_1of5">Step 1 of 5</string>
 
 
+    <string name="name_chart">Chart</string>
+    <string name="name_whichMain">Which Main Controller?</string>
+    <string name="name_light">Lights</string>
+    <string name="name_air">Air Conditioners</string>
+    <string name="name_usage">usage chart</string>
+
+
+
     <string name="name_time">Time Setting</string>
     <string name="name_turnOn_time">Turn on time</string>
     <string name="name_turnOff_time">Turn off time</string>

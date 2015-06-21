@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.simplelife.Add_MainControllerActivity">
+    tools:context="com.example.user.simplelife.ChartAirActivity">
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -15,32 +15,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageAirIcon_chart"
+        android:src="@drawable/air_icon"
+        android:layout_alignTop="@+id/textTitle_chartAir"
+        android:layout_toLeftOf="@+id/textTitle_chartAir"
+        android:layout_toStartOf="@+id/textTitle_chartAir"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/name_main_controller"
+        android:text="@string/name_air"
         android:id="@+id/textTitle_chartAir"
         android:layout_alignTop="@+id/ibtnBack_chartAir"
-        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/textSubtitle_chartAir"
+        android:layout_alignStart="@+id/textSubtitle_chartAir"
         android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/name_connect_to"
+        android:text="@string/name_usage"
         android:id="@+id/textSubtitle_chartAir"
         android:layout_below="@+id/textTitle_chartAir"
         android:layout_centerHorizontal="true" />
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/textSubtitle_chartAir"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/addMain_layout"></LinearLayout>
-
 
 </RelativeLayout>

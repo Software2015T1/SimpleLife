@@ -30,4 +30,6 @@
     <string name="title_activity_proximity_setting">ProximitySettingActivity</string>
     <string name="title_activity_energy_saver">EnergySaverActivity</string>
     <string name="title_activity_ideal_temperature">IdealTemperatureActivity</string>
+    <string name="title_activity_chart_light">ChartLightActivity</string>
+    <string name="title_activity_chart_air">ChartAirActivity</string>
 </resources>

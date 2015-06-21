@@ -107,6 +107,14 @@
             android:name=".IdealTemperatureActivity"
             android:label="@string/title_activity_ideal_temperature" >
         </activity>
+        <activity
+            android:name=".ChartLightActivity"
+            android:label="@string/title_activity_chart_light" >
+        </activity>
+        <activity
+            android:name=".ChartAirActivity"
+            android:label="@string/title_activity_chart_air" >
+        </activity>
     </application>
 
 </manifest>
