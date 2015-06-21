@@ -91,6 +91,22 @@
             android:name=".AirConditionerActivity"
             android:label="@string/title_activity_air_conditioner" >
         </activity>
+        <activity
+            android:name=".TimeSettingActivity"
+            android:label="@string/title_activity_time_setting" >
+        </activity>
+        <activity
+            android:name=".ProximitySettingActivity"
+            android:label="@string/title_activity_proximity_setting" >
+        </activity>
+        <activity
+            android:name=".EnergySaverActivity"
+            android:label="@string/title_activity_energy_saver" >
+        </activity>
+        <activity
+            android:name=".IdealTemperatureActivity"
+            android:label="@string/title_activity_ideal_temperature" >
+        </activity>
     </application>
 
 </manifest>

@@ -26,4 +26,8 @@
     <string name="title_activity_light">LightActivity</string>
     <string name="title_activity_tv">TVActivity</string>
     <string name="title_activity_air_conditioner">AirConditionerActivity</string>
+    <string name="title_activity_time_setting">TimeSettingActivity</string>
+    <string name="title_activity_proximity_setting">ProximitySettingActivity</string>
+    <string name="title_activity_energy_saver">EnergySaverActivity</string>
+    <string name="title_activity_ideal_temperature">IdealTemperatureActivity</string>
 </resources>

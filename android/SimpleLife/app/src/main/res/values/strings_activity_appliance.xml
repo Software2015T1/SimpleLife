@@ -9,6 +9,25 @@
     <string name="name_connect_to">Connect to SimpleLife</string>
     <string name="step_1of5">Step 1 of 5</string>
 
+
+    <string name="name_time">Time Setting</string>
+    <string name="name_turnOn_time">Turn on time</string>
+    <string name="name_turnOff_time">Turn off time</string>
+    <string name="name_notification">Send Notification</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+
+    <string name="name_proximity">Proximity Setting</string>
+    <string name="name_distance">Your distance from home</string>
+
+    <string name="name_energy">Energy Saver</string>
+    <string name="name_turnoff_after">Turn off after</string>
+    <string name="name_choose_motionID">Choose motion sensor ID</string>
+
+    <string name="name_ideal">Ideal Temperature</string>
+    <string name="name_temperature">Your ideal temperature</string>
+
+
     <string name="number_1">1</string>
     <string name="number_2">2</string>
     <string name="number_3">3</string>
