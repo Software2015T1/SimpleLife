@@ -86,10 +86,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         Return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, ApplianceActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("type", 0);
-                intent.putExtras(bundle);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -255,7 +252,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                             UserProfile.password = passwordMd5;
                             UserProfile.email = email;
                             UserProfile.username = email.split("@")[0];
-                            startActivity(new Intent(LoginActivity.this,ApplianceActivity.class));
+                            Intent intent = new Intent(LoginActivity.this, ApplianceActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("type", 0);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
                         }
                         else if(returnCode.equals("R003"))
                         {
