@@ -48,8 +48,8 @@
             android:layout_marginTop="20dp">
 
             <ImageButton
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:id="@+id/ibtnLight_chart"
                 android:layout_marginLeft="70dp"
                 android:src="@drawable/circle_light"
@@ -57,8 +57,8 @@
                 android:background="#00000000" />
 
             <ImageButton
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:id="@+id/ibtnAir_chart"
                 android:src="@drawable/circle_air"
                 android:scaleType="fitCenter"
@@ -77,7 +77,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/name_light"
                 android:id="@+id/textLight_chart"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="80dp"
                 android:layout_marginTop="5dp"
                 android:textColor="#ffffffff" />
 
@@ -88,7 +88,7 @@
                 android:text="@string/name_air"
                 android:id="@+id/textAir_chart"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="46dp"
                 android:textColor="#ffffffff" />
         </TableRow>
     </LinearLayout>

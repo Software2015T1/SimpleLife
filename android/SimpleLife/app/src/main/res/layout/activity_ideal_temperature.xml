@@ -97,24 +97,24 @@
             android:layout_marginTop="20dp">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
                 android:text="@string/action_save"
                 android:id="@+id/btnSave_ideal"
                 android:layout_marginLeft="20dp"
                 android:textColor="#ffffffff"
                 android:singleLine="true"
-                android:background="@drawable/other_icon" />
+                android:background="@drawable/icon_background" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
                 android:text="@string/action_delete"
                 android:id="@+id/btnDelete_ideal"
                 android:layout_marginLeft="20dp"
                 android:textColor="#ffffffff"
                 android:singleLine="true"
-                android:background="@drawable/other_icon" />
+                android:background="@drawable/icon_background" />
         </TableRow>
 
     </LinearLayout>

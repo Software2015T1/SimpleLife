@@ -17,8 +17,8 @@
         android:scaleType="fitCenter" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
         android:text="@string/action_sign_in_short"
         android:id="@+id/btnLogin_main"
         android:layout_marginLeft="50dp"
@@ -27,13 +27,13 @@
         android:layout_alignBottom="@+id/imageBackground_main"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/other_icon"
+        android:background="@drawable/icon_background"
         android:textColor="#ffffffff"
         android:singleLine="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
         android:text="@string/action_register_short"
         android:id="@+id/btnSignup_main"
         android:layout_marginLeft="68dp"
@@ -43,6 +43,6 @@
         android:layout_toEndOf="@+id/btnLogin_main"
         android:singleLine="true"
         android:textColor="#ffffffff"
-        android:background="@drawable/other_icon" />
+        android:background="@drawable/icon_background" />
 
 </RelativeLayout>
