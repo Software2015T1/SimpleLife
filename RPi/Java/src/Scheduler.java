@@ -6,8 +6,9 @@ public class Scheduler extends Thread{
 	
 	//http://www.ewdna.com/2011/12/java-timer.html
 	private ArrayList<Job> joblist;
+	private volatile boolean running = true;
 	//private RF rf;
-	Socket socket;
+	RPiSocket socket;
 	public Scheduler(){
 		joblist = new ArrayList<>();
 	}
@@ -48,8 +49,9 @@ public class Scheduler extends Thread{
 		joblist.remove(j);
 		return true;
 	}
-	void run(){
-		while(1){
+	@Override
+	public void run(){
+		while(running){
 			/*try{
 				Thread.sleep(1000);
 			}catch (InterruptedException e){
@@ -64,6 +66,9 @@ public class Scheduler extends Thread{
 			}
 		}
 	}
+	void terminate() {
+        running = false;
+    }
 }
 class Job{
 	Date date;
