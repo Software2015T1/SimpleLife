@@ -59,7 +59,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextName_addTV"
+            android:id="@+id/editTextName_addOther"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -73,12 +73,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/addTV_step4"
-            android:id="@+id/textContent4_addTV"
+            android:text="@string/addOther_step3"
+            android:id="@+id/textContent4_addOther"
             android:textColor="#ffffffff"
             android:layout_above="@+id/btnDone_addOther"
-            android:layout_alignLeft="@+id/editTextName_addTV"
-            android:layout_alignStart="@+id/editTextName_addTV"
+            android:layout_alignLeft="@+id/editTextName_addOther"
+            android:layout_alignStart="@+id/editTextName_addOther"
             android:layout_marginBottom="50dp" />
 
 

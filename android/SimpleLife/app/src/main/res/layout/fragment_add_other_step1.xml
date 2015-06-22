@@ -60,11 +60,12 @@
             android:text="@string/addIR_step1"
             android:id="@+id/textContent1_addother"
             android:textColor="#ffffffff"
-            android:layout_above="@+id/ibtnNext_addOther1"
-            android:layout_alignLeft="@+id/editTextID_addOther"
-            android:layout_alignStart="@+id/editTextID_addOther"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="50dp" />
+            android:layout_below="@+id/editTextID_addOther"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -72,9 +73,9 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addIR_connect"
             android:id="@+id/textConnect_addOther"
-            android:layout_below="@+id/textStep1_addAir"
+            android:layout_below="@+id/textStep1_addOther"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:textColor="#ffffffff" />
 
         <TextView
@@ -83,12 +84,10 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/addIR_HaveArduinoID"
             android:id="@+id/textHaveID_addOther"
-            android:layout_below="@+id/textConnect_addOther"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="33dp"
-            android:layout_marginLeft="20dp"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/spinner_whichMain_addOther"
+            android:layout_alignLeft="@+id/textWhichMain_addOther"
+            android:layout_alignStart="@+id/textWhichMain_addOther" />
 
         <Spinner
             android:layout_width="wrap_content"
@@ -122,6 +121,28 @@
             android:layout_alignStart="@+id/textAddID_addOther"
             android:layout_marginRight="20dp"
             android:hint="@string/addIR_TypeArduinoID" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/name_which_main"
+            android:id="@+id/textWhichMain_addOther"
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/textConnect_addOther"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_whichMain_addOther"
+            android:layout_alignTop="@+id/imageStep1_addOther"
+            android:layout_alignLeft="@+id/textHaveID_addOther"
+            android:layout_alignStart="@+id/textHaveID_addOther"
+            android:layout_marginRight="20dp" />
 
     </RelativeLayout>
 </LinearLayout>

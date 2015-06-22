@@ -50,7 +50,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addIR_ScanIR"
             android:id="@+id/textConnect_addOther"
-            android:layout_below="@+id/textStep1_addAir"
+            android:layout_below="@+id/textStep1_addOther"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:textColor="#ffffffff" />
@@ -60,8 +60,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageStep3_addOther"
             android:layout_below="@+id/textConnect_addOther"
-            android:layout_alignLeft="@+id/ibtnNext_addAir3"
-            android:layout_alignStart="@+id/ibtnNext_addAir3" />
+            android:layout_alignLeft="@+id/ibtnNext_addOther3"
+            android:layout_alignStart="@+id/ibtnNext_addOther3" />
 
         <TextView
             android:layout_width="wrap_content"

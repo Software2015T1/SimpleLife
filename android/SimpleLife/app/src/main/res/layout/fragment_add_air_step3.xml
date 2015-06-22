@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addIR_ScanIR"
-            android:id="@+id/textConnect_addOther"
+            android:id="@+id/textConnect_addAir"
             android:layout_below="@+id/textStep1_addAir"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageStep3_addAir"
-            android:layout_below="@+id/textConnect_addOther"
+            android:layout_below="@+id/textConnect_addAir"
             android:layout_alignLeft="@+id/ibtnNext_addAir3"
             android:layout_alignStart="@+id/ibtnNext_addAir3" />
 

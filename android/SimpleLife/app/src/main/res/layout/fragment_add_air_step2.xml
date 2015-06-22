@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/addIR_step2"
-            android:id="@+id/textBrand_addOther"
+            android:id="@+id/textBrand_addAir"
             android:layout_below="@+id/textStep2_addAir"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -64,7 +64,7 @@
             android:layout_above="@+id/ibtnNext_addAir2"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/textBrand_addOther"
+            android:layout_below="@+id/textBrand_addAir"
             android:layout_marginLeft="20dp" />
 
     </RelativeLayout>
