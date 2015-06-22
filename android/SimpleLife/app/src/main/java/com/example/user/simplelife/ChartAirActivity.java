@@ -15,12 +15,6 @@ public class ChartAirActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_air);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_chart_air, menu);
         ImageButton btnBack = (ImageButton) findViewById(R.id.ibtnBack_chartAir);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +26,12 @@ public class ChartAirActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_chart_air, menu);
         return true;
     }
 
