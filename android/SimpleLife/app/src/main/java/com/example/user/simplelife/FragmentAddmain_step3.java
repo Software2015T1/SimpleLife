@@ -39,7 +39,8 @@ public class FragmentAddmain_step3 extends FragmentAdd_step {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
