@@ -87,15 +87,21 @@ public class Add_MainControllerActivity extends Add_Activity{
 
         ObjectWriter.WriteAppliance(main, main.getMainControlerID());
 
+        ArrayList<String> ids = null;
         ArrayList<String> names = null;
-        if(new File("/sdcard/MC_Name").exists()) {
+        if(new File("/sdcard/MC_ID").exists()) {
+            ids = ObjectReader.loadMC("MC_ID");
+            ids.add(main.getMainControlerID());
             names = ObjectReader.loadMC("MC_Name");
-            names.add(main.getMainControlerID());
+            names.add(main.getName());
         }
         else{
+            ids = new ArrayList<String>();
+            ids.add(main.getMainControlerID());
             names = new ArrayList<String>();
-            names.add(main.getMainControlerID());
+            names.add(main.getName());
         }
+        ObjectWriter.WriteMC(ids,"MC_ID");
         ObjectWriter.WriteMC(names,"MC_Name");
 
         Intent intent = new Intent(Add_MainControllerActivity.this, ApplianceActivity.class);
