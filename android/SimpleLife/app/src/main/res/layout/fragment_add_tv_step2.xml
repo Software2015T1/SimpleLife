@@ -27,10 +27,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="36dp"
+            android:layout_marginLeft="27dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="-5dp"
-            android:textSize="20dp" />
+            android:textSize="17dp"
+            android:textColor="#ffffffff" />
 
         <ImageButton
             android:layout_width="70dp"
@@ -48,17 +49,18 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addIR_step2"
-            android:id="@+id/textBrand_addtv"
+            android:id="@+id/textBrand_addOther"
             android:layout_below="@+id/textStep2_addTV"
-            android:layout_alignLeft="@+id/editTextSearch_addtv"
-            android:layout_alignStart="@+id/editTextSearch_addtv"
-            android:layout_marginTop="20dp" />
+            android:layout_alignLeft="@+id/editTextSearch_addOther"
+            android:layout_alignStart="@+id/editTextSearch_addOther"
+            android:layout_marginTop="20dp"
+            android:textColor="#ffffffff" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextSearch_addtv"
-            android:layout_below="@+id/textBrand_addtv"
+            android:id="@+id/editTextSearch_addOther"
+            android:layout_below="@+id/textBrand_addOther"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
@@ -72,9 +74,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/listView_addtv"
-            android:layout_below="@+id/editTextSearch_addtv"
-            android:layout_alignLeft="@+id/editTextSearch_addtv"
-            android:layout_alignStart="@+id/editTextSearch_addtv"
+            android:layout_below="@+id/editTextSearch_addOther"
+            android:layout_alignLeft="@+id/editTextSearch_addOther"
+            android:layout_alignStart="@+id/editTextSearch_addOther"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:layout_above="@+id/ibtnNext_addTV2"

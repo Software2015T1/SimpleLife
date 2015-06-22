@@ -22,15 +22,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/step_2of5"
+            android:text="@string/step_2of3"
             android:id="@+id/textStep2_addOther"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="36dp"
+            android:layout_marginLeft="27dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="-5dp"
-            android:textSize="20dp" />
+            android:textSize="17dp"
+            android:textColor="#ffffffff" />
 
         <ImageButton
             android:layout_width="70dp"
@@ -43,65 +44,42 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20dp" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageWifi_addOther"
-            android:src="@drawable/wifi_icon"
-            android:scaleType="fitCenter"
-            android:layout_below="@+id/textStep2_addOther"
-            android:layout_toLeftOf="@+id/textWifi_addOther"
-            android:layout_toStartOf="@+id/textWifi_addOther"
-            android:layout_marginTop="10dp" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/addmain_wifi"
-            android:id="@+id/textWifi_addOther"
-            android:textSize="30dp"
-            android:layout_alignTop="@+id/imageWifi_addOther"
-            android:layout_toRightOf="@+id/textStep2_addOther"
-            android:layout_toEndOf="@+id/textStep2_addOther"
-            android:layout_marginTop="35dp" />
+            android:text="@string/addIR_step2"
+            android:id="@+id/textBrand_addOther"
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/textStep2_addOther"
+            android:layout_alignLeft="@+id/editTextSearch_addOther"
+            android:layout_alignStart="@+id/editTextSearch_addOther"
+            android:layout_marginTop="20dp" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextNetwork_addOther"
-            android:layout_below="@+id/imageWifi_addOther"
+            android:id="@+id/editTextSearch_addOther"
+            android:layout_below="@+id/textBrand_addOther"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:hint="@string/addmain_wifi_name"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:hint="@string/action_search" />
 
-        <EditText
+        <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextPassword_addOther"
-            android:hint="@string/addmain_wifi_password"
-            android:layout_below="@+id/editTextNetwork_addOther"
-            android:layout_alignLeft="@+id/editTextNetwork_addOther"
-            android:layout_alignStart="@+id/editTextNetwork_addOther"
-            android:layout_alignRight="@+id/editTextNetwork_addOther"
-            android:layout_alignEnd="@+id/editTextNetwork_addOther"
-            android:layout_marginTop="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/addmain_step2"
-            android:id="@+id/textContent2_addOther"
-            android:layout_above="@+id/ibtnNext_addOther2"
-            android:layout_alignLeft="@+id/editTextPassword_addOther"
-            android:layout_alignStart="@+id/editTextPassword_addOther"
-            android:layout_marginBottom="80dp"
-            android:layout_marginRight="20dp" />
+            android:id="@+id/listView_addOther"
+            android:layout_below="@+id/editTextSearch_addOther"
+            android:layout_alignLeft="@+id/editTextSearch_addOther"
+            android:layout_alignStart="@+id/editTextSearch_addOther"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_above="@+id/ibtnNext_addOther2" />
 
     </RelativeLayout>
 </LinearLayout>

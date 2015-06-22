@@ -38,8 +38,8 @@ public class FragmentAddAir_step4 extends FragmentAdd_step {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_tv_step4, container, false);
-        Button nextButton = (Button) view.findViewById(R.id.btnDone_addTV);
+        View view = inflater.inflate(R.layout.fragment_add_air_step4, container, false);
+        Button nextButton = (Button) view.findViewById(R.id.btnDone_addAir);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onFragmentInteraction("next");

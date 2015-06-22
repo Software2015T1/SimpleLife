@@ -32,7 +32,7 @@
     //add light
     <string name="step_1of2">Step 1 of 2</string>
     <string name="step_2of2">Step 2 of 2</string>
-    <string name="addlight_step1">"Please type in Arduino's ID number and motion sensor's Id number."</string>
+    <string name="addlight_step1">"Please type in Arduino's ID number and motion sensor's ID number."</string>
     <string name="addlight_arduinoID">Arduino ID number</string>
     <string name="addlight_motion">Motion sensor ID</string>
     <string name="addlight_step2">Name your light.</string>
