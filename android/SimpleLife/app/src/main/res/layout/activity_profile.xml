@@ -112,14 +112,13 @@
             android:text="@string/action_save"
             android:id="@+id/btnSaveNewPassword"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-<<<<<<< HEAD
+            android:layout_marginTop="10dp"/>
+        < HEAD
             android:background="@drawable/other_icon"
             android:singleLine="true"
             android:textColor="#ffffffff" />
-=======
-            android:visibility="invisible"/>
->>>>>>> origin/master
+
+
 
         <ImageView
             android:layout_width="wrap_content"
