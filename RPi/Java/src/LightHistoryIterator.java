@@ -5,7 +5,6 @@ public class LightHistoryIterator implements Iterator{
 	private Job[] jobarray;
 	private int position = 0;
 	public LightHistoryIterator(Job[] array){
-		System.out.println("light");
 		jobarray = array;
 		position = 0;
 	}
