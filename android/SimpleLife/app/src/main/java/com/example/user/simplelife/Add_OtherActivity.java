@@ -1,13 +1,9 @@
 package com.example.user.simplelife;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -22,7 +18,7 @@ public class Add_OtherActivity extends Add_Activity{
 
         fragmentList = new ArrayList<Fragment>();
         index = 0;
-        frame_num = 4;
+        frame_num = 3;
         fragment_id =R.id.addOther_layout;
         for(int i = 0 ; i< frame_num ;i++){
             switch(i){
@@ -34,9 +30,6 @@ public class Add_OtherActivity extends Add_Activity{
                     break;
                 case 2:
                     fragmentList.add(FragmentAddOther_step3.newInstance());
-                    break;
-                case 3:
-                    fragmentList.add(FragmentAddOther_step4.newInstance());
                     break;
             }
         }

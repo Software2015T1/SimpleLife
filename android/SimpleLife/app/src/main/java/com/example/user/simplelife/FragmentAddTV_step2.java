@@ -6,7 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -18,6 +23,10 @@ import android.widget.ImageButton;
  * create an instance of this fragment.
  */
 public class FragmentAddTV_step2 extends FragmentAdd_step {
+
+    //ArrayList<String> brands;
+    //private ArrayAdapter<String> listAdapter;
+    //private ListView listView;
 
     public static FragmentAddTV_step2 newInstance() {
         FragmentAddTV_step2 fragment = new FragmentAddTV_step2();
@@ -44,6 +53,16 @@ public class FragmentAddTV_step2 extends FragmentAdd_step {
                 mListener.onFragmentInteraction("next");
             }
         });
+        //listView = (ListView)view.findViewById(R.id.listView_addtv);
+        //listAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,brands);
+       // listView.setAdapter(listAdapter);
+       // listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       //     @Override
+       //     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+       //         if
+      //      }
+      //  }
         return view;
     }
+
 }

@@ -1,12 +1,11 @@
 package com.example.user.simplelife;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 
 /**
@@ -38,7 +37,7 @@ public class FragmentAddOther_step3 extends FragmentAdd_step {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_other_step3, container, false);
-        ImageButton nextButton = (ImageButton) view.findViewById(R.id.ibtnNext_addOther3);
+        Button nextButton = (Button) view.findViewById(R.id.btnDone_addOther);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onFragmentInteraction("next");

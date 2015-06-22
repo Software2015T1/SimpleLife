@@ -1,6 +1,5 @@
 package com.example.user.simplelife;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,9 +11,9 @@ import android.widget.ImageButton;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FragmentAddmain_step1.OnFragmentInteractionListener} interface
+ * {@link FragmentAddOther_step2.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FragmentAddmain_step1#newInstance} factory method to
+ * Use the {@link FragmentAddOther_step2#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class FragmentAddOther_step2 extends FragmentAdd_step {

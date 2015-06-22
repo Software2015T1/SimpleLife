@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/step_2of3"
-            android:id="@+id/textStep3_addOther"
+            android:text="@string/step_3of3"
+            android:id="@+id/textStep5_addOther"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -33,48 +33,54 @@
             android:textSize="17dp"
             android:textColor="#ffffffff" />
 
-        <ImageButton
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/imageIcon_addOther"
+            android:layout_marginTop="65dp"
+            android:src="@drawable/circle_other_white"
+            android:layout_below="@+id/textStep5_addOther"
+            android:layout_centerHorizontal="true" />
+
+        <Button
             android:layout_width="70dp"
             android:layout_height="35dp"
-            android:id="@+id/ibtnNext_addOther3"
-            android:src="@drawable/next_button"
-            android:scaleType="fitCenter"
-            android:background="#00000000"
+            android:text="@string/addmain_done"
+            android:id="@+id/btnDone_addOther"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginBottom="23dp"
+            android:background="#00000000"
+            android:singleLine="true"
+            android:textSize="23dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/addIR_ScanIR"
-            android:id="@+id/textConnect_addOther"
-            android:layout_below="@+id/textStep1_addAir"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
             android:textColor="#ffffffff" />
 
-        <ImageView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageStep3_addOther"
-            android:layout_below="@+id/textConnect_addOther"
-            android:layout_alignLeft="@+id/ibtnNext_addAir3"
-            android:layout_alignStart="@+id/ibtnNext_addAir3" />
+            android:id="@+id/editTextName_addTV"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/addmain_name" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/addIR_step3"
-            android:id="@+id/textContent3_addOther"
+            android:text="@string/addTV_step4"
+            android:id="@+id/textContent4_addTV"
             android:textColor="#ffffffff"
-            android:layout_above="@+id/ibtnNext_addOther3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_above="@+id/btnDone_addOther"
+            android:layout_alignLeft="@+id/editTextName_addTV"
+            android:layout_alignStart="@+id/editTextName_addTV"
             android:layout_marginBottom="50dp" />
+
 
     </RelativeLayout>
 </LinearLayout>
