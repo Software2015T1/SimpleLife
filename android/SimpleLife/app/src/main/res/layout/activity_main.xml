@@ -45,4 +45,13 @@
         android:textColor="#ffffffff"
         android:background="@drawable/icon_background" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:id="@+id/btnTest"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/imageBackground_main"
+        android:layout_alignEnd="@+id/imageBackground_main" />
+
 </RelativeLayout>

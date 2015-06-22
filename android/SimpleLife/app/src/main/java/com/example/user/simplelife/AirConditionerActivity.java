@@ -7,16 +7,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class AirConditionerActivity extends ActionBarActivity {
 
     private ListView listView;
     private Air_ListAdapter adapter;
+    private AirConditioner ac;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_air_conditioner);
+
+        ac = (AirConditioner)getIntent().getSerializableExtra("device");
+        TextView nameText = (TextView)findViewById(R.id.textName_air);
+        nameText.setText(ac.getName());
+        TextView contentText = (TextView)findViewById(R.id.textContent_air);
+        contentText.setText("Connected to \n" + ac.getMainControllerName());
 
         listView = (ListView) findViewById(R.id.listView_air);
         adapter = new Air_ListAdapter(this);

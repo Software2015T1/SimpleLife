@@ -1,25 +1,17 @@
 package com.example.user.simplelife;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 
-public class TVActivity extends ActionBarActivity {
+public class OtherActivity extends ActionBarActivity {
 
-    private TV tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tv);
-
-        tv = (TV)getIntent().getSerializableExtra("device");
-        TextView nameText = (TextView)findViewById(R.id.textName_tv);
-        nameText.setText(tv.getName());
-        TextView contentText = (TextView)findViewById(R.id.textContent_tv);
-        contentText.setText("Connected to \n" + tv.getMainControllerName());
     }
 
     @Override

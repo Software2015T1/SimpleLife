@@ -5,7 +5,8 @@ import java.io.Serializable;
 /**
  * Created by bostenkg5 on 2015/6/22.
  */
-public class Device implements Serializable {
+
+public abstract class Device implements Serializable {
     protected String name;
 
     public Device() {

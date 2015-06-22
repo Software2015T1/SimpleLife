@@ -60,8 +60,30 @@ public class ApplianceFragment extends Fragment {
                 }
                 else{
                     Device device = devices.get(position);
-                    if (device.getName().equals()){
-
+                    if (device.getType().equals("Main")){
+                        Intent intent = new Intent(getActivity(), MainControllerActivity.class);
+                        intent.putExtra("device", device);
+                        startActivity(intent);
+                    }
+                    else if(device.getType().equals("Light")){
+                        Intent intent = new Intent(getActivity(), LightActivity.class);
+                        intent.putExtra("device", device);
+                        startActivity(intent);
+                    }
+                    else if(device.getType().equals("AC")){
+                        Intent intent = new Intent(getActivity(), AirConditionerActivity.class);
+                        intent.putExtra("device", device);
+                        startActivity(intent);
+                    }
+                    else if(device.getType().equals("TV")){
+                        Intent intent = new Intent(getActivity(), TVActivity.class);
+                        intent.putExtra("device", device);
+                        startActivity(intent);
+                    }
+                    else if(device.getType().equals("Other")){
+                        Intent intent = new Intent(getActivity(), OtherActivity.class);
+                        intent.putExtra("device", device);
+                        startActivity(intent);
                     }
                 }
             }
@@ -79,11 +101,13 @@ public class ApplianceFragment extends Fragment {
 
     public  ArrayList<MainController> getMainControllers(){
         ArrayList<MainController> mainControllers = new ArrayList<MainController>();
-        MainController mainController = new MainController("123","Living room");
+        MainController mainController = new MainController("123","Living room","еxе_ел");
 
-        TV tv = new TV("001","123","TV",false);
-        AirConditioner air = new AirConditioner("002","123","Air",false);
-        Other other = new Other("003","123","Other",false);
+        Light light = new Light("004","123","Living room","Light",false);
+        TV tv = new TV("001","123","Living room","TV",false);
+        AirConditioner air = new AirConditioner("002","123","Living room","Air",false);
+        Other other = new Other("003","123","Living room","Other",false);
+        mainController.addAppliance(light);
         mainController.addAppliance(tv);
         mainController.addAppliance(air);
         mainController.addAppliance(other);
@@ -109,15 +133,9 @@ public class ApplianceFragment extends Fragment {
                 Map<String, Object> item = new HashMap<>();
                 item.put("image",appliance.getImage());
                 item.put("text", appliance.getName());
-                Log.v("fuck", appliance.getName()+" "+Integer.toString(appliance.getImage()));
                 items.add(item);
             }
         }
-
-        Map<String, Object> add_item = new HashMap<>();
-        add_item.put("image",R.drawable.plus_button);
-        add_item.put("text", "Add Product");
-        items.add(add_item);
     }
 
 }
