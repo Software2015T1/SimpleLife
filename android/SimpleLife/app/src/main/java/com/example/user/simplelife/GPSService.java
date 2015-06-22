@@ -18,8 +18,8 @@ import java.util.Date;
  * Created by bostenkg5 on 2015/6/22.
  */
 public class GPSService extends Service{
-    public static Double Longitude;
-    public static Double Latitude;
+    public static double Longitude;
+    public static double Latitude;
     private static boolean isThreadRunning = false;
     private LocationManager manager;
     private Handler handler = new Handler();
@@ -78,8 +78,8 @@ public class GPSService extends Service{
             if (location != null) {
                 Latitude = location.getLatitude();
                 Longitude = location.getLongitude();
-                Log.v("t", Latitude.toString());
-                Log.v("t", Longitude.toString());
+              //  Log.v("t", Latitude.toString());
+              //  Log.v("t", Longitude.toString());
 
             }
             //Log.v("fuck", new Date().toString());
