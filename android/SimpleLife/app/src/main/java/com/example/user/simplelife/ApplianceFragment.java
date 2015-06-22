@@ -101,7 +101,7 @@ public class ApplianceFragment extends Fragment {
 
     public  ArrayList<MainController> getMainControllers(){
         ArrayList<MainController> mainControllers = new ArrayList<MainController>();
-        MainController mainController = new MainController("123","Living room","¥x¥_¥«");
+        MainController mainController = new MainController("123","Living room","å°åŒ—å¸‚");
 
         Light light = new Light("004","123","Living room","Light",false);
         TV tv = new TV("001","123","Living room","TV",false);
