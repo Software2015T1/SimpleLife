@@ -61,6 +61,9 @@ public class AddProductActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddProductActivity.this, ApplianceActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", 0);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

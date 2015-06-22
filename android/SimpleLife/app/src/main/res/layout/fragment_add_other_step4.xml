@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ff39affe">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageIcon_addOther"
             android:layout_marginTop="65dp"
-            android:src="@drawable/circle_controller"
+            android:src="@drawable/circle_main"
             android:layout_below="@+id/textStep5_addOther"
             android:layout_centerHorizontal="true" />
 

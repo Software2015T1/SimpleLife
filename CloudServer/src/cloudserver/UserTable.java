@@ -145,5 +145,17 @@ public class UserTable
     {
         this._userTable.remove(acc);
     }
+    public Socket getSocket(String username)
+    {
+        UserInformation info = this._userTable.get(username);
+        return info.getUserSocket();
+    }
+    public String changePassword(String username,String password)
+    {
+        UserInformation info = this._userTable.get(username);
+        if(info==null)return "R014";
+        info.setPassword(password);
+        return "R012";
+    }
     
 }

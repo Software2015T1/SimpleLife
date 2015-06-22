@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ff39affe">
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,7 +13,8 @@
         android:layout_column="10"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textColor="#fff9cd05" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -30,7 +32,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/name_whichMain"
             android:id="@+id/textWhichMain_chart"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:textColor="#ffffffff" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -48,7 +51,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:id="@+id/ibtnLight_chart"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="70dp"
                 android:src="@drawable/circle_light"
                 android:scaleType="fitCenter"
                 android:background="#00000000" />
@@ -74,8 +77,9 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/name_light"
                 android:id="@+id/textLight_chart"
-                android:layout_marginLeft="95dp"
-                android:layout_marginTop="5dp" />
+                android:layout_marginLeft="85dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#ffffffff" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,7 +88,8 @@
                 android:text="@string/name_air"
                 android:id="@+id/textAir_chart"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="50dp" />
+                android:layout_marginLeft="50dp"
+                android:textColor="#ffffffff" />
         </TableRow>
     </LinearLayout>
 </RelativeLayout>

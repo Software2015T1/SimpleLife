@@ -17,10 +17,7 @@ import android.widget.ImageButton;
  * Use the {@link FragmentAddmain_step1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentAddmain_step1 extends Fragment {
-
-
-    private OnFragmentInteractionListener mListener;
+public class FragmentAddmain_step1 extends FragmentAdd_step {
 
     public static FragmentAddmain_step1 newInstance() {
         FragmentAddmain_step1 fragment = new FragmentAddmain_step1();
@@ -49,37 +46,4 @@ public class FragmentAddmain_step1 extends Fragment {
         });
         return view;
     }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(String arg);
-    }
-
 }

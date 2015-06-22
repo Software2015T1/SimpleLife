@@ -4,7 +4,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.simplelife.TimeSettingActivity">
+    tools:context="com.example.user.simplelife.TimeSettingActivity"
+    android:background="#ff39affe">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff9cd05" />
 
     <ImageButton
         android:layout_width="30dp"
@@ -57,7 +59,8 @@
                 android:id="@+id/textName_time"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="10dp"
-                android:layout_column="1" />
+                android:layout_column="1"
+                android:textColor="#ffffffff" />
         </TableRow>
 
         <TextView
@@ -66,8 +69,9 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/name_turnOn_time"
             android:id="@+id/textTurnOnTime"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#ffffffff" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -91,7 +95,8 @@
             android:text="@string/name_turnOff_time"
             android:id="@+id/textTurnOffTime"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:textColor="#ffffffff" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -108,7 +113,8 @@
             android:checked="false"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffffffff" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -117,17 +123,23 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/action_save"
                 android:id="@+id/btnSave_time"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="20dp"
+                android:textColor="#ffffffff"
+                android:singleLine="true"
+                android:background="@drawable/other_icon" />
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/action_delete"
                 android:id="@+id/btnDelete_time"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="20dp"
+                android:textColor="#ffffffff"
+                android:singleLine="true"
+                android:background="@drawable/other_icon" />
         </TableRow>
 
     </LinearLayout>

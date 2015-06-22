@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:stretchColumns="1" android:paddingTop="0dip" android:layout_gravity="top"
-    >
+    android:background="#ff39affe">
     <TableRow android:id="@+id/tableRow">
         <ImageView
             android:id="@+id/imageIcon_addFavorite"
@@ -24,7 +24,8 @@
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="10dip"
             android:text="@string/title_activity_home"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffffff" />
 
         <ImageView
             android:layout_width="20dp"
