@@ -66,15 +66,6 @@ public class ApplianceFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), AddProductActivity.class);
                     startActivity(intent);
                 }
-
-                Toast.makeText(getActivity(), "you click "+imgText.get(position),
-                        Toast.LENGTH_SHORT).show();
-                Map<String, Object> item = new HashMap<>();
-                item.put("image", R.drawable.plus_button);
-                item.put("text",  "Add product");
-                items.add(item);
-                imgText.add("Add product");
-                adapter.notifyDataSetChanged();
             }
 
 
