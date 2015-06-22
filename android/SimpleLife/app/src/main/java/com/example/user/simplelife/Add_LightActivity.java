@@ -70,6 +70,11 @@ public class Add_LightActivity extends Add_Activity{
     }
 
     public void saveAppliance(){
+
+        MainController main = ObjectReader.loadMainController(appliance.getMainControllerID());
+        main.addAppliance(appliance);
+        ObjectWriter.WriteAppliance(main,appliance.getMainControllerID());
+
         Intent intent = new Intent(Add_LightActivity.this, ApplianceActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt("type", 0);

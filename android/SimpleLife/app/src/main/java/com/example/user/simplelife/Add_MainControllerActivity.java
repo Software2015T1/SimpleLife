@@ -1,5 +1,6 @@
 package com.example.user.simplelife;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +13,7 @@ import android.view.MotionEvent;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,10 +21,12 @@ import java.util.Map;
 
 public class Add_MainControllerActivity extends Add_Activity{
 
+    private MainController main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_main_contoller);
+        main = new MainController();
         fragmentList = new ArrayList<Fragment>();
         index = 0;
         frame_num = 5;
@@ -73,5 +77,31 @@ public class Add_MainControllerActivity extends Add_Activity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public MainController getMainController(){
+        return this.main;
+    }
+
+    public void saveAppliance(){
+
+        ObjectWriter.WriteAppliance(main, main.getMainControlerID());
+
+        ArrayList<String> names = null;
+        if(new File("/sdcard/MC_Name").exists()) {
+            names = ObjectReader.loadMC("MC_Name");
+            names.add(main.getMainControlerID());
+        }
+        else{
+            names = new ArrayList<String>();
+            names.add(main.getMainControlerID());
+        }
+        ObjectWriter.WriteMC(names,"MC_Name");
+
+        Intent intent = new Intent(Add_MainControllerActivity.this, ApplianceActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("type", 0);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

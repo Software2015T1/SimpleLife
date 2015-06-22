@@ -51,7 +51,7 @@ public class FragmentAddmain_step4 extends FragmentAdd_step {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_addmain_step4, container, false);
+        view = inflater.inflate(R.layout.fragment_addmain_step4, container, false);
         editTextHomeAddress = (EditText)view.findViewById(R.id.editTextLocation_addmain);
         String homeAddress="";
         try {
@@ -68,6 +68,11 @@ public class FragmentAddmain_step4 extends FragmentAdd_step {
             public void onClick(View v) {
                 String home = editTextHomeAddress.getText().toString();
                 UserProfile.homeAddress = home;
+
+                MainController main = (MainController)((Add_MainControllerActivity)getActivity()).getMainController();
+                EditText location = (EditText)view.findViewById(R.id.editTextLocation_addmain);
+                main.setAddress(location.getText().toString());
+
                 mListener.onFragmentInteraction("next");
             }
         });

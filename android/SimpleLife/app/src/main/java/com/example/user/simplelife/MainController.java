@@ -17,12 +17,20 @@ public class MainController extends Device{
         this.appliances = new ArrayList<Appliance>();
     }
 
+    public MainController(){
+        this.type = "Main";
+        this.appliances = new ArrayList<Appliance>();
+    }
+
     public String getMainControlerID() {
         return mainControlerID;
     }
 
-    public void setMainControlerID(String mainControlerID,String address) {
+    public void setMainControlerID(String mainControlerID) {
         this.mainControlerID = mainControlerID;
+    }
+
+    public void setAddress(String address) {
         this.address = address;
     }
 

@@ -18,6 +18,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -60,30 +61,25 @@ public class ApplianceFragment extends Fragment {
                 if (position == gridView.getCount() - 1) {
                     Intent intent = new Intent(getActivity(), AddProductActivity.class);
                     startActivity(intent);
-                }
-                else{
+                } else {
                     Device device = devices.get(position);
-                    if (device.getType().equals("Main")){
+                    if (device.getType().equals("Main")) {
                         Intent intent = new Intent(getActivity(), MainControllerActivity.class);
                         intent.putExtra("device", device);
                         startActivity(intent);
-                    }
-                    else if(device.getType().equals("Light")){
+                    } else if (device.getType().equals("Light")) {
                         Intent intent = new Intent(getActivity(), LightActivity.class);
                         intent.putExtra("device", device);
                         startActivity(intent);
-                    }
-                    else if(device.getType().equals("AC")){
+                    } else if (device.getType().equals("AC")) {
                         Intent intent = new Intent(getActivity(), AirConditionerActivity.class);
                         intent.putExtra("device", device);
                         startActivity(intent);
-                    }
-                    else if(device.getType().equals("TV")){
+                    } else if (device.getType().equals("TV")) {
                         Intent intent = new Intent(getActivity(), TVActivity.class);
                         intent.putExtra("device", device);
                         startActivity(intent);
-                    }
-                    else if(device.getType().equals("Other")){
+                    } else if (device.getType().equals("Other")) {
                         Intent intent = new Intent(getActivity(), OtherActivity.class);
                         intent.putExtra("device", device);
                         startActivity(intent);
@@ -107,8 +103,14 @@ public class ApplianceFragment extends Fragment {
 
     public  ArrayList<MainController> getMainControllers(){
         ArrayList<MainController> mainControllers = new ArrayList<MainController>();
+        if(new File("/sdcard/MC_Name").exists()) {
+            ArrayList<String> mcName = ObjectReader.loadMC("MC_Name");
+            for(int i=0; i<mcName.size();i++) {
+                mainControllers.add(ObjectReader.loadMainController(mcName.get(i)));
+            }
+        }
+        /*
         MainController mainController = new MainController("MC01","Living room","台北市");
-
         Light light = new Light("004","MC01","Living room","Light",false);
         TV tv = new TV("001","MC01","Living room","TV",false);
         AirConditioner air = new AirConditioner("002","MC01","Living room","Air",false);
@@ -118,6 +120,7 @@ public class ApplianceFragment extends Fragment {
         mainController.addAppliance(air);
         mainController.addAppliance(other);
         mainControllers.add(mainController);
+        */
         return mainControllers;
     }
 

@@ -22,7 +22,6 @@ import android.widget.ImageButton;
  */
 public class FragmentAddLight_step2 extends FragmentAdd_step {
 
-    View view;
     public static FragmentAddLight_step2 newInstance() {
         FragmentAddLight_step2 fragment = new FragmentAddLight_step2();
         Bundle args = new Bundle();
