@@ -123,7 +123,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/action_save"
                 android:id="@+id/btnSave_time"
                 android:layout_marginLeft="20dp"
@@ -133,7 +133,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/action_delete"
                 android:id="@+id/btnDelete_time"
                 android:layout_marginLeft="20dp"
