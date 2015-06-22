@@ -76,9 +76,25 @@ public class AppUser
                     case ADD_MAINCONTROLLER:
                         if(CloudServer.userTable.authenticate(par[0], par[1]))
                         {
-                            CloudServer.userTable.AddMC(par[3],par[2]);
-                            outs.writeUTF("R005");
-                            System.out.println("user: "+par[0]+" add MC: "+par[2]);
+                            Socket s = cstable.getControllerSocket(par[2]);
+                            if(s!=null)
+                            {
+                                try
+                                {
+                                    s.getOutputStream().write(0);
+                                } catch (Exception e)
+                                {
+                                    outs.writeUTF("R006");
+                                    break;
+                                }
+                                CloudServer.userTable.AddMC(par[3],par[2]);
+                                outs.writeUTF("R005");
+                                System.out.println("user: "+par[0]+" add MC: "+par[2]);
+                            }
+                            else
+                            {
+                                outs.writeUTF("R006");
+                            }
                         }
                         else
                         {

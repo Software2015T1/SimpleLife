@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -73,7 +74,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-
+    private static boolean isConnect = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -237,11 +238,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 }
 
             }
+            final ProgressDialog dialog = ProgressDialog.show(LoginActivity.this,"Connecting","Connecting to server...",false);
             new Thread() {
                 public void run() {
                     try
                     {
-
                         UserProfile.Socket2Server = new Socket(getString(R.string.CloudServerIP),Integer.parseInt(getString(R.string.PORT)));
                         DataInputStream inputs = new DataInputStream(UserProfile.Socket2Server.getInputStream());
                         DataOutputStream outs= new DataOutputStream(UserProfile.Socket2Server.getOutputStream());
@@ -260,6 +261,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         }
                         else if(returnCode.equals("R003"))
                         {
+
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -270,6 +272,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         }
                         else if(returnCode.equals("R004"))
                         {
+
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -278,11 +281,20 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                 }
                             });
                         }
-                    } catch (IOException e)
 
+                    } catch (IOException e)
                     {
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                new AlertDialog.Builder(LoginActivity.this).setMessage("Server not response, try later....").show();
+                            }
+                        });
+
                         e.printStackTrace();
                     }
+                    dialog.dismiss();
                 }
             }.start();
 

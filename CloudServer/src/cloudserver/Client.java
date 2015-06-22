@@ -34,6 +34,7 @@ public class Client extends Thread
             ds = new DataInputStream(this._s.getInputStream());   
             outs = new DataOutputStream(this._s.getOutputStream());
             String command = ds.readUTF();
+            System.out.println(command);
             String[] par = new String[NUMofPAR];
             MissionType type = CommandParser.parse(command, par);
             String returnCode ="";
@@ -72,8 +73,8 @@ public class Client extends Thread
                     outs.writeUTF("R999");
                 break; 
                 default:
-                    this._s.close();
                     outs.writeUTF("R998");
+                    this._s.close();
                 break;
 
                     
