@@ -8,7 +8,6 @@ public class LightHistory implements IHistory{
 	public LightHistory(){
 		jobarray = new Job[MAX_ITEMS];
 		numberOfJob = 0;
-		addItem(new Date(),"test",true);	
 	}
 	boolean addItem(Date d,String id,boolean cmd){
 		if(numberOfJob>=MAX_ITEMS)

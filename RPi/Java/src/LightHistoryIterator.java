@@ -4,20 +4,19 @@ public class LightHistoryIterator implements Iterator{
 	private Job[] jobarray;
 	private int position = 0;
 	public LightHistoryIterator(Job[] array){
+		System.out.println("light");
 		jobarray = array;
 		position = 0;
 	}
-	//@Override
+	@Override 
 	public boolean hasNext(){
-		System.out.println("ys");
 		if(0>jobarray.length || jobarray.length <= position || jobarray[position]==null)
 			return false;
 		else 
 			return true;
 	}
-	//@Override 
+	@Override 
 	public Object next(){
-		System.out.println("fuck");
 		if(jobarray!=null&& position < jobarray.length){
 			Job j = jobarray[position];
 			position++;
@@ -27,6 +26,8 @@ public class LightHistoryIterator implements Iterator{
 	}
 	@Override
     public void remove() {  
-        throw new java.lang.UnsupportedOperationException();          
+        for(int i=position;i<jobarray.length-1;i++){
+			jobarray[i] = jobarray[i+1];
+		}
     }  
 }
