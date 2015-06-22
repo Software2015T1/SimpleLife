@@ -61,15 +61,15 @@
             android:textColor="#ffffffff" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:text="@string/action_change_password"
             android:id="@+id/btnChangePassword"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:textColor="#ffffffff"
             android:singleLine="true"
-            android:background="@drawable/other_icon" />
+            android:background="@drawable/icon_background" />
 
         <EditText
             android:layout_width="match_parent"
@@ -132,7 +132,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="@string/action_logout"
             android:id="@+id/btnLogOut"
             android:layout_marginLeft="20dp"
