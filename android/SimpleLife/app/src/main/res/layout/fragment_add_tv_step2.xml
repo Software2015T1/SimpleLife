@@ -51,36 +51,20 @@
             android:text="@string/addIR_step2"
             android:id="@+id/textBrand_addOther"
             android:layout_below="@+id/textStep2_addTV"
-            android:layout_alignLeft="@+id/editTextSearch_addOther"
-            android:layout_alignStart="@+id/editTextSearch_addOther"
             android:layout_marginTop="20dp"
-            android:textColor="#ffffffff" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextSearch_addOther"
-            android:layout_below="@+id/textBrand_addOther"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="@string/action_search" />
+            android:textColor="#ffffffff"
+            android:layout_marginLeft="20dp" />
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/listView_addtv"
-            android:layout_below="@+id/editTextSearch_addOther"
-            android:layout_alignLeft="@+id/editTextSearch_addOther"
-            android:layout_alignStart="@+id/editTextSearch_addOther"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:layout_above="@+id/ibtnNext_addTV2"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginBottom="5dp"
+            android:layout_below="@+id/textBrand_addOther"
+            android:layout_marginLeft="20dp" />
 
     </RelativeLayout>
 </LinearLayout>

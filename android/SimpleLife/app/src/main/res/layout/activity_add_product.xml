@@ -38,17 +38,7 @@
         android:id="@+id/listView_addproduct"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText_addproduct"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textTitle_addproduct" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_addproduct"
-        android:layout_below="@+id/textTitle_addproduct"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/listView_addproduct"
-        android:layout_alignEnd="@+id/listView_addproduct"
-        android:hint="@string/action_search" />
 </RelativeLayout>
