@@ -10,8 +10,9 @@ public class Light extends Appliance{
     private EnergySaver energySaver;
     private IdealTemperature idealTemperature;
 
-    public Light(String type, String deviceID, String mainControllerID,boolean state){
-        super(type,deviceID,mainControllerID,state);
+    public Light(String deviceID, String mainControllerID,String name,boolean state){
+        super("Light",deviceID,mainControllerID,name,state);
+        image = R.drawable.circle_light;
     }
     public String getMotionID(){
         return motionID;

@@ -37,6 +37,7 @@ public class MainActivity extends ActionBarActivity {
             Intent intent = new Intent(MainActivity.this, GPSService.class);
             startService(intent);
         }
+
         Button btnTest = (Button)findViewById(R.id.btnTest);
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,9 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(new Intent(MainActivity.this,GPSTestActivity.class));
             }
         });
+
+   
+
     }
 
     @Override

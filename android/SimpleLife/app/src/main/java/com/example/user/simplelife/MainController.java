@@ -4,12 +4,14 @@ import java.util.ArrayList;
 /**
  * Created by bostenkg5 on 2015/6/22.
  */
-public class MainController {
+public class MainController extends Device{
     private ArrayList<Appliance> appliances;
     private String mainControlerID;
-
-    public MainController(String mainControlerID) {
+    private int image = R.drawable.circle_main;
+    public MainController(String mainControlerID,String name) {
         this.mainControlerID = mainControlerID;
+        this.name = name;
+        appliances = new ArrayList<Appliance>();
     }
 
     public String getMainControlerID() {
@@ -30,5 +32,9 @@ public class MainController {
 
     public void removeAppliance(Appliance appliance) {
         this.appliances.remove(appliance);
+    }
+
+    public int getImage(){
+        return image;
     }
 }
