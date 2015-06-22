@@ -13,9 +13,7 @@ import java.util.ArrayList;
 
 
 public class Add_AirActivity extends FragmentActivity
-        implements FragmentAddAir_step1.OnFragmentInteractionListener, FragmentAddAir_step2.OnFragmentInteractionListener,
-        FragmentAddAir_step3.OnFragmentInteractionListener, FragmentAddAir_step4.OnFragmentInteractionListener{
-
+        implements FragmentAdd_step.OnFragmentInteractionListener{
     private float x1;
     private float x2;
     private float y1;

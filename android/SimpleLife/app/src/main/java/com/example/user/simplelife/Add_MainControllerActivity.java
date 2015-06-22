@@ -17,8 +17,7 @@ import java.util.Map;
 
 
 public class Add_MainControllerActivity extends FragmentActivity
-        implements FragmentAddmain_step1.OnFragmentInteractionListener, FragmentAddmain_step2.OnFragmentInteractionListener,
-        FragmentAddmain_step3.OnFragmentInteractionListener, FragmentAddmain_step4.OnFragmentInteractionListener, FragmentAddmain_step5.OnFragmentInteractionListener{
+        implements FragmentAdd_step.OnFragmentInteractionListener{
 
     private float x1;
     private float x2;

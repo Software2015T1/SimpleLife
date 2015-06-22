@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 
 public class Add_LightActivity extends FragmentActivity
-        implements FragmentAddLight_step1.OnFragmentInteractionListener, FragmentAddLight_step2.OnFragmentInteractionListener{
-
+        implements FragmentAdd_step.OnFragmentInteractionListener{
     private float x1;
     private float x2;
     private float y1;

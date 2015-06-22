@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 
 public class Add_OtherActivity extends FragmentActivity
-        implements FragmentAddOther_step1.OnFragmentInteractionListener, FragmentAddOther_step2.OnFragmentInteractionListener,
-        FragmentAddOther_step3.OnFragmentInteractionListener, FragmentAddOther_step4.OnFragmentInteractionListener{
+        implements FragmentAdd_step.OnFragmentInteractionListener{
 
     private float x1;
     private float x2;

@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 
 public class Add_TVActivity extends FragmentActivity
-        implements FragmentAddTV_step1.OnFragmentInteractionListener, FragmentAddTV_step2.OnFragmentInteractionListener,
-        FragmentAddTV_step3.OnFragmentInteractionListener, FragmentAddTV_step4.OnFragmentInteractionListener{
+        implements FragmentAdd_step.OnFragmentInteractionListener{
 
     private float x1;
     private float x2;
