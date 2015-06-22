@@ -5,7 +5,8 @@ package com.example.user.simplelife;
  */
 public class TV extends Appliance{
 
-    public TV(String type, String deviceID, String mainControllerID,boolean state){
-        super(type,deviceID,mainControllerID,state);
+    public TV( String deviceID, String mainControllerID,String name,boolean state){
+        super("TV",deviceID,mainControllerID,name,state);
+        image = R.drawable.circle_tv;
     }
 }

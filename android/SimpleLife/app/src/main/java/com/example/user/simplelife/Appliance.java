@@ -3,17 +3,19 @@ package com.example.user.simplelife;
 /**
  * Created by bostenkg5 on 2015/6/22.
  */
-public class Appliance {
+public class Appliance extends Device{
+    protected int image;
     protected String type;
     protected String deviceID;
     protected String mainControllerID;
     protected boolean state;
 
-    public Appliance(String type, String deviceID, String mainControllerID,boolean state){
+    public Appliance(String type, String deviceID, String mainControllerID,String name,boolean state){
         this.type = type;
         this.deviceID = deviceID;
         this.mainControllerID = mainControllerID;
         this.state = state;
+        this.name = name;
     }
     public String getType(){
         return type;
@@ -27,4 +29,8 @@ public class Appliance {
     public boolean getState(){
         return state;
     }
+    public int getImage(){
+        return image;
+    }
+
 }
