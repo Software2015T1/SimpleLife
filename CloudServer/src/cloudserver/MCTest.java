@@ -40,6 +40,7 @@ public class MCTest
                 } 
                 catch (EOFException e)
                 {
+                    System.out.println(e);
                     try
                     {
                         Thread.sleep(1000);

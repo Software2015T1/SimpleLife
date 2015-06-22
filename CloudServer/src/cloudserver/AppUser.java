@@ -42,6 +42,7 @@ public class AppUser
             try
             {
                 String command = inputs.readUTF();
+                System.out.println(command);
                 MissionType type = CommandParser.parse(command, par);
                 UserTable usertable = CloudServer.userTable;
                 ControllerSocketTable cstable = CloudServer.csTable;
@@ -64,8 +65,15 @@ public class AppUser
                         if(CloudServer.userTable.authenticate(par[0], par[1]))
                         {
                             Socket s = cstable.getControllerSocket(par[2]);
+                            if(s!=null)
+                            {
                             returnCode = new Fowarder().send(command, s);
                             outs.writeUTF(returnCode);
+                            }
+                            else
+                            {
+                                outs.writeUTF("R015");
+                            }
                             System.out.println("User: "+par[0]+" send command to MC: "+par[2]);
                         }
                         else

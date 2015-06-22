@@ -30,7 +30,7 @@ public class RPiSocket{
 				System.out.println("step1\n");
 				while(s!=null){
 					String input = in.readUTF();
-					System.out.println("±qServer¦¬¨ì: "+input);
+					System.out.println("from sever: "+input);
 					if(input.equals("end")) 
 						break;
 					parseCmd(input);
@@ -91,20 +91,23 @@ public class RPiSocket{
 		}
 		else if (cmdArray[0].equals("/ControlAppliance")){
 		//....
+			//deviceController.controll();
+
 		}
 		else if (cmdArray[0].equals("/Chart")){
+			//history.calculate();
 		//....
 		}
 		else if (cmdArray[0].equals("/TimeSetting")){
-		//....
-		}
-		else if (cmdArray[0].equals("/ProximitySetting")){
+			//deviceController.controll();
 		//....
 		}
 		else if (cmdArray[0].equals("/EnergySaver")){
 		//....
+
 		}
 		else if (cmdArray[0].equals("/WifiSetting")){
+			String ssid,password,keytype;
 
 
 		}
@@ -112,6 +115,7 @@ public class RPiSocket{
 	}
 	public void sendCmd(String outputCmd){
 		//out.println(outputCmd); 
+		System.out.println("at the RPiSendCmd"+outputCmd);
 		try{
 			out.writeUTF(outputCmd);
 		}catch (IOException ex)
