@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -24,10 +25,12 @@ public class ProfileActivity extends ActionBarActivity {
     EditText etexCPassword;
     EditText etexCurrPassword;
     Button btnSaveNewPassword;
+    ImageButton backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        backButton = (ImageButton)findViewById(R.id.ibtnBack_profile);
         btnLogout = (Button)findViewById(R.id.btnLogOut);
         btnChangePassword=(Button)findViewById(R.id.btnChangePassword);
         etexCPassword = (EditText)findViewById(R.id.editText_confirmPassword);
@@ -38,6 +41,13 @@ public class ProfileActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 LogoutEvent();
+            }
+        });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ApplianceActivity.class);
+                startActivity(intent);;
             }
         });
         btnChangePassword.setOnClickListener(new View.OnClickListener() {

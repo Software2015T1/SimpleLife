@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -46,6 +47,9 @@ public class Add_MainControllerActivity extends Add_Activity{
             }
         }
         changeFragment(fragmentList.get(index));
+
+        ImageButton backButton = (ImageButton)findViewById(R.id.ibtnBack_AddOther);
+        setBackButtonListener(backButton);
 
     }
 
