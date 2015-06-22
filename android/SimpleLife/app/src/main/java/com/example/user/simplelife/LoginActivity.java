@@ -238,6 +238,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 }
 
             }
+            //
+            //startService(new Intent(LoginActivity.this,GPSService.class));
+            //
             final ProgressDialog dialog = ProgressDialog.show(LoginActivity.this,"Connecting","Connecting to server...",false);
             new Thread() {
                 public void run() {
