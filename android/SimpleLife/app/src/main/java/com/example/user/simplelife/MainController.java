@@ -7,19 +7,23 @@ import java.util.ArrayList;
 public class MainController extends Device{
     private ArrayList<Appliance> appliances;
     private String mainControlerID;
+    private String address;
     private int image = R.drawable.circle_main;
-    public MainController(String mainControlerID,String name) {
+    public MainController(String mainControlerID,String name,String address) {
+        this.type = "Main";
         this.mainControlerID = mainControlerID;
         this.name = name;
-        appliances = new ArrayList<Appliance>();
+        this.address = address;
+        this.appliances = new ArrayList<Appliance>();
     }
 
     public String getMainControlerID() {
         return mainControlerID;
     }
 
-    public void setMainControlerID(String mainControlerID) {
+    public void setMainControlerID(String mainControlerID,String address) {
         this.mainControlerID = mainControlerID;
+        this.address = address;
     }
 
     public ArrayList<Appliance> getAppliances() {
@@ -36,5 +40,9 @@ public class MainController extends Device{
 
     public int getImage(){
         return image;
+    }
+
+    public String getAddress(){
+        return address;
     }
 }

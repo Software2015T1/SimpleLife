@@ -6,8 +6,8 @@ package com.example.user.simplelife;
 public class Other extends Appliance {
 
     private TimeSetting timeSetting;
-    public Other(String deviceID, String mainControllerID,String name,boolean state){
-        super("Other",deviceID,mainControllerID,name,state);
+    public Other(String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
+        super("Other",deviceID,mainControllerID,mainControllerName,name,state);
         image = R.drawable.circle_other_white;
     }
 

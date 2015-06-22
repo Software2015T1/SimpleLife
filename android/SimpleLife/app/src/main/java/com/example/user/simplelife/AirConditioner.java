@@ -11,8 +11,8 @@ public class AirConditioner extends Appliance{
     private EnergySaver energySaver;
     private IdealTemperature idealTemperature;
 
-    public AirConditioner( String deviceID, String mainControllerID,String name,boolean state){
-        super("AC",deviceID,mainControllerID,name,state);
+    public AirConditioner( String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
+        super("AC",deviceID,mainControllerID,mainControllerName,name,state);
         image = R.drawable.circle_air;
     }
     public String getMotionID(){

@@ -84,6 +84,10 @@
             android:label="@string/title_activity_tv" >
         </activity>
         <activity
+            android:name=".OtherActivity"
+            android:label="@string/title_activity_other" >
+        </activity>
+        <activity
             android:name=".AirConditionerActivity"
             android:label="@string/title_activity_air_conditioner" >
         </activity>

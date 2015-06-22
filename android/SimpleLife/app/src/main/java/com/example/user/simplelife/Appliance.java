@@ -8,11 +8,13 @@ public class Appliance extends Device{
     protected String deviceID;
     protected String mainControllerID;
     protected boolean state;
+    protected String mainControllerName;
 
-    public Appliance(String type, String deviceID, String mainControllerID,String name,boolean state){
+    public Appliance(String type, String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
         this.type = type;
         this.deviceID = deviceID;
         this.mainControllerID = mainControllerID;
+        this.mainControllerName = mainControllerName;
         this.state = state;
         this.name = name;
     }
@@ -21,6 +23,9 @@ public class Appliance extends Device{
     }
     public String getMainControllerID(){
         return mainControllerID;
+    }
+    public String getMainControllerName(){
+        return mainControllerName;
     }
     public boolean getState(){
         return state;
