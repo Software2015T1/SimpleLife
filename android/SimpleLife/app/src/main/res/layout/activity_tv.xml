@@ -73,7 +73,7 @@
         android:layout_below="@+id/imageLine_air"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="15dp">
 
         <ImageButton
             android:layout_width="54dp"
@@ -81,19 +81,22 @@
             android:id="@+id/ibtnUp_menu_tv"
             android:layout_row="0"
             android:layout_column="1"
-            android:src="@drawable/up_icon"
+            android:src="@drawable/icon_up_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000" />
 
         <ImageButton
             android:layout_width="54dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:id="@+id/ibtnVolumeUp"
             android:layout_row="1"
             android:layout_column="3"
-            android:src="@drawable/volumeup_icon"
+            android:src="@drawable/icon_volumeup_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000"
+            android:layout_marginTop="5dp" />
 
         <ImageButton
             android:layout_width="54dp"
@@ -101,19 +104,21 @@
             android:id="@+id/ibtnDown_menu_tv"
             android:layout_row="2"
             android:layout_column="1"
-            android:src="@drawable/down_icon"
+            android:src="@drawable/icon_down_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000" />
 
         <ImageButton
             android:layout_width="54dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:id="@+id/ibtnVolumeDown"
             android:layout_row="2"
             android:layout_column="3"
-            android:src="@drawable/volumedown_icon"
+            android:src="@drawable/icon_volumedown_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000" />
 
         <Button
             android:layout_width="80dp"
@@ -124,17 +129,19 @@
             android:layout_column="0"
             android:singleLine="true"
             android:textColor="#ffffffff"
-            android:background="@drawable/other_icon" />
+            android:background="@drawable/other_icon"
+            android:layout_marginTop="10dp" />
 
         <ImageButton
             android:layout_width="54dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:id="@+id/ibtnMenu_tv"
             android:layout_row="0"
             android:layout_column="3"
-            android:src="@drawable/menu_icon"
+            android:src="@drawable/icon_menu_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000" />
 
         <ImageButton
             android:layout_width="54dp"
@@ -142,9 +149,11 @@
             android:id="@+id/ibtnLeft_menu_tv"
             android:layout_row="1"
             android:layout_column="0"
-            android:src="@drawable/left_icon"
+            android:src="@drawable/icon_left_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:background="#00000000"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="54dp"
@@ -156,7 +165,9 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/other_icon"
             android:textColor="#ffffffff"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
 
         <ImageButton
             android:layout_width="54dp"
@@ -164,9 +175,11 @@
             android:id="@+id/ibtnRight_menu_tv"
             android:layout_row="1"
             android:layout_column="2"
-            android:src="@drawable/right_icon2"
+            android:src="@drawable/icon_right_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="left" />
+            android:layout_gravity="left"
+            android:background="#00000000"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="80dp"
@@ -180,7 +193,8 @@
             android:background="@drawable/other_icon"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp" />
 
         <Button
             android:layout_width="80dp"
@@ -191,17 +205,20 @@
             android:layout_column="2"
             android:textColor="#ffffffff"
             android:singleLine="true"
-            android:background="@drawable/other_icon" />
+            android:background="@drawable/other_icon"
+            android:layout_marginTop="10dp" />
 
         <ImageButton
             android:layout_width="54dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:id="@+id/ibtnMute"
             android:layout_row="3"
             android:layout_column="3"
-            android:src="@drawable/mute_icon"
+            android:src="@drawable/icon_mute_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="80dp"
@@ -212,7 +229,8 @@
             android:layout_column="0"
             android:textColor="#ffffffff"
             android:singleLine="true"
-            android:background="@drawable/other_icon" />
+            android:background="@drawable/other_icon"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="80dp"
@@ -224,7 +242,8 @@
             android:singleLine="true"
             android:textColor="#ffffffff"
             android:background="@drawable/other_icon"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="80dp"
@@ -235,17 +254,20 @@
             android:layout_column="2"
             android:textColor="#ffffffff"
             android:singleLine="true"
-            android:background="@drawable/other_icon" />
+            android:background="@drawable/other_icon"
+            android:layout_marginTop="5dp" />
 
         <ImageButton
             android:layout_width="54dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:id="@+id/ibtnUp_tv"
             android:layout_row="4"
             android:layout_column="3"
-            android:src="@drawable/up_icon"
+            android:src="@drawable/icon_up_white"
             android:layout_gravity="center_horizontal"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:background="#00000000"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="80dp"
@@ -283,13 +305,15 @@
 
         <ImageButton
             android:layout_width="54dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:id="@+id/ibtnDown_tv"
             android:layout_row="5"
             android:layout_column="3"
-            android:src="@drawable/down_icon"
+            android:src="@drawable/icon_down_white"
             android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#00000000"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:layout_width="80dp"
@@ -305,13 +329,15 @@
 
         <ImageButton
             android:layout_width="54dp"
-            android:layout_height="53dp"
+            android:layout_height="50dp"
             android:id="@+id/ibtnReturn_tv"
             android:layout_row="6"
             android:layout_column="3"
-            android:src="@drawable/return_icon"
+            android:src="@drawable/icon_return_white"
             android:layout_gravity="center_horizontal"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:background="#00000000"
+            android:layout_marginTop="5dp" />
 
     </GridLayout>
 
