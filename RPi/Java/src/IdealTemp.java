@@ -4,26 +4,26 @@ public class IdealTempDeciser{
 	IdealTempDecider(){
 		
 	}
-	boolean AddDevice(String in_id){
-		settinglist.add(new IdealTemSetting(in_id));
+	boolean AddDevice(String in_ID){
+		settinglist.add(new IdealTemSetting(in_ID));
 		return true;
 	}
 }
 
 class IdealTemSetting{
-	private String arduinoid;
+	private String arduinoID;
 	private int Temp;
 	boolean on;
-	IdealTemSetting(String in_id){
-		arduinoid = in_id;
+	IdealTemSetting(String in_ID){
+		arduinoid = in_ID;
 		on = false;
 		Temp = 25;
 	}
-	boolean SetTemp(int Temp){
+	boolean setTemp(int Temp){
 		this.Temp = Temp;
 		return true;
 	}
-	String GetArID(){
-		return arduinoid;
+	String getArID(){
+		return arduinoID;
 	}
 }

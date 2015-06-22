@@ -2,11 +2,13 @@ import java.util.*;
 public class DeviceInfo{
 	public class Device{
 		protected String deviceId,arduinoId;
-		protected String type;	
+		protected String type;
+		protected boolean on;
 		public Device(){
 			deviceId="null";
 			arduinoId="null";
 			type="null";
+			on = false;
 			//cmd="null";
 		}
 		public String getID(){
@@ -91,10 +93,18 @@ public class DeviceInfo{
 		
 		
 	}
-	//public int getDeviceInfo(){
-	//
-	
-	//}
+	int getDeviceIndex(String arduinoId){
+		for(int i=0;i<deviceCnt;i++){
+			if(arduinoId.equals(deviceList[i].arduinoId))
+				return i;
+		}
+	}
+	boolean getDeviceStatus(int index){
+		return deviceList[index].on;
+	}
+	int getDeviceId(int index){
+		return deviceList[index].deviceId;
+	}
 
 	
 }

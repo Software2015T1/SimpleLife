@@ -10,16 +10,16 @@ public class Scheduler extends Thread{
 	//private RF rf;
 	RPiSocket socket;
 	public Scheduler(){
-		joblist = new ArrayList<>();
+		joblist = new ArrayList<Job>();
 	}
-	public void initial(){
-		
+	void initial(RF rf){
+		this.rf = rf;
 	}
 	boolean addJob(String targetID,boolean targetcmd,Date targetdate){
 		Job j = new(targetdate,targetID,targetcmd)
 		return addJob(j);
 	}
-	boolean addJob(String targetID,boolean targetcmd,String datesting){
+	boolean addJob(String targetID,boolean targetcmd,String datestring){
 		try{
 			Date date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(datesting);
 		}catch(ParseException e){
