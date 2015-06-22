@@ -9,12 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-<<<<<<< HEAD
 import android.widget.TextView;
-=======
 import android.widget.ImageButton;
->>>>>>> origin/master
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -29,11 +25,9 @@ public class ProfileActivity extends ActionBarActivity {
     EditText etexCPassword;
     EditText etexCurrPassword;
     Button btnSaveNewPassword;
-<<<<<<< HEAD
     TextView user_profile;
-=======
     ImageButton backButton;
->>>>>>> origin/master
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
