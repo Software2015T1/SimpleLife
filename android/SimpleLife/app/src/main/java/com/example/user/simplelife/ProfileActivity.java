@@ -1,12 +1,15 @@
 package com.example.user.simplelife;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ImageButton;
 
@@ -41,7 +44,7 @@ public class ProfileActivity extends ActionBarActivity {
         etexCurrPassword =(EditText)findViewById(R.id.editText_currentPassword);
         btnSaveNewPassword = (Button)findViewById(R.id.btnSaveNewPassword);
         user_profile = (TextView)findViewById(R.id.tv_user_profile);
-        TextView tvEmail = (TextView)findViewById(R.id.textEmail_profile);
+        final TextView tvEmail = (TextView)findViewById(R.id.textEmail_profile);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,26 +96,36 @@ public class ProfileActivity extends ActionBarActivity {
                 }
                 if(isValid)
                 {
+                    final ProgressDialog dialog = ProgressDialog.show(ProfileActivity.this,"Connect","Connect to server",true);
                     new Thread() {
                         public void run()
                         {
                             Socket s = UserProfile.Socket2Server;
                             String currPasswordMd5 = Md5.md5(currPassword);
                             String newPasswordMd5 = Md5.md5(changePassowrd);
+                            String returnCode="";
                             try
                             {
                                 DataOutputStream outs = new DataOutputStream(s.getOutputStream());
                                 DataInputStream inputs = new DataInputStream(s.getInputStream());
                                 outs.writeUTF("/ChangePassword "+UserProfile.email+" "+currPasswordMd5+" "+newPasswordMd5);
-                                String returnCode = inputs.readUTF();
+                                returnCode = inputs.readUTF();
                                 if(returnCode.equals("R012"))
                                 {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
                                             new AlertDialog.Builder(ProfileActivity.this).setMessage("Password Changed!").show();
+                                            etexCPassword.setText(null);
+                                            etexCurrPassword.setText(null);
+                                            etextNewPassword.setText(null);
+                                            etexCPassword.setVisibility(View.INVISIBLE);
+                                            etextNewPassword.setVisibility(View.INVISIBLE);
+                                            etexCurrPassword.setVisibility(View.INVISIBLE);
+                                            btnSaveNewPassword.setVisibility(View.INVISIBLE);
                                         }
                                     });
+
                                 }
                                 else if(returnCode.equals("R013"))
                                 {
@@ -124,10 +137,16 @@ public class ProfileActivity extends ActionBarActivity {
                                     });
                                 }
 
-
+                                dialog.dismiss();
                             } catch(IOException e)
                             {
-
+                                returnCode = UserProfile.ReConnect2Server(dialog,UserProfile.email,UserProfile.password);
+                                if(returnCode.equals("R002")) runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        new AlertDialog.Builder(ProfileActivity.this).setMessage("Connect Success, try again").show();
+                                    }
+                                });
                             }
                         }
                     }.start();

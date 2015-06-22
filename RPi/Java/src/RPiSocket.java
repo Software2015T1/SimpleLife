@@ -3,60 +3,73 @@ import java.io.*;
 import java.net.*;
 public class RPiSocket{
 	
-
-	
-	/*public static void start throws IOException {
-		String host="8.8.8.8";
-		int port="4567";
-		System.out.println("試圖連線到Server...");
-		Socket server = new Socket(host, port);
-		System.out.println("成功連線到Server");
-		ClientReceiver receiver = new ClientReceiver(server);
-		receiver.start();
-		PrintWriter out = new PrintWriter(server.getOutputStream());
-		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-		while (true) {
-			String str = keyboard.readLine();
-			out.println(str);
-			out.flush();
-			if (str.equals("end")) 
-				break;
-		}
-		receiver.stopSafely();
-		server.close();
-	}*/
 	private DeviceInfo deviceInfo;
 	private DeviceController deviceController;
+	private Socket s;
+	private String mainControllerId;
+	private DataInputStream in;
+	private DataOutputStream out;
+	
+	public RPiSocket(String MCid){
+		this.mainControllerId=new String(MCid);
+	}
+
 	public void initial(DeviceInfo deviceInfo,DeviceController deviceController){
 		this.deviceInfo = deviceInfo;
 		this.deviceController = deviceController;
 		
 	}
-	private BufferedReader in;
-	private PrintWriter out;
+	
+
+
+	
+	class SeverListener extends Thread{
+		@Override
+		public void run(){
+			try{
+				System.out.println("step1\n");
+				while(s!=null){
+					String input = in.readUTF();
+					System.out.println("從Server收到: "+input);
+					if(input.equals("end")) 
+						break;
+					parseCmd(input);
+				}
+				System.out.println("step2\n");
+			
+			} catch (IOException ex)
+        	{
+            	System.out.println(ex.toString());
+        	}
+
+
+		}
+
+
+
+	}
+
+
+
 	public void start(){
 		
 		try{
 		
-		String host="192.168.1.52";
-		int port=4567;
-		Socket s = new Socket(host, port);
-		//final Reader from_sever = new InputStreamReader(s.getInputStream());
-		in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-		out = new PrintWriter(s.getOutputStream());
+		String host="140.112.53.245";
+		int port=1028;
+		s = new Socket(host, port);
+		in = new DataInputStream(s.getInputStream());
+		out = new DataOutputStream(s.getOutputStream());
+		String firstConnection="/MCConnect "+mainControllerId;
+		out.writeUTF(firstConnection);
+	//	System.out.println("finish building\n");
+		new SeverListener().start();
+	//	System.out.println("finish building2\n");
+		}
 		
-		while(s!=null){
-			String input = in.readLine();
-			System.out.println("從Server收到: "+input);
-			if(input.equals("end")) 
-				break;
-			parseCmd(input);
-		}
-		}
 		catch(Exception e){
 			System.err.println(e);
 		}
-	//	BufferedReader from_user= new BufferedReader(new InputStreamReader(System.in));
 	
 	}
 	public void parseCmd(String inputCmd){
@@ -91,11 +104,23 @@ public class RPiSocket{
 		else if (cmdArray[0].equals("/EnergySaver")){
 		//....
 		}
+		else if (cmdArray[0].equals("/WifiSetting")){
+
+
+		}
 	
 	}
 	public void sendCmd(String outputCmd){
-		out.println(outputCmd); 
-		out.flush(); 
+		//out.println(outputCmd); 
+		try{
+			out.writeUTF(outputCmd);
+		}catch (IOException ex)
+        {
+       		System.out.println(ex.toString());
+        }
+
+
+		//out.flush(); 
 		//if (outputCmd.equals("end")) 
 		//	break;
 	}

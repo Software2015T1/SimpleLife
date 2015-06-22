@@ -1,5 +1,4 @@
 package com.example.user.simplelife;
-
 import java.util.ArrayList;
 
 /**
@@ -9,22 +8,27 @@ public class MainController {
     private ArrayList<Appliance> appliances;
     private String mainControlerID;
 
-    public MainController(String mainControlerID){
+    public MainController(String mainControlerID) {
         this.mainControlerID = mainControlerID;
     }
-    public String getMainControlerID(){
+
+    public String getMainControlerID() {
         return mainControlerID;
     }
-    public void setMainControlerID(String mainControlerID){
+
+    public void setMainControlerID(String mainControlerID) {
         this.mainControlerID = mainControlerID;
     }
-    public ArrayList<Appliance> getAppliances(){
+
+    public ArrayList<Appliance> getAppliances() {
         return appliances;
     }
-    public void addAppliance(Appliance appliance){
+
+    public void addAppliance(Appliance appliance) {
         this.appliances.add(appliance);
     }
-    public void removeAppliance(Appliance appliance){
+
+    public void removeAppliance(Appliance appliance) {
         this.appliances.remove(appliance);
     }
 }
