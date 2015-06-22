@@ -18,11 +18,23 @@ public class Appliance extends Device{
         this.state = state;
         this.name = name;
     }
+    public Appliance(){
+        state = false;
+    }
+    public void setDeviceID(String deviceID){
+        this.deviceID = deviceID;
+    }
     public String getDeviceID(){
         return deviceID;
     }
+    public void setMainControllerID(String mainControllerID){
+        this.mainControllerID =  mainControllerID;
+    }
     public String getMainControllerID(){
         return mainControllerID;
+    }
+    public void setMainControllerName(String mainControllerName){
+        this.mainControllerName =  mainControllerName;
     }
     public String getMainControllerName(){
         return mainControllerName;

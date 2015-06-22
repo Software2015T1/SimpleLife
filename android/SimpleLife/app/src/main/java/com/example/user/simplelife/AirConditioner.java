@@ -23,6 +23,12 @@ public class AirConditioner extends Appliance{
         strength_id = 0;
         direction_id = 0;
     }
+    public AirConditioner(){
+        super();
+        type = "AC";
+        image = R.drawable.circle_air;
+    }
+
     public String getMotionID(){
         return motionID;
     }

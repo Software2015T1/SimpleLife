@@ -49,6 +49,9 @@ public abstract class Add_Activity extends FragmentActivity
                 changeFragment(fragmentList.get(this.index));
             }
         }
+        else if(arg.equals("done")){
+            saveAppliance();
+        }
     }
 
     public boolean onTouchEvent(MotionEvent event) {
@@ -73,5 +76,9 @@ public abstract class Add_Activity extends FragmentActivity
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    public void saveAppliance(){
+
     }
 }
