@@ -90,14 +90,15 @@ public class AppUser
                                 try
                                 {
                                     s.getOutputStream().write(0);
+                                    CloudServer.userTable.AddMC(par[3],par[2]);
+                                    outs.writeUTF("R005");
+                                    System.out.println("user: "+par[0]+" add MC: "+par[2]);
                                 } catch (Exception e)
                                 {
                                     outs.writeUTF("R006");
                                     break;
                                 }
-                                CloudServer.userTable.AddMC(par[3],par[2]);
-                                outs.writeUTF("R005");
-                                System.out.println("user: "+par[0]+" add MC: "+par[2]);
+
                             }
                             else
                             {
