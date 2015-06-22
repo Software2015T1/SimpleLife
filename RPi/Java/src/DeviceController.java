@@ -62,6 +62,7 @@ public class DeviceController{
 
 		
 		}
+		else if(cmdArray[0].eq)
 		
 	}
 	private void sendCmdtoRF(){

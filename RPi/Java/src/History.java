@@ -9,6 +9,14 @@ public class History{
 		light = l;
 		AC = ac;
 	}
+	void printHis(int cmd){
+		Date To = new Date();
+		Calendar c = Calendar.getInstance();
+		c.setTime(To);
+		c.set(Calendar.MONTH,c.get(Calendar.MONTH)-1);
+		Date From = c.getTime();
+		printHis(From,To,cmd);
+	}
 	void printHis(Date From,Date To,int cmd){
 		if(cmd ==1)
 			getData(light.createIterator(),From,To);
