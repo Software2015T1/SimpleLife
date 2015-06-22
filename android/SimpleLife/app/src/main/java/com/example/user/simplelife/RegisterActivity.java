@@ -188,6 +188,7 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
                             outs.writeUTF("/Login "+email+" "+passwordMd5);
                             UserProfile.email =email;
                             UserProfile.password = passwordMd5;
+                            UserProfile.username = email.split("@")[0];
                             Intent intent = new Intent(RegisterActivity.this, ApplianceActivity.class);
                             startActivity(intent);
                         }

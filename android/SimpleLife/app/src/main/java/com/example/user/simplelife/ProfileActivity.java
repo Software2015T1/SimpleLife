@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -24,6 +25,7 @@ public class ProfileActivity extends ActionBarActivity {
     EditText etexCPassword;
     EditText etexCurrPassword;
     Button btnSaveNewPassword;
+    TextView user_profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class ProfileActivity extends ActionBarActivity {
         etextNewPassword =(EditText)findViewById(R.id.editText_NewPassword);
         etexCurrPassword =(EditText)findViewById(R.id.editText_currentPassword);
         btnSaveNewPassword = (Button)findViewById(R.id.btnSaveNewPassword);
+        user_profile = (TextView)findViewById(R.id.tv_user_profile);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +121,7 @@ public class ProfileActivity extends ActionBarActivity {
                 }
             }
         });
+        user_profile.setText(UserProfile.username);
     }
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic

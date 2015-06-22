@@ -26,14 +26,27 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +67,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
-
+    private static final String UserInfoPath ="/sdcard/UserInfo.txt";
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
@@ -65,6 +78,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
 
         ImageButton Return = (ImageButton) findViewById(R.id.ibtnBack_login);
         Return.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +117,33 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+        CheckBox cbxstore = (CheckBox)findViewById(R.id.cbxStore);
+        try {
+            FileReader fr = new FileReader(UserInfoPath);
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                String email = br.readLine();
+                String tf = br.readLine();
+                if(tf.equals("true"))
+                {
+                    cbxstore.setChecked(true);
+                }
+                else
+                {
+                    cbxstore.setChecked(false);
+                }
+                //String password = br.readLine();
+                //mPasswordView.setText(password);
+                mEmailView.setText(email);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void populateAutoComplete() {
@@ -158,11 +201,41 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             //showProgress(true);
             //mAuthTask = new UserLoginTask(email, password);
             //mAuthTask.execute((Void) null);
+            final String passwordMd5 = Md5.md5(password);
+            CheckBox cbxStorge = (CheckBox)findViewById(R.id.cbxStore);
+            if(cbxStorge.isChecked())
+            {
+                FileWriter fw = null;
+                BufferedWriter bw = null;
+
+                try
+                {
+                    fw = new FileWriter(UserInfoPath);
+                    bw = new BufferedWriter(fw);
+                    bw.write(email + "\n");
+                    //bw.write(passwordMd5);
+                    bw.write("true\n");
+                    Toast.makeText(getBaseContext(), "Success", Toast.LENGTH_LONG);
+                } catch (Exception e)
+                {
+                    Toast.makeText(getBaseContext(),e.toString(),Toast.LENGTH_LONG);
+                    e.printStackTrace();
+                }
+                finally {
+
+                    if(bw!=null) try {
+                        bw.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
             new Thread() {
                 public void run() {
                     try
                     {
-                        String passwordMd5 = Md5.md5(password);
+
                         UserProfile.Socket2Server = new Socket(getString(R.string.CloudServerIP),Integer.parseInt(getString(R.string.PORT)));
                         DataInputStream inputs = new DataInputStream(UserProfile.Socket2Server.getInputStream());
                         DataOutputStream outs= new DataOutputStream(UserProfile.Socket2Server.getOutputStream());
@@ -172,6 +245,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         {
                             UserProfile.password = passwordMd5;
                             UserProfile.email = email;
+                            UserProfile.username = email.split("@")[0];
                             startActivity(new Intent(LoginActivity.this,ApplianceActivity.class));
                         }
                         else if(returnCode.equals("R003"))

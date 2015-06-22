@@ -48,17 +48,17 @@
             android:layout_marginTop="10dp"
             android:textColor="#ffffffff" />
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText_user_profile"
+            android:id="@+id/tv_user_profile"
             android:text="@string/prompt_name"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <Button
             android:layout_width="wrap_content"

@@ -39,7 +39,12 @@
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified" android:inputType="textPassword"
                 android:maxLines="1" android:singleLine="true" />
-
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="store user information"
+                android:layout_marginTop="5dp"
+                android:id="@+id/cbxStore"/>
             <Button android:id="@+id/btnSignin_signin" style="?android:textAppearanceSmall"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:layout_marginTop="20dp" android:text="@string/action_sign_in"
