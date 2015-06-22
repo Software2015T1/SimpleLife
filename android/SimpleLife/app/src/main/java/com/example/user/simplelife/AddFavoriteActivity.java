@@ -52,7 +52,7 @@ public class AddFavoriteActivity extends Activity {
         };
 
         int images[] = {
-                R.drawable.light_icon, R.drawable.air_icon, R.drawable.tv_icon, R.drawable.other_icon
+                R.drawable.light_icon, R.drawable.air_icon, R.drawable.tv_icon, R.drawable.other_icon_white
         };
 
         String childNames[] = {
