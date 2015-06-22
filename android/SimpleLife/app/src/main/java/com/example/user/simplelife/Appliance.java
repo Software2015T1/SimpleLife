@@ -5,7 +5,6 @@ package com.example.user.simplelife;
  */
 public class Appliance extends Device{
     protected int image;
-    protected String type;
     protected String deviceID;
     protected String mainControllerID;
     protected boolean state;
@@ -16,9 +15,6 @@ public class Appliance extends Device{
         this.mainControllerID = mainControllerID;
         this.state = state;
         this.name = name;
-    }
-    public String getType(){
-        return type;
     }
     public String getDeviceID(){
         return deviceID;
