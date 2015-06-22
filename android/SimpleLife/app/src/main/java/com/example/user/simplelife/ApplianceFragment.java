@@ -60,7 +60,9 @@ public class ApplianceFragment extends Fragment {
                 }
                 else{
                     Device device = devices.get(position);
+                    if (device.getName().equals()){
 
+                    }
                 }
             }
 
