@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.Iterator;
 public class LightHistoryIterator implements Iterator{

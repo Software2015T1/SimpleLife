@@ -9,4 +9,9 @@ public class TV extends Appliance{
         super("TV",deviceID,mainControllerID,mainControllerName,name,state);
         image = R.drawable.circle_tv;
     }
+    public TV(){
+        super();
+        type = "TV";
+        image = R.drawable.circle_tv;
+    }
 }

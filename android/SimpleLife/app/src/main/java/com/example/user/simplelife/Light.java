@@ -14,6 +14,11 @@ public class Light extends Appliance{
         super("Light",deviceID,mainControllerID,mainControllerName,name,state);
         image = R.drawable.circle_light;
     }
+    public Light(){
+        super();
+        type = "Light";
+        image = R.drawable.circle_light;
+    }
     public String getMotionID(){
         return motionID;
     }

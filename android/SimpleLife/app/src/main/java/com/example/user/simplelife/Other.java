@@ -10,6 +10,11 @@ public class Other extends Appliance {
         super("Other",deviceID,mainControllerID,mainControllerName,name,state);
         image = R.drawable.circle_other_white;
     }
+    public Other(){
+        super();
+        type = "Other";
+        image = R.drawable.circle_other_white;
+    }
 
     public TimeSetting getTimeSetting(){
         return timeSetting;

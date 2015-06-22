@@ -1,5 +1,6 @@
 package com.example.user.simplelife;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -15,10 +16,12 @@ import java.util.ArrayList;
 
 public class Add_LightActivity extends Add_Activity{
 
+    private Light appliance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__light);
+        appliance = new Light();
 
         fragmentList = new ArrayList<Fragment>();
         index = 0;
@@ -60,5 +63,17 @@ public class Add_LightActivity extends Add_Activity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public Appliance getAppliance(){
+        return this.appliance;
+    }
+
+    public void saveAppliance(){
+        Intent intent = new Intent(Add_LightActivity.this, ApplianceActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("type", 0);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

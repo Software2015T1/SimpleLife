@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 
@@ -18,6 +19,8 @@ import android.widget.ImageButton;
  * create an instance of this fragment.
  */
 public class FragmentAddLight_step1 extends FragmentAdd_step {
+
+    View view;
 
     public static FragmentAddLight_step1 newInstance() {
         FragmentAddLight_step1 fragment = new FragmentAddLight_step1();
@@ -37,11 +40,17 @@ public class FragmentAddLight_step1 extends FragmentAdd_step {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_light_step1, container, false);
+        view = inflater.inflate(R.layout.fragment_add_light_step1, container, false);
         ImageButton nextButton = (ImageButton) view.findViewById(R.id.ibtnNext_addLight1);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mListener.onFragmentInteraction("next");
+
+                Light appliance = (Light)((Add_LightActivity)getActivity()).getAppliance();
+                EditText audinoID = (EditText)view.findViewById(R.id.editText_ArduinoID_addlight);
+                appliance.setDeviceID(audinoID.getText().toString());
+                EditText motionID = (EditText)view.findViewById(R.id.editText_motionID_addlight);
+                appliance.setMotionID(motionID.getText().toString());
             }
         });
         return view;

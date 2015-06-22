@@ -42,7 +42,8 @@ public class MainActivity extends ActionBarActivity {
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,GPSTestActivity.class));
+
+                startActivity(new Intent(MainActivity.this, GPSTestActivity.class));
             }
         });
 

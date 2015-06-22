@@ -71,8 +71,6 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
-            android:ems="10"
             android:id="@+id/editTextLocation_addmain"
             android:hint="@string/addmain_address"
             android:layout_above="@+id/textContent4_addmain"
