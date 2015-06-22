@@ -18,7 +18,7 @@ public class CloudServer
 
 
     public final static int PORT =1028;
-    public final static String IP_ADDRESS = "127.0.0.1";
+    public final static String IP_ADDRESS = "140.112.53.245";
     public static UserTable userTable;
     public static ControllerSocketTable csTable;
     public static void main(String[] args)
@@ -29,6 +29,8 @@ public class CloudServer
             userTable = UserTableCreator.createUserTable();
             csTable = ControllerSocketTableCreator.createCSTable();
             server = new ServerSocket(PORT);
+            System.out.println("Server IP: "+server.getInetAddress());
+            System.out.println("PORT: " + server.getLocalPort());
             System.out.println("Server created. waiting for client...");
             new CommandListener().start();
             while(true)
