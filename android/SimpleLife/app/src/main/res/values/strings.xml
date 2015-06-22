@@ -28,4 +28,5 @@
     <string name="title_activity_ideal_temperature">IdealTemperatureActivity</string>
     <string name="title_activity_chart_light">ChartLightActivity</string>
     <string name="title_activity_chart_air">ChartAirActivity</string>
+    <string name="title_activity_gpstest">GPSTestActivity</string>
 </resources>
