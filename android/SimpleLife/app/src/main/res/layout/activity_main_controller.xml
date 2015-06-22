@@ -25,7 +25,7 @@
         android:layout_toRightOf="@+id/ibtnBack_maincontroller"
         android:layout_toEndOf="@+id/ibtnBack_maincontroller"
         android:layout_marginTop="20dp"
-        android:src="@drawable/circle_controller"
+        android:src="@drawable/circle_main"
         android:layout_marginLeft="10dp" />
 
     <TextView
