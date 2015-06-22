@@ -1,7 +1,9 @@
 package com.example.user.simplelife;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,23 +12,28 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.ArrayList;
+
 
 public class LightActivity extends ActionBarActivity {
 
     private ListView listView;
     private Light_ListAdapter adapter;
-    private Light light;
+    private Light appliance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light);
 
-        light = (Light)getIntent().getSerializableExtra("device");
+        appliance = (Light)getIntent().getSerializableExtra("device");
         TextView nameText = (TextView)findViewById(R.id.textName_light);
-        nameText.setText(light.getName());
+        nameText.setText(appliance.getName());
         TextView contentText = (TextView)findViewById(R.id.textContent_light);
-        contentText.setText("Connected to \n" + light.getMainControllerName());
+        contentText.setText("Connected to \n" + appliance.getMainControllerName());
 
         listView = (ListView) findViewById(R.id.listView_light);
         adapter = new Light_ListAdapter(this);
@@ -38,11 +45,50 @@ public class LightActivity extends ActionBarActivity {
             }
         });
 
+        ImageButton backButton = (ImageButton)findViewById(R.id.ibtnBack_light);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LightActivity.this, ApplianceActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", 0);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
         ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_light);
+        if(appliance.getState()){
+            btnOn.setImageResource(R.drawable.circle_light_yellow);
+        }
+        else{
+            btnOn.setImageResource(R.drawable.circle_light);
+        }
         btnOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                CommandCreator cc = new CommandCreator();
+                ArrayList<String> strings = new ArrayList<String>();
+                strings.add("/ControlAppliance");
+                strings.add(UserProfile.email);
+                strings.add(UserProfile.password);
+                strings.add(appliance.getMainControllerID());
+                strings.add(appliance.getType());
+                strings.add(appliance.getDeviceID());
+                if(appliance.getState()){
+                    strings.add("on");
+                    appliance.setState(false);
+                    ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_light);
+                    btnOn.setImageResource(R.drawable.circle_light);
+                }
+                else{
+                    strings.add("off");
+                    appliance.setState(true);
+                    ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_light);
+                    btnOn.setImageResource(R.drawable.circle_light_yellow);
+                }
+                cc.createCommand(strings);
+                cc.sendToServer();
             }
         });
     }
