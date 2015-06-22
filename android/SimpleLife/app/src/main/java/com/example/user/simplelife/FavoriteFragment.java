@@ -15,7 +15,6 @@ import android.widget.TextView;
  * Created by User on 2015/6/14.
  */
 public class FavoriteFragment extends Fragment {
-    private String value = "";
     private ListView list;
     private Favorite_ListAdapter adapter;
     private View view;
@@ -25,7 +24,6 @@ public class FavoriteFragment extends Fragment {
         super.onAttach(activity);
 
         ApplianceActivity mainActivity = (ApplianceActivity)activity;
-        value = mainActivity.getFavoriteData();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){

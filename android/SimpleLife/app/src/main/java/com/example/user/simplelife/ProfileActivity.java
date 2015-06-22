@@ -47,6 +47,9 @@ public class ProfileActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileActivity.this, ApplianceActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", 3);
+                intent.putExtras(bundle);
                 startActivity(intent);;
             }
         });

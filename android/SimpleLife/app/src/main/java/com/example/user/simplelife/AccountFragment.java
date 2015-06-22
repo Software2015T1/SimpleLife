@@ -18,7 +18,6 @@ import android.widget.ListView;
  * Created by User on 2015/6/14.
  */
 public class AccountFragment extends Fragment {
-    private String value = "";
     private ListView listView;
     private View v;
 
@@ -26,7 +25,6 @@ public class AccountFragment extends Fragment {
         super.onAttach(activity);
 
         ApplianceActivity mainActivity = (ApplianceActivity)activity;
-        value = mainActivity.getSettingData();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){

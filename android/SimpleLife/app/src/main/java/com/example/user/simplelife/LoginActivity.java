@@ -70,7 +70,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         Return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ApplianceActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", 0);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -127,7 +130,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         final String email = mEmailView.getText().toString();
         final String password = mPasswordView.getText().toString();
         if(email.equals("simplelife")){
-            startActivity(new Intent(this, ApplianceActivity.class));
+            Intent intent = new Intent(this, ApplianceActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", 0);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
         boolean cancel = false;
         View focusView = null;

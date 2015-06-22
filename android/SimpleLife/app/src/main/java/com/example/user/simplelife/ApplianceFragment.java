@@ -25,7 +25,6 @@ import java.util.Map;
  * Created by User on 2015/6/14.
  */
 public class ApplianceFragment extends Fragment {
-    private String value = "";
     private GridView gridView;
     private int[] image = {
             R.drawable.plus_button
@@ -38,7 +37,6 @@ public class ApplianceFragment extends Fragment {
         super.onAttach(activity);
 
         ApplianceActivity mainActivity = (ApplianceActivity)activity;
-        value = mainActivity.getHomeData();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
