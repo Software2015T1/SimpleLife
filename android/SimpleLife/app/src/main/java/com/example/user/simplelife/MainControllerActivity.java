@@ -88,9 +88,5 @@ public class MainControllerActivity extends ActionBarActivity {
             item.put("text", appliance.getName());
             items.add(item);
         }
-        Map<String, Object> add_item = new HashMap<>();
-        add_item.put("image",R.drawable.plus_button);
-        add_item.put("text", "Add Product");
-        items.add(add_item);
     }
 }

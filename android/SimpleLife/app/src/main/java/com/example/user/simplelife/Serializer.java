@@ -10,7 +10,7 @@ public class Serializer {
 
     public static void main(String arg[]) throws IOException {
 
-        Device object1 = new Device();
+        Appliance object1 = new Appliance("1","2","3","4","5",false);
         FileOutputStream fs = new FileOutputStream("device.ser");
         ObjectOutputStream os = new ObjectOutputStream(fs);
         os.writeObject(object1);

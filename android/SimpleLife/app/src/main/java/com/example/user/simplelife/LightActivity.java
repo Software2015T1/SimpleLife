@@ -38,7 +38,7 @@ public class LightActivity extends ActionBarActivity {
             }
         });
 
-        ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_air);
+        ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_light);
         btnOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
