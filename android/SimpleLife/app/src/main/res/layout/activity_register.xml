@@ -27,17 +27,6 @@
                 android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
                 android:background="#00000000" />
 
-            <AutoCompleteTextView
-                android:id="@+id/utxtName_register"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_name"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp" />
-
             <AutoCompleteTextView android:id="@+id/utxtEmail_register" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress" android:maxLines="1"
