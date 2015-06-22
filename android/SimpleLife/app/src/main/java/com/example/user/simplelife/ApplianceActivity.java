@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -31,30 +32,10 @@ public class ApplianceActivity extends FragmentActivity {
         //setting tab
         tabHost.addTab(tabHost.newTabSpec("Account").setIndicator("",ResourcesCompat.getDrawable(getResources(), R.drawable.tab_account, null)), AccountFragment.class, null);
 
+        Bundle args =this.getIntent().getExtras();
+        Log.v("fuck", Integer.toString(args.getInt("type")));
+        tabHost.setCurrentTab(args.getInt("type"));
     }
-
-
-
-    public String getHomeData()
-    {
-        return "123";
-    }
-
-    public String getFavoriteData()
-    {
-        return "456";
-    }
-
-    public String getChartData()
-    {
-        return "789";
-    }
-
-    public String getSettingData()
-    {
-        return "000";
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

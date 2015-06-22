@@ -36,19 +36,21 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="20dp" />
 
             <AutoCompleteTextView android:id="@+id/utxtEmail_register" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress" android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:layout_marginTop="20dp" />
 
             <EditText android:id="@+id/utxtPassword_register" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:hint="@string/prompt_password"
                 android:imeActionId="@+id/register"
                 android:imeActionLabel="@string/action_sign_in_short"
                 android:imeOptions="actionUnspecified" android:inputType="textPassword"
-                android:maxLines="1" android:singleLine="true" />
+                android:maxLines="1" android:singleLine="true"
+                android:layout_marginTop="10dp" />
 
             <EditText
                 android:id="@+id/utxtComfirmpassword_register"
@@ -61,15 +63,16 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
 
             <Button android:id="@+id/btnRegister_register" style="?android:textAppearanceSmall"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" android:text="@string/action_register"
+                android:layout_width="match_parent" android:layout_height="50dp"
+                android:layout_marginTop="20dp" android:text="@string/action_register"
                 android:textStyle="bold"
                 android:textColor="#ffffffff"
                 android:singleLine="true"
-                android:background="@drawable/other_icon" />
+                android:background="@drawable/icon_background" />
 
         </LinearLayout>
     </ScrollView>

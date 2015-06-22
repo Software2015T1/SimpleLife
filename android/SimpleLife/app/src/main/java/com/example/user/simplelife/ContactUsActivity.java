@@ -1,17 +1,32 @@
 package com.example.user.simplelife;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 
 public class ContactUsActivity extends ActionBarActivity {
 
+    private ImageButton backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
+        backButton = (ImageButton)findViewById(R.id.ibtnBack_contact);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ContactUsActivity.this, ApplianceActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", 3);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

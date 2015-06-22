@@ -9,7 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< HEAD
 import android.widget.TextView;
+=======
+import android.widget.ImageButton;
+>>>>>>> origin/master
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -25,11 +29,16 @@ public class ProfileActivity extends ActionBarActivity {
     EditText etexCPassword;
     EditText etexCurrPassword;
     Button btnSaveNewPassword;
+<<<<<<< HEAD
     TextView user_profile;
+=======
+    ImageButton backButton;
+>>>>>>> origin/master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        backButton = (ImageButton)findViewById(R.id.ibtnBack_profile);
         btnLogout = (Button)findViewById(R.id.btnLogOut);
         btnChangePassword=(Button)findViewById(R.id.btnChangePassword);
         etexCPassword = (EditText)findViewById(R.id.editText_confirmPassword);
@@ -41,6 +50,16 @@ public class ProfileActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 LogoutEvent();
+            }
+        });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ApplianceActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", 3);
+                intent.putExtras(bundle);
+                startActivity(intent);;
             }
         });
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
