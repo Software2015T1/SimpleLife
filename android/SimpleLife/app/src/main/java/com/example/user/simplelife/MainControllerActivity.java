@@ -1,5 +1,6 @@
 package com.example.user.simplelife;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -48,6 +50,18 @@ public class MainControllerActivity extends ActionBarActivity {
 
         TextView contentText = (TextView)findViewById(R.id.textContent_Main);
         contentText.setText("ID Number "+main.getMainControlerID()+"\n"+main.getAddress());
+
+        ImageButton backButton = (ImageButton)findViewById(R.id.ibtnBack_maincontroller);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainControllerActivity.this, ApplianceActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", 0);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
     }
 
 
