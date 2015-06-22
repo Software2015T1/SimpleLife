@@ -41,6 +41,18 @@ public class LightActivity extends ActionBarActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0) {
+                    Intent intent = new Intent(LightActivity.this, TimeSettingActivity.class);
+                    startActivity(intent);
+                }
+                if(position == 1) {
+                    Intent intent = new Intent(LightActivity.this, ProximitySettingActivity.class);
+                    startActivity(intent);
+                }
+                if(position == 2) {
+                    Intent intent = new Intent(LightActivity.this, EnergySaver.class);
+                    startActivity(intent);
+                }
 
             }
         });
