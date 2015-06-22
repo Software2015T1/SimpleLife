@@ -17,6 +17,9 @@ import android.widget.SimpleAdapter;
 
 import android.widget.Toast;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -90,6 +93,9 @@ public class ApplianceFragment extends Fragment {
 
 
         });
+
+
+
         return v;
     }
 
@@ -101,12 +107,13 @@ public class ApplianceFragment extends Fragment {
 
     public  ArrayList<MainController> getMainControllers(){
         ArrayList<MainController> mainControllers = new ArrayList<MainController>();
-        MainController mainController = new MainController("123","Living room","•x•_•´");
+        MainController mainController = new MainController("123","Living room","Âè∞ÂåóÂ∏Ç");
 
-        Light light = new Light("004","123","Living room","Light",false);
-        TV tv = new TV("001","123","Living room","TV",false);
-        AirConditioner air = new AirConditioner("002","123","Living room","Air",false);
-        Other other = new Other("003","123","Living room","Other",false);
+
+        Light light = new Light("004","MC01","Living room","Light",false);
+        TV tv = new TV("001","MC01","Living room","TV",false);
+        AirConditioner air = new AirConditioner("002","MC01","Living room","Air",false);
+        Other other = new Other("003","MC01","Living room","Other",false);
         mainController.addAppliance(light);
         mainController.addAppliance(tv);
         mainController.addAppliance(air);
