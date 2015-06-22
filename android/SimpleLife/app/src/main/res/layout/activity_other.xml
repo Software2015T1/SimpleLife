@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ff39affe">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibtnBack_other"
+        android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#00000000"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp" />
+
+    <ImageButton
+        android:layout_width="30pt"
+        android:layout_height="30pt"
+        android:id="@+id/ibtnCircle_other"
+        android:layout_alignTop="@+id/ibtnBack_other"
+        android:layout_toRightOf="@+id/ibtnBack_other"
+        android:layout_toEndOf="@+id/ibtnBack_other"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/circle_other_white"
+        android:scaleType="fitCenter"
+        android:background="#00000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textName_other"
+        android:layout_below="@+id/ibtnCircle_other"
+        android:layout_alignLeft="@+id/ibtnCircle_other"
+        android:layout_alignStart="@+id/ibtnCircle_other"
+        android:layout_marginTop="5dp"
+        android:textColor="#ffffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textContent_other"
+        android:layout_alignTop="@+id/ibtnCircle_other"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/ibtnCircle_other"
+        android:layout_alignBottom="@+id/textName_other"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/ibtnCircle_other"
+        android:layout_marginLeft="20dp"
+        android:textColor="#ffffffff"
+        android:layout_marginRight="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageLine_other"
+        android:src="@drawable/line"
+        android:layout_below="@+id/textName_other"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView_other"
+        android:layout_below="@+id/imageLine_other"
+        android:divider="@null"
+        android:layout_alignLeft="@+id/ibtnBack_other"
+        android:layout_alignStart="@+id/ibtnBack_other"
+        android:layout_alignRight="@+id/textContent_other"
+        android:layout_alignEnd="@+id/textContent_other"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" />
+
+
+</RelativeLayout>
