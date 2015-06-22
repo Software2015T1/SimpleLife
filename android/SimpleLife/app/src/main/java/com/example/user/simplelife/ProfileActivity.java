@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ImageButton;
+
+import org.w3c.dom.Text;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -38,6 +41,7 @@ public class ProfileActivity extends ActionBarActivity {
         etexCurrPassword =(EditText)findViewById(R.id.editText_currentPassword);
         btnSaveNewPassword = (Button)findViewById(R.id.btnSaveNewPassword);
         user_profile = (TextView)findViewById(R.id.tv_user_profile);
+        TextView tvEmail = (TextView)findViewById(R.id.textEmail_profile);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +137,7 @@ public class ProfileActivity extends ActionBarActivity {
             }
         });
         user_profile.setText(UserProfile.username);
+        tvEmail.setText((UserProfile.email));
     }
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic

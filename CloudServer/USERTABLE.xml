@@ -5,12 +5,20 @@
     <Password>ajajaj</Password>
     <ControllerID></ControllerID>
   </User>
+  <User Name="cross@gmail.com">
+    <Password>829006B0007446D5861EA969BCA4C5D5</Password>
+    <ControllerID></ControllerID>
+  </User>
+  <User Name="bostenkg5@gmail.com">
+    <Password>E1FDB83BC91ABCA6368C4AFD36A8CE53</Password>
+    <ControllerID></ControllerID>
+  </User>
   <User Name="aa@hotmail.com">
     <Password>bbbb</Password>
     <ControllerID></ControllerID>
   </User>
   <User Name="jobamei@hotmail.com">
-    <Password>winniepig</Password>
+    <Password>CCBBAECFD08E750CBA16728F30971838</Password>
     <ControllerID></ControllerID>
   </User>
 </root>
