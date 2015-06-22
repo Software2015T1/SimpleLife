@@ -1,34 +1,26 @@
 public class DecisionMaker{
 	DeviceInfo deviceInfo;
 	ArrayList<MotionEvent> eventlist;
+	private SavingEnergy save;
+	private SafetyIssue safe;
+	private IdealTemp ideal;
 	private RF rf;
 	
 	DecisionMaker(){
-	
+		/*eventlist = new ArrayList<MotionEvent>();
+		safelist = new ArrayList<SafetySetting>();
+		savelist = new ArrayList<SavingEnergy>();
+		idealist = new ArrayList<IdealTem>();*/
+		save =  new SavingEnergyDecider(rf);
+		safe = new SafetyIssueDecider(rf);
+		ideal = new IdealTemp(rf)
 	}
-	boolean Notify(String arduinoid){
-		MotionEvent event = new MotionEvent(new Date(),arduinoid);
-		for(int i=0;i<eventlist.size();i++){
-			MotionEvent tmp = eventlist.get(i);
-			if(tmp.arduinoid.equals(event.arduinoid)){
-				//check setting parameter
-				for(int j=0;j<deviceInfo.deviceCnt;j++){
-					
-				}
-				break;
-			}
-		}
+	boolean AddDevice(String in_id){
+		return save.AddDevice(in_id)&&safe.AddDevice(in_id)&&ideal.AddDevice(in_id);
 	}
-	boolean NotifyTemerature(String arduinoid){
-		
+	void Notify(String arduinoid){
+		save.Notify(arduinoid,new Date());
+		Safe.Moving(arduinoid);
 	}
 }
 
-class MotionEvent{
-	Date date;
-	String arduinoid;
-	MotionEvent(Date date,String id){
-		this.date = date;
-		this.arduinoid = id;
-	}
-}

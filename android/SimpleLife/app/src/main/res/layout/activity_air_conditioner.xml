@@ -74,7 +74,7 @@
         android:layout_below="@+id/ibtnDown_air"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="10dp" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -91,11 +91,11 @@
         android:id="@+id/ibtnUp_air"
         android:src="@drawable/icon_up_white"
         android:scaleType="fitCenter"
+        android:background="#00000000"
         android:layout_below="@+id/imageLine_air"
-        android:layout_toRightOf="@+id/ibtnCircle_air"
-        android:layout_toEndOf="@+id/ibtnCircle_air"
-        android:layout_marginTop="5dp"
-        android:background="#00000000" />
+        android:layout_toLeftOf="@+id/ibtnDirection_air"
+        android:layout_toStartOf="@+id/ibtnDirection_air"
+        android:layout_marginTop="10dp" />
 
     <ImageButton
         android:layout_width="54dp"
@@ -107,6 +107,150 @@
         android:layout_alignLeft="@+id/ibtnUp_air"
         android:layout_alignStart="@+id/ibtnUp_air"
         android:background="#00000000"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/ibtnUp_air"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/ibtnDown_air"
+        android:layout_toLeftOf="@+id/ibtnDown_air"
+        android:background="#ff546b7a"
+        android:layout_alignBottom="@+id/ibtnDown_air"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="70dp"
+            android:id="@+id/imageNumber1_air"
+            android:src="@drawable/numbers_2"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="5dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="70dp"
+            android:id="@+id/imageNumber2_air"
+            android:src="@drawable/numbers_5"
+            android:layout_marginTop="25dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageNumbero_air"
+            android:src="@drawable/numbers_o"
+            android:layout_marginTop="25dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="70dp"
+            android:id="@+id/imageNumberc_air"
+            android:src="@drawable/numbers_c"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="5dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageDirection_air"
+                android:src="@drawable/wind_direction_text"
+                android:layout_marginTop="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/imageAuto_direction_air"
+                    android:src="@drawable/wind_auto_text" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
+                    android:id="@+id/image_Icon_Direction_air"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/arrow_right_white"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageStrength_air"
+                android:src="@drawable/wind_strength_text" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/imageAuto_strength_air"
+                    android:src="@drawable/wind_auto_text" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="10dp"
+                    android:id="@+id/imageStrength1_air"
+                    android:src="@drawable/wind_strength1"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="10dp"
+                    android:id="@+id/imageStrength2_air"
+                    android:src="@drawable/wind_strength2"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="5dp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="13dp"
+                    android:id="@+id/imageStrength3_air"
+                    android:src="@drawable/wind_strength3" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:id="@+id/ibtnDirection_air"
+        android:src="@drawable/wind_direction_icon"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        android:layout_below="@+id/imageLine_air"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp" />
+
+    <ImageButton
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:id="@+id/ibtnStrength_air"
+        android:src="@drawable/wind_strength_icon"
+        android:scaleType="fitCenter"
+        android:background="#00000000"
+        android:layout_above="@+id/imageLine2_air"
+        android:layout_alignLeft="@+id/ibtnDirection_air"
+        android:layout_alignStart="@+id/ibtnDirection_air" />
 
 </RelativeLayout>
