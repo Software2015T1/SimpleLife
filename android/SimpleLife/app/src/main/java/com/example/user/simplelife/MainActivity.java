@@ -32,6 +32,11 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+
+        if (GPSService.getIsThreadRunning() == false){
+            Intent intent = new Intent(MainActivity.this, GPSService.class);
+            startService(intent);
+        }
     }
 
     @Override

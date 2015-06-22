@@ -111,6 +111,8 @@
             android:name=".ChartAirActivity"
             android:label="@string/title_activity_chart_air" >
         </activity>
+
+        <service android:name=".GPSService"></service>
     </application>
 
 </manifest>
