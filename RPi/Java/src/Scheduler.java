@@ -16,7 +16,7 @@ public class Scheduler extends Thread{
 		this.rf = rf;
 	}
 	boolean addJob(String targetID,boolean targetcmd,Date targetdate){
-		Job j = new(targetdate,targetID,targetcmd)
+		Job j = new Job(targetdate,targetID,targetcmd);
 		return addJob(j);
 	}
 	boolean addJob(String targetID,boolean targetcmd,String datestring){
@@ -52,17 +52,17 @@ public class Scheduler extends Thread{
 	@Override
 	public void run(){
 		while(running){
-			/*try{
+			try{
 				Thread.sleep(1000);
 			}catch (InterruptedException e){
 				e.printStackTrace();
-			}*/
+			}
 			if(joblist.size()==0)continue;
 			if(Math.abs(new Date().getTime()- joblist.get(0).getTime())<120*1000){
 			//RF send command
 			//remove this job
-			
-				socket.sendCmd()
+				
+				socket.sendCmd();
 			}
 		}
 	}
@@ -70,13 +70,3 @@ public class Scheduler extends Thread{
         running = false;
     }
 }
-class Job{
-	Date date;
-	String deviceID;
-	boolean cmd;
-	Job(Date d,String id, boolean cmd){
-		this.date = d;
-		this.deviceID = id;
-		this.cmd = cmd;
-	}
-}	
