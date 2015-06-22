@@ -30,6 +30,9 @@ public class Appliance extends Device{
     public boolean getState(){
         return state;
     }
+    public void setState(boolean state){
+        this.state = state;
+    }
     public int getImage(){
         return image;
     }

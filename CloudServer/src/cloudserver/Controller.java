@@ -36,8 +36,8 @@ public class Controller
         } catch (IOException ex)
         {
         }
-                
-            try
+ 
+        try
             {
                 while(true)
                 {
