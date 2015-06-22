@@ -54,7 +54,7 @@ public class AddProduct_ListAdapter extends BaseAdapter {
 
     private Integer[] icons_IDs = {
             R.drawable.maincontroller_icon, R.drawable.light_icon,
-            R.drawable.air_icon, R.drawable.tv_icon, R.drawable.other_icon
+            R.drawable.air_icon, R.drawable.tv_icon, R.drawable.other_icon_white
     };
 
     private String[] names = new String[] {
