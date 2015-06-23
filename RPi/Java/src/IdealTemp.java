@@ -1,11 +1,15 @@
 import java.util.ArrayList; 
-public class IdealTempDeciser{
-
-	IdealTempDecider(){
+public class IdealTemp{
+	ArrayList<IdealTemSetting> ideallist;
+	IdealTemp(){
 		
 	}
-	boolean AddDevice(String in_ID){
-		settinglist.add(new IdealTemSetting(in_ID));
+	boolean addDevice(String in_ID){
+		ideallist.add(new IdealTemSetting(in_ID));
+		return true;
+	}
+	boolean change(String in_id,int new_T){
+	
 		return true;
 	}
 }
@@ -15,7 +19,7 @@ class IdealTemSetting{
 	private int Temp;
 	boolean on;
 	IdealTemSetting(String in_ID){
-		arduinoid = in_ID;
+		arduinoID = in_ID;
 		on = false;
 		Temp = 25;
 	}

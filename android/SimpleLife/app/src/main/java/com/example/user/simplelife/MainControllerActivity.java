@@ -55,11 +55,7 @@ public class MainControllerActivity extends ActionBarActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainControllerActivity.this, ApplianceActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("type", 0);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                finish();
             }
         });
     }

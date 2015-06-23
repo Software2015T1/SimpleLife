@@ -10,9 +10,7 @@ package cloudserver;
 
 import java.io.*;
 import java.net.*;
-import java.awt.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class ClientT 
 {
@@ -515,7 +513,7 @@ public class ClientT
            System.out.println(recv);
        } catch (IOException ex)
        {
-           Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+           
        }
    }
 }

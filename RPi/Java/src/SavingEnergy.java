@@ -1,11 +1,11 @@
 import java.util.Date;
 import java.util.ArrayList;
-public class SavingEnergyDecider extends Thread{
+public class SavingEnergy extends Thread{
 	DeviceInfo deviceInfo;
 	ArrayList<SavingSetting> settinglist;
 	private volatile boolean running = true;
-	SavingEnergyDecider(DeviceInfo deviceInfo){
-		eventlist =  new ArrayList<MotionEvent>();
+	private RF rf;
+	SavingEnergy(DeviceInfo deviceInfo){
 		settinglist = new ArrayList<SavingSetting>();
 		this.deviceInfo = deviceInfo;
 	}
@@ -13,10 +13,24 @@ public class SavingEnergyDecider extends Thread{
 		settinglist.add(new SavingSetting(in_ID));
 		return true;
 	}
-	void notify(String in_ID,Date date){
+	void initial(RF rf){
+		this.rf = rf;
+	}
+	boolean change(String arduinoID,int duration){
+		SavingSetting tmp;
+		for(int i=0;i<settinglist.size();i++){
+			tmp = settinglist.get(i);
+			if(arduinoID.equals(tmp.getArID())){
+				tmp.setMin(duration);
+				break;
+			}
+		}
+		return true;
+	}
+	void Notify(String in_ID,Date date){
 		Date cur_event =  new Date();
-		for(int i=0;i<eventlist.size();i++){
-			SavingEnergy tmp_save = settinglist.get(i);
+		for(int i=0;i<settinglist.size();i++){
+			SavingSetting tmp_save = settinglist.get(i);
 			if(tmp_save.getArID().equals(in_ID)){
 				tmp_save.setEvent(cur_event);
 				break;
@@ -25,9 +39,9 @@ public class SavingEnergyDecider extends Thread{
 	}
 	@Override
 	public void run(){
-		SavingEnergy tmp_save;
+		SavingSetting tmp_save;
 		int index;
-		int id;
+		String id;
 		boolean status;
 		while(running){
 			for(int i=0;i<settinglist.size();i++){
@@ -35,13 +49,15 @@ public class SavingEnergyDecider extends Thread{
 				if(!tmp_save.on)continue;
 				Date pre_event = tmp_save.getEvent();
 				Date cur_event = new Date();
-				if(cur_event.getTime()-pre_event.getTime()>tmp_save.GetMin()*60*1000){
-					index = deviceInfo.getDeviceIndex(String arduinoID);
-					status = deviceInfo.getDeviceId(index);
+				if(cur_event.getTime()-pre_event.getTime()>tmp_save.getMin()*60*1000){
+					index = deviceInfo.getDeviceIndex(tmp_save.getArID());
+					status = deviceInfo.getDeviceStatus(index);
 					id = deviceInfo.getDeviceId(index);
 					if(status){
-						//off
-						
+						String[] cmd = new String[2];
+						cmd[0]="onoff";
+						cmd[1]="off";
+						rf.controll(id,cmd);
 					}
 				}
 			}
@@ -57,7 +73,7 @@ class SavingSetting{
 	private int min;
 	boolean on;
 	Date event;
-	SavingEnergy(String in_ID){
+	SavingSetting(String in_ID){
 		arduinoID = in_ID;
 		on = false;
 		min = 0;

@@ -105,7 +105,20 @@ public class ApplianceFragment extends Fragment {
         ArrayList<MainController> mainControllers = new ArrayList<MainController>();
 
         if(new File("sdcard/MC_ID").exists()) {
-
+/*
+            File file = new File("sdcard/MC_ID");
+            if(file.delete()){
+                Log.v("fuck","delete");
+            }
+            file = new File("sdcard/MC_Num");
+            if(file.delete()){
+                Log.v("fuck","delete");
+            }
+            file = new File("sdcard/MC01");
+            if(file.delete()){
+                Log.v("fuck","delete");
+            }
+*/
             ArrayList<String> mcName = ObjectReader.loadMC("MC_ID");
             for(int i=0; i<mcName.size();i++) {
                 mainControllers.add(ObjectReader.loadMainController(mcName.get(i)));

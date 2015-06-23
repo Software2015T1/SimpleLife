@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import java.io.File;
 
 
 public class AddProductActivity extends ActionBarActivity {
@@ -34,24 +37,44 @@ public class AddProductActivity extends ActionBarActivity {
                     startActivity(intent);
                 }
                 else if(position == 1){
-                    Intent intent = new Intent();
-                    intent.setClass(AddProductActivity.this, Add_LightActivity.class);
-                    startActivity(intent);
+                    if(new File("sdcard/MC_ID").exists()) {
+                        Intent intent = new Intent();
+                        intent.setClass(AddProductActivity.this, Add_LightActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(view.getContext(),"Add Main Controller First!!",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(position == 2){
-                    Intent intent = new Intent();
-                    intent.setClass(AddProductActivity.this, Add_AirActivity.class);
-                    startActivity(intent);
+                    if(new File("sdcard/MC_ID").exists()) {
+                        Intent intent = new Intent();
+                        intent.setClass(AddProductActivity.this, Add_AirActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(view.getContext(),"Add Main Controller First!!",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(position == 3){
-                    Intent intent = new Intent();
-                    intent.setClass(AddProductActivity.this, Add_TVActivity.class);
-                    startActivity(intent);
+                    if(new File("sdcard/MC_ID").exists()) {
+                        Intent intent = new Intent();
+                        intent.setClass(AddProductActivity.this, Add_TVActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(view.getContext(),"Add Main Controller First!!",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else if(position == 4){
-                    Intent intent = new Intent();
-                    intent.setClass(AddProductActivity.this, Add_OtherActivity.class);
-                    startActivity(intent);
+                    if(new File("sdcard/MC_ID").exists()) {
+                        Intent intent = new Intent();
+                        intent.setClass(AddProductActivity.this, Add_OtherActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(view.getContext(),"Add Main Controller First!!",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -60,11 +83,7 @@ public class AddProductActivity extends ActionBarActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddProductActivity.this, ApplianceActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("type", 0);
-                intent.putExtras(bundle);
-                startActivity(intent);
+               finish();
             }
         });
 

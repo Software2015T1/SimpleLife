@@ -73,11 +73,7 @@ public class AirConditionerActivity extends ActionBarActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AirConditionerActivity.this, ApplianceActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("type", 0);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -99,6 +95,7 @@ public class AirConditionerActivity extends ActionBarActivity {
                 strings.add(appliance.getMainControllerID());
                 strings.add(appliance.getType());
                 strings.add(appliance.getDeviceID());
+                strings.add("onoff");
                 if (appliance.getState()) {
                     strings.add("off");
                     appliance.setState(false);
