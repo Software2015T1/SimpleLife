@@ -19,7 +19,7 @@ public class UserProfile {
     public static String email;
     public static String username;
     public static String password;
-    public static String homeAddress=null;
+    public static String homeAddress = null;
     private static final long WaitTime = 100000;
     public static void Dispose()
     {
