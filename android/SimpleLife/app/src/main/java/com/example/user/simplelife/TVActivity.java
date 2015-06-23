@@ -57,12 +57,12 @@ public class TVActivity extends ActionBarActivity {
                 strings.add(appliance.getType());
                 strings.add(appliance.getDeviceID());
                 if (appliance.getState()) {
-                    strings.add("on");
+                    strings.add("off");
                     appliance.setState(false);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_tv);
                     btnOn.setImageResource(R.drawable.circle_tv);
                 } else {
-                    strings.add("off");
+                    strings.add("on");
                     appliance.setState(true);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_tv);
                     btnOn.setImageResource(R.drawable.circle_tv_yellow);

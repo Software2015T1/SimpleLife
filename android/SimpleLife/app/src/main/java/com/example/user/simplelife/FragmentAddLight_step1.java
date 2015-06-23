@@ -62,8 +62,11 @@ public class FragmentAddLight_step1 extends FragmentAdd_step {
                 for(int i=0 ;i < names.size(); i++){
                     if(mainName.equals(names.get(i))){
                         appliance.setMainControllerID(ids.get(i));
+                        appliance.setMainControllerName(names.get(i));
                     }
                 }
+
+
 
             }
         });
@@ -75,7 +78,7 @@ public class FragmentAddLight_step1 extends FragmentAdd_step {
         names = ObjectReader.loadMC("MC_Name");
 
         Spinner mainName = (Spinner)view.findViewById(R.id.spinner_whichMain_addLight);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,names);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,names);
         mainName.setAdapter(adapter);
     }
 }

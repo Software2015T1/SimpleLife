@@ -33,7 +33,6 @@ public class ApplianceActivity extends FragmentActivity {
         tabHost.addTab(tabHost.newTabSpec("Account").setIndicator("",ResourcesCompat.getDrawable(getResources(), R.drawable.tab_account, null)), AccountFragment.class, null);
 
         Bundle args =this.getIntent().getExtras();
-        Log.v("fuck", Integer.toString(args.getInt("type")));
         tabHost.setCurrentTab(args.getInt("type"));
     }
 

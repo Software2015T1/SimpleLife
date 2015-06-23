@@ -44,7 +44,24 @@ public class AirConditionerActivity extends ActionBarActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                switch(position){
+                    case 0:
+                        Intent intent = new Intent(AirConditionerActivity.this,TimeSettingActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(AirConditionerActivity.this,ProximitySettingActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(AirConditionerActivity.this,EnergySaverActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(AirConditionerActivity.this,IdealTemperatureActivity.class);
+                        startActivity(intent);
+                        break;
+                }
             }
         });
 
@@ -79,12 +96,12 @@ public class AirConditionerActivity extends ActionBarActivity {
                 strings.add(appliance.getType());
                 strings.add(appliance.getDeviceID());
                 if (appliance.getState()) {
-                    strings.add("on");
+                    strings.add("off");
                     appliance.setState(false);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_air);
                     btnOn.setImageResource(R.drawable.circle_air);
                 } else {
-                    strings.add("off");
+                    strings.add("on");
                     appliance.setState(true);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_air);
                     btnOn.setImageResource(R.drawable.circle_air_yellow);

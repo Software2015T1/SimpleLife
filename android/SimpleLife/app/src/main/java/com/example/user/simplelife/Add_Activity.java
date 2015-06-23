@@ -52,6 +52,10 @@ public abstract class Add_Activity extends FragmentActivity
         else if(arg.equals("done")){
             saveAppliance();
         }
+        else if(arg.equals("next2")){
+            this.index+=2;
+            changeFragment(fragmentList.get(this.index));
+        }
     }
 
     public boolean onTouchEvent(MotionEvent event) {

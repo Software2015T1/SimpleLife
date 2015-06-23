@@ -15,6 +15,7 @@ public class AirConditioner extends Appliance{
     private int temperature;
     private int strength_id;
     private int direction_id;
+    private String brand;
 
     public AirConditioner( String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
         super("AC",deviceID,mainControllerID,mainControllerName,name,state);
@@ -28,7 +29,12 @@ public class AirConditioner extends Appliance{
         type = "AC";
         image = R.drawable.circle_air;
     }
-
+    public String getBrand(){
+        return brand;
+    }
+    public void setBrand(String brand){
+        this.brand = brand;
+    }
     public String getMotionID(){
         return motionID;
     }

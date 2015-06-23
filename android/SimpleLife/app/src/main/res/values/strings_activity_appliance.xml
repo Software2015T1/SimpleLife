@@ -113,4 +113,12 @@
     <string name="number_9">9</string>
     <string name="number_0">0</string>
     <string name="number_ok">OK</string>
+
+    //brand
+    <string name="air_brand_1">KOLIN</string>
+    <string name="air_brand_2">DAIKIN</string>
+    <string name="air_brand_3">HITACHI</string>
+    <string name="tv_brand_1">Sony</string>
+    <string name="tv_brand_2">Samsung</string>
+    <string name="tv_brand_3">LG</string>
 </resources>
