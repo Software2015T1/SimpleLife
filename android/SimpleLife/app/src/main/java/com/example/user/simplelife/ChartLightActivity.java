@@ -34,11 +34,7 @@ public class ChartLightActivity extends Chart {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChartLightActivity.this, ApplianceActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("type", 2);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                finish();
             }
         });
 
