@@ -44,14 +44,17 @@ public class LightActivity extends ActionBarActivity {
                 switch(position){
                     case 0:
                         Intent intent = new Intent(LightActivity.this,TimeSettingActivity.class);
+                        intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
                     case 1:
                         intent = new Intent(LightActivity.this,ProximitySettingActivity.class);
+                        intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
                     case 2:
                         intent = new Intent(LightActivity.this,EnergySaverActivity.class);
+                        intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
                 }

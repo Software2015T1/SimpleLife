@@ -47,18 +47,22 @@ public class AirConditionerActivity extends ActionBarActivity {
                 switch(position){
                     case 0:
                         Intent intent = new Intent(AirConditionerActivity.this,TimeSettingActivity.class);
+                        intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
                     case 1:
                         intent = new Intent(AirConditionerActivity.this,ProximitySettingActivity.class);
+                        intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
                     case 2:
                         intent = new Intent(AirConditionerActivity.this,EnergySaverActivity.class);
+                        intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
                     case 3:
                         intent = new Intent(AirConditionerActivity.this,IdealTemperatureActivity.class);
+                        intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
                 }

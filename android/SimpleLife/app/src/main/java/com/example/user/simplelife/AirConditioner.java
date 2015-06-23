@@ -28,6 +28,9 @@ public class AirConditioner extends Appliance{
         super();
         type = "AC";
         image = R.drawable.circle_air;
+        temperature  = 25;
+        strength_id = 0;
+        direction_id = 0;
     }
     public String getBrand(){
         return brand;

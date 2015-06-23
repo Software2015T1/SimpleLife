@@ -8,10 +8,12 @@ import android.view.MenuItem;
 
 public class TimeSettingActivity extends ActionBarActivity {
 
+    private Appliance appliance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_setting);
+        appliance = (Appliance)getIntent().getSerializableExtra("device");
     }
 
     @Override
