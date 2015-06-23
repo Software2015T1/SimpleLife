@@ -9,15 +9,15 @@ public class History{
 		light = l;
 		AC = ac;
 	}
-	void printHis(int cmd){
+	void chart(int cmd){
 		Date To = new Date();
 		Calendar c = Calendar.getInstance();
 		c.setTime(To);
 		c.set(Calendar.MONTH,c.get(Calendar.MONTH)-1);
 		Date From = c.getTime();
-		printHis(From,To,cmd);
+		chart(From,To,cmd);
 	}
-	void printHis(Date From,Date To,int cmd){
+	void chart(Date From,Date To,int cmd){
 		if(cmd ==1)
 			getData(light.createIterator(),From,To);
 		else if (cmd==2)
@@ -39,9 +39,6 @@ public class History{
 			}
 		}
 		return caldata.getTime();
-	}
-	public static void main(String[] argv){
-		
 	}
 }
 class CalData{
