@@ -55,6 +55,7 @@ public class ProximitySettingActivity extends ActionBarActivity {
         Button delButton = (Button)findViewById(R.id.btnDelete_proximity);
         delButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v){
+                    /*
                     if(appliance.type.equals("Light")){
                         light.setProximitySetting(null);
                         appliance = (Appliance)light;
@@ -72,8 +73,8 @@ public class ProximitySettingActivity extends ActionBarActivity {
                             break;
                         }
                     }
-                    main.setAppliances(appliances);
                     ObjectWriter.WriteAppliance(main,main.getMainControlerID());
+                    */
                     finish();
                 }
         });
@@ -82,6 +83,7 @@ public class ProximitySettingActivity extends ActionBarActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 Spinner spinner = (Spinner)findViewById(R.id.spinner_distance);
                 int d = Integer.parseInt(spinner.getSelectedItem().toString());
                 Switch mySwitch = (Switch)findViewById(R.id.switchNotif_proximity);
@@ -104,8 +106,8 @@ public class ProximitySettingActivity extends ActionBarActivity {
                         break;
                     }
                 }
-                main.setAppliances(appliances);
                 ObjectWriter.WriteAppliance(main,main.getMainControlerID());
+                */
                 finish();
             }
         });
