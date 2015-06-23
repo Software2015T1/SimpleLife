@@ -15,7 +15,7 @@ import java.io.*;
 
 public class Client extends Thread
 {
-    public static final int NUMofPAR = 5;
+    public static final int NUMofPAR = 6;
     private final Socket _s;
     public Client(Socket s)
     {
