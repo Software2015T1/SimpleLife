@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -47,7 +48,7 @@ public class MCReadFile extends TimerTask
             try
             {
                 int nowCnt =Integer.parseInt(br.readLine());
-                System.out.println(nowCnt);
+                //System.out.println(nowCnt);
                 if(nowCnt>=count)
                 {
                     //do somthing in here
@@ -75,12 +76,24 @@ public class MCReadFile extends TimerTask
     }
     public static void main(String[] args)
     {
-        String filename ="input.txt";
+        String filename ="D:\\download\\socket\\JavatoC.txt";
         MCWriteFile mwrite = new MCWriteFile(filename);
-        mwrite.write("hello");
-        
-        MCReadFile reader  = new MCReadFile(filename);
-        reader.start();
+        //mwrite.write("hello");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while (true)
+        {            
+            String cmd=null;
+            try
+            {
+                cmd = br.readLine();
+            } catch (IOException ex)
+            {
+                Logger.getLogger(MCReadFile.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            mwrite.write(cmd);
+        }
+        //MCReadFile reader  = new MCReadFile(filename);
+        //reader.start();
     }
     
 }
