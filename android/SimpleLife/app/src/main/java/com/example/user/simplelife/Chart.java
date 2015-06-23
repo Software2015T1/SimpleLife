@@ -28,37 +28,37 @@ public class Chart extends Activity{
         XYSeriesRenderer yRenderer = new XYSeriesRenderer();
         Renderer.addSeriesRenderer(yRenderer);
 
-        //Renderer.setApplyBackgroundColor(true);			//³]©w­I´ºÃC¦â
-        //Renderer.setBackgroundColor(Color.BLACK);			//³]©w¹Ï¤º³ò­I´ºÃC¦â
-        Renderer.setMarginsColor(Color.WHITE);				//³]©w¹Ï¥~³ò­I´ºÃC¦â
-        Renderer.setTextTypeface(null, Typeface.NORMAL);		//³]©w¤å¦rstyle
-        Renderer.setMargins(new int[]{50, 70, 300, 50});       //³]©w¹Ï¥~³òÃä¬É¤j¤p(¤W ¥ª ¤U ¥k)
-        Renderer.setShowLegend(false);                        //³]©w¤£Åã¥Ü¼ĞÅÒ
+        //Renderer.setApplyBackgroundColor(true);			//è¨­å®šèƒŒæ™¯é¡è‰²
+        //Renderer.setBackgroundColor(Color.BLACK);			//è¨­å®šåœ–å…§åœèƒŒæ™¯é¡è‰²
+        Renderer.setMarginsColor(Color.WHITE);				//è¨­å®šåœ–å¤–åœèƒŒæ™¯é¡è‰²
+        Renderer.setTextTypeface(null, Typeface.NORMAL);		//è¨­å®šæ–‡å­—style
+        Renderer.setMargins(new int[]{50, 70, 300, 50});       //è¨­å®šåœ–å¤–åœé‚Šç•Œå¤§å°(ä¸Š å·¦ ä¸‹ å³)
+        Renderer.setShowLegend(false);                        //è¨­å®šä¸é¡¯ç¤ºæ¨™ç±¤
 
-        Renderer.setShowGrid(true);							//³]©wºô®æ
-        Renderer.setGridColor(Color.GRAY);					//³]©wºô®æÃC¦â
+        Renderer.setShowGrid(true);							//è¨­å®šç¶²æ ¼
+        Renderer.setGridColor(Color.GRAY);					//è¨­å®šç¶²æ ¼é¡è‰²
 
-        //Renderer.setChartTitle(chartTitle);					//³]©w¼ĞÀY¤å¦r
-        Renderer.setLabelsColor(Color.argb(255, 84, 107, 122));				    //³]©w¼ĞÀY¤å¦rÃC¦â
-        //Renderer.setChartTitleTextSize(20);					//³]©w¼ĞÀY¤å¦r¤j¤p
-        Renderer.setAxesColor(Color.BLACK);					//³]©wÂù¶bÃC¦â
-        Renderer.setBarSpacing(4);						        //³]©wbar¶¡ªº¶ZÂ÷
+        //Renderer.setChartTitle(chartTitle);					//è¨­å®šæ¨™é ­æ–‡å­—
+        Renderer.setLabelsColor(Color.argb(255, 84, 107, 122));				    //è¨­å®šæ¨™é ­æ–‡å­—é¡è‰²
+        //Renderer.setChartTitleTextSize(20);					//è¨­å®šæ¨™é ­æ–‡å­—å¤§å°
+        Renderer.setAxesColor(Color.BLACK);					//è¨­å®šé›™è»¸é¡è‰²
+        Renderer.setBarSpacing(4);						        //è¨­å®šbaré–“çš„è·é›¢
 
-        //Renderer.setXTitle(XTitle);						//³]©wX¶b¤å¦r
-        Renderer.setYTitle(YTitle);						   //³]©wY¶b¤å¦r
+        //Renderer.setXTitle(XTitle);						//è¨­å®šXè»¸æ–‡å­—
+        Renderer.setYTitle(YTitle);						   //è¨­å®šYè»¸æ–‡å­—
         Renderer.setAxisTitleTextSize(40);
-        Renderer.setXLabelsColor(Color.argb(255, 84, 107, 122));				//³]©wX¶b¤å¦rÃC¦â
-        Renderer.setYLabelsColor(0, Color.argb(255, 84, 107, 122));			//³]©wY¶b¤å¦rÃC¦â
-        Renderer.setLabelsTextSize(40);                     //³]©w¤å¦r¤j¤p
-        Renderer.setXLabelsAlign(Paint.Align.CENTER);				//³]©wX¶b¤å¦r¸m¤¤
-        Renderer.setYLabelsAlign(Paint.Align.CENTER);				//³]©wY¶b¤å¦r¸m¤¤
-        Renderer.setXLabelsAngle(65); 						//³]©wX¶b¤å¦r¶É±×«×
+        Renderer.setXLabelsColor(Color.argb(255, 84, 107, 122));				//è¨­å®šXè»¸æ–‡å­—é¡è‰²
+        Renderer.setYLabelsColor(0, Color.argb(255, 84, 107, 122));			//è¨­å®šYè»¸æ–‡å­—é¡è‰²
+        Renderer.setLabelsTextSize(40);                     //è¨­å®šæ–‡å­—å¤§å°
+        Renderer.setXLabelsAlign(Paint.Align.CENTER);				//è¨­å®šXè»¸æ–‡å­—ç½®ä¸­
+        Renderer.setYLabelsAlign(Paint.Align.CENTER);				//è¨­å®šYè»¸æ–‡å­—ç½®ä¸­
+        Renderer.setXLabelsAngle(65); 						//è¨­å®šXè»¸æ–‡å­—å‚¾æ–œåº¦
 
-        Renderer.setXLabels(0); 							//³]©wX¶b¤£Åã¥Ü¼Æ¦r, §ï¥Hµ{¦¡³]©w¤å¦r
-        Renderer.setYAxisMin(0);							//³]©wY¶b¤å³Ì¤p­È
+        Renderer.setXLabels(0); 							//è¨­å®šXè»¸ä¸é¡¯ç¤ºæ•¸å­—, æ”¹ä»¥ç¨‹å¼è¨­å®šæ–‡å­—
+        Renderer.setYAxisMin(0);							//è¨­å®šYè»¸æ–‡æœ€å°å€¼
 
-        yRenderer.setColor(Color.argb(255, 249, 205, 5));    //³]©wSeriesÃC¦â
-        //yRenderer.setDisplayChartValues(true);			//®i²{Series¼Æ­È
+        yRenderer.setColor(Color.argb(255, 249, 205, 5));    //è¨­å®šSeriesé¡è‰²
+        //yRenderer.setDisplayChartValues(true);			//å±•ç¾Seriesæ•¸å€¼
 
         Series.add(0, 0);
         Renderer.addXTextLabel(0, "");
