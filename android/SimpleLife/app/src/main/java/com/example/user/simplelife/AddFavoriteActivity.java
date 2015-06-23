@@ -11,6 +11,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,8 +56,7 @@ public class AddFavoriteActivity extends Activity {
                 R.drawable.light_icon, R.drawable.air_icon, R.drawable.tv_icon, R.drawable.other_icon_white
         };
 
-        String childNames[] = {
-                "test","test2"
+        String childNames[] = {"living room","kitchen"
         };
 
         ArrayList<Expandable_Parent> list = new ArrayList<>();
@@ -101,8 +101,5 @@ public class AddFavoriteActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void showToastMsg(String Msg) {
-        Toast.makeText(getApplicationContext(), Msg, Toast.LENGTH_SHORT).show();
-    }
 }
 

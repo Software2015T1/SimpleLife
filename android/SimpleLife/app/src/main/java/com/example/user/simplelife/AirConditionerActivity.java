@@ -95,6 +95,7 @@ public class AirConditionerActivity extends ActionBarActivity {
                 strings.add(appliance.getMainControllerID());
                 strings.add(appliance.getType());
                 strings.add(appliance.getDeviceID());
+                strings.add("onoff");
                 if (appliance.getState()) {
                     strings.add("off");
                     appliance.setState(false);
