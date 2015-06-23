@@ -55,4 +55,8 @@ public class MainController extends Device{
     public String getAddress(){
         return address;
     }
+
+    public void setAppliances(ArrayList<Appliance> appliances){
+        this.appliances = appliances;
+    }
 }

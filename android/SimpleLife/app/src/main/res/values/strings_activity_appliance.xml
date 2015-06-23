@@ -121,4 +121,15 @@
     <string name="tv_brand_1">Sony</string>
     <string name="tv_brand_2">Samsung</string>
     <string name="tv_brand_3">LG</string>
+
+    //distance
+    <string name="d1">200</string>
+    <string name="d2">300</string>
+    <string name="d3">400</string>
+    <string name="d4">500</string>
+    <string name="d5">600</string>
+    <string name="d6">700</string>
+    <string name="d7">800</string>
+    <string name="d8">900</string>
+    <string name="d9">1000</string>
 </resources>
