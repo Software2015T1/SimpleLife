@@ -85,8 +85,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/spinner_onClock"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginRight="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,8 +94,15 @@
             android:text="@string/name_turnOff_time"
             android:id="@+id/textTurnOffTime"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:textColor="#ffffffff" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_offTime"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -112,7 +118,6 @@
             android:id="@+id/switchNotif_time"
             android:checked="false"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#ffffffff" />
 
