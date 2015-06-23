@@ -20,6 +20,7 @@ public class AirConditioner extends Appliance{
     public AirConditioner( String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
         super("AC",deviceID,mainControllerID,mainControllerName,name,state);
         image = R.drawable.circle_air;
+        icon = R.drawable.air_icon;
         temperature  = 25;
         strength_id = 0;
         direction_id = 0;
@@ -28,6 +29,7 @@ public class AirConditioner extends Appliance{
         super();
         type = "AC";
         image = R.drawable.circle_air;
+        icon = R.drawable.air_icon;
         temperature  = 25;
         strength_id = 0;
         direction_id = 0;

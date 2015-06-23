@@ -4,14 +4,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class EnergySaverActivity extends ActionBarActivity {
 
+    private Appliance appliance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_energy_saver);
+        appliance = (Appliance)getIntent().getSerializableExtra("device");
+        TextView nameView = (TextView)findViewById(R.id.textName_energy);
+        nameView.setText(appliance.getName());
+        ImageView icon = (ImageView)findViewById(R.id.image_icon_energy);
+        icon.setImageResource(appliance.getIcon());
     }
 
     @Override

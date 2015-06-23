@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class TimeSettingActivity extends ActionBarActivity {
@@ -14,6 +16,10 @@ public class TimeSettingActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_setting);
         appliance = (Appliance)getIntent().getSerializableExtra("device");
+        TextView nameView = (TextView)findViewById(R.id.textName_time);
+        nameView.setText(appliance.getName());
+        ImageView icon = (ImageView)findViewById(R.id.image_icon_time);
+        icon.setImageResource(appliance.getIcon());
     }
 
     @Override
