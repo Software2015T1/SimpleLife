@@ -4,12 +4,13 @@ public class DeviceController{
 	//private Scheduler scheduler;
 	private RPiSocket rPiSocket;
 	private DeviceInfo deviceInfo;
+	private History history;
 	//private RF rf;
 	
-	public void initial(RPiSocket rPiSocket,DeviceInfo deviceInfo){
+	public void initial(RPiSocket rPiSocket,DeviceInfo deviceInfo,History history){
 		this.deviceInfo = deviceInfo;
 		this.rPiSocket = rPiSocket;
-		
+		this.history = history;
 	} 
 	//TimeSetting [MC ID] [Device type] [Device ID] [day] [start] [end]
 	private int parseWeek(String day){
@@ -62,7 +63,12 @@ public class DeviceController{
 
 		
 		}
-		else if(cmdArray[0].eq)
+		else if(cmdArray[0].equals("/Chart")){
+			history.chart(1);
+		}
+		else if(cmdArray[0].equals("/ChartInfo")){
+			history.chart(2);
+		}
 		
 	}
 	private void sendCmdtoRF(){

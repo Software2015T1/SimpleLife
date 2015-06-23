@@ -103,8 +103,8 @@ public class ApplianceFragment extends Fragment {
 
     public  ArrayList<MainController> getMainControllers(){
         ArrayList<MainController> mainControllers = new ArrayList<MainController>();
-        if(new File("/sdcard/MC_Name").exists()) {
-            ArrayList<String> mcName = ObjectReader.loadMC("MC_Name");
+        if(new File("/sdcard/MC_ID").exists()) {
+            ArrayList<String> mcName = ObjectReader.loadMC("MC_ID");
             for(int i=0; i<mcName.size();i++) {
                 mainControllers.add(ObjectReader.loadMainController(mcName.get(i)));
             }

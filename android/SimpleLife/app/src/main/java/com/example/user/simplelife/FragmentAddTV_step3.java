@@ -41,6 +41,8 @@ public class FragmentAddTV_step3 extends FragmentAdd_step {
         ImageButton nextButton = (ImageButton) view.findViewById(R.id.ibtnNext_addTV3);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                TV appliance = (TV)((Add_TVActivity)getActivity()).getAppliance();
+                appliance.setBrand("None");
                 mListener.onFragmentInteraction("next");
             }
         });

@@ -41,6 +41,8 @@ public class FragmentAddAir_step3 extends FragmentAdd_step {
         ImageButton nextButton = (ImageButton) view.findViewById(R.id.ibtnNext_addAir3);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                AirConditioner appliance = (AirConditioner)((Add_AirActivity)getActivity()).getAppliance();
+                appliance.setBrand("None");
                 mListener.onFragmentInteraction("next");
             }
         });

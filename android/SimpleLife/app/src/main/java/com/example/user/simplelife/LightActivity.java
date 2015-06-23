@@ -41,19 +41,23 @@ public class LightActivity extends ActionBarActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0) {
-                    Intent intent = new Intent(LightActivity.this, TimeSettingActivity.class);
-                    startActivity(intent);
+                switch(position){
+                    case 0:
+                        Intent intent = new Intent(LightActivity.this,TimeSettingActivity.class);
+                        intent.putExtra("device", appliance);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(LightActivity.this,ProximitySettingActivity.class);
+                        intent.putExtra("device", appliance);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(LightActivity.this,EnergySaverActivity.class);
+                        intent.putExtra("device", appliance);
+                        startActivity(intent);
+                        break;
                 }
-                if(position == 1) {
-                    Intent intent = new Intent(LightActivity.this, ProximitySettingActivity.class);
-                    startActivity(intent);
-                }
-                if(position == 2) {
-                    Intent intent = new Intent(LightActivity.this, EnergySaver.class);
-                    startActivity(intent);
-                }
-
             }
         });
 
@@ -88,13 +92,13 @@ public class LightActivity extends ActionBarActivity {
                 strings.add(appliance.getType());
                 strings.add(appliance.getDeviceID());
                 if(appliance.getState()){
-                    strings.add("on");
+                    strings.add("off");
                     appliance.setState(false);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_light);
                     btnOn.setImageResource(R.drawable.circle_light);
                 }
                 else{
-                    strings.add("off");
+                    strings.add("on");
                     appliance.setState(true);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_light);
                     btnOn.setImageResource(R.drawable.circle_light_yellow);

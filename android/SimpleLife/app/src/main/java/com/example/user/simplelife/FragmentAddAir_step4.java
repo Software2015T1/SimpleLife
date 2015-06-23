@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 
@@ -38,11 +39,14 @@ public class FragmentAddAir_step4 extends FragmentAdd_step {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_air_step4, container, false);
+        view = inflater.inflate(R.layout.fragment_add_air_step4, container, false);
         Button nextButton = (Button) view.findViewById(R.id.btnDone_addAir);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mListener.onFragmentInteraction("next");
+                AirConditioner appliance = (AirConditioner)((Add_AirActivity)getActivity()).getAppliance();
+                EditText name = (EditText)view.findViewById(R.id.editTextName_addAir);
+                appliance.setName(name.getText().toString());
+                mListener.onFragmentInteraction("done");
             }
         });
         return view;

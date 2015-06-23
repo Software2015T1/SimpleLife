@@ -63,6 +63,7 @@ public class Scheduler extends Thread{
 			//remove this job
 				
 				socket.sendCmd();
+				joblist.remove(0);
 			}
 		}
 	}

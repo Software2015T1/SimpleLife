@@ -75,6 +75,24 @@ public class Add_LightActivity extends Add_Activity{
         main.addAppliance(appliance);
         ObjectWriter.WriteAppliance(main,appliance.getMainControllerID());
 
+        CommandCreator cc = new CommandCreator();
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("/AddAppliance");
+        strings.add(UserProfile.email);
+        strings.add(UserProfile.password);
+        strings.add(appliance.getMainControllerID());
+        strings.add(appliance.getType());
+        strings.add(appliance.getDeviceID());
+        strings.add(appliance.getMotionID());
+        if(appliance.getState()){
+            strings.add("off");
+        }
+        else{
+            strings.add("on");
+        }
+        cc.createCommand(strings);
+        cc.sendToServer();
+
         Intent intent = new Intent(Add_LightActivity.this, ApplianceActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt("type", 0);

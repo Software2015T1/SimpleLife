@@ -5,6 +5,7 @@ package com.example.user.simplelife;
  */
 public class Appliance extends Device{
     protected int image;
+    protected int icon;
     protected String deviceID;
     protected String mainControllerID;
     protected boolean state;
@@ -47,6 +48,9 @@ public class Appliance extends Device{
     }
     public int getImage(){
         return image;
+    }
+    public int getIcon(){
+        return icon;
     }
 
 }
