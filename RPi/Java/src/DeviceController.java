@@ -71,12 +71,8 @@ public class DeviceController{
 		}
 		
 	}
-	private void sendCmdtoRF(){
-	
-	}
-	private void sedCmdtoScheduler(){
-	//
-	}
+
+
 	public void notify(String notification){
 		rPiSocket.sendCmd(notification);
 	}

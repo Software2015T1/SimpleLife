@@ -41,6 +41,7 @@ public class SavingEnergyDecider extends Thread{
 					id = deviceInfo.getDeviceId(index);
 					if(status){
 						//off
+						
 					}
 				}
 			}

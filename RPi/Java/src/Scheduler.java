@@ -8,7 +8,7 @@ public class Scheduler extends Thread{
 	private ArrayList<Job> joblist;
 	private volatile boolean running = true;
 	//private RF rf;
-	RPiSocket socket;
+	RPiSocket rPiSocket;
 	public Scheduler(){
 		joblist = new ArrayList<Job>();
 	}
@@ -62,7 +62,7 @@ public class Scheduler extends Thread{
 			//RF send command
 			//remove this job
 				
-				socket.sendCmd();
+				rPiSocket.sendCmd();
 				joblist.remove(0);
 			}
 		}

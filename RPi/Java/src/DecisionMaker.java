@@ -6,10 +6,6 @@ public class DecisionMaker{
 	private RF rf;
 	
 	DecisionMaker(){
-		/*eventlist = new ArrayList<MotionEvent>();
-		safelist = new ArrayList<SafetySetting>();
-		savelist = new ArrayList<SavingEnergy>();
-		idealist = new ArrayList<IdealTem>();*/
 		save =  new SavingEnergyDecider(rf,deviceInfo);
 		safe = new SafetyIssueDecider(rf,deviceInfo);
 		ideal = new IdealTemp(rf,deviceInfo);
