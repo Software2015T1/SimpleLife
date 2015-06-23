@@ -1,12 +1,16 @@
 import java.util.*;
 public class DeviceInfo{
+	private HashMap map = new HashMap();
 	public class Device{
 		protected String deviceId,arduinoId;
-		protected String type;	
+		protected String type;
+		protected boolean on;
+		
 		public Device(){
 			deviceId="null";
 			arduinoId="null";
 			type="null";
+			on = false;
 			//cmd="null";
 		}
 		public String getID(){
@@ -70,7 +74,6 @@ public class DeviceInfo{
 	}
 	//AddAppliance[MC ID][Device type][Arduino ID][Device ID][cmd]
 	public void addDeviceInfo(String type,String ardId,String id,String cmd){
-	//新增家電
 		Device newDevice;
 		if(type.equals("light")){
 			newDevice = new Light(id,ardId,type,cmd);
@@ -87,14 +90,27 @@ public class DeviceInfo{
 			deviceList[deviceCnt]=newDevice;
 			deviceCnt++;
 		}
+		map.put(id,ardId);
 		
 		
 		
 	}
-	//public int getDeviceInfo(){
-	//
-	
-	//}
+	int getDeviceIndex(String arduinoId){
+		for(int i=0;i<deviceCnt;i++){
+			if(arduinoId.equals(deviceList[i].arduinoId))
+				return i;
+		}
+		return 0;
+	}
+	boolean getDeviceStatus(int index){
+		return deviceList[index].on;
+	}
+	String getDeviceId(int index){
+		return deviceList[index].deviceId;
+	}
+	String getArdIDFromMap(String deviceId){
+		return (String)map.get(deviceId);
 
+	} 
 	
 }

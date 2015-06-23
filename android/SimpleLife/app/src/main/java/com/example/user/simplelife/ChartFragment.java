@@ -18,8 +18,6 @@ public class ChartFragment extends Fragment {
 
     public void onAttach(Activity activity){
         super.onAttach(activity);
-
-        ApplianceActivity mainActivity = (ApplianceActivity)activity;
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){

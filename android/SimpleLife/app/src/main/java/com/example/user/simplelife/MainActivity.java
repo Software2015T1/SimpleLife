@@ -37,6 +37,10 @@ public class MainActivity extends ActionBarActivity {
             Intent intent = new Intent(MainActivity.this, GPSService.class);
             startService(intent);
         }
+
+
+
+
     }
 
     @Override

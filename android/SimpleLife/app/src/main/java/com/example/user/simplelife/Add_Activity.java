@@ -35,8 +35,7 @@ public abstract class Add_Activity extends FragmentActivity
     protected void setBackButtonListener(ImageButton button){
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Add_Activity.this, AddProductActivity.class);
-                startActivity(intent);;
+                finish();
             }
         });
     }
@@ -48,6 +47,13 @@ public abstract class Add_Activity extends FragmentActivity
                 this.index++;
                 changeFragment(fragmentList.get(this.index));
             }
+        }
+        else if(arg.equals("done")){
+            saveAppliance();
+        }
+        else if(arg.equals("next2")){
+            this.index+=2;
+            changeFragment(fragmentList.get(this.index));
         }
     }
 
@@ -73,5 +79,9 @@ public abstract class Add_Activity extends FragmentActivity
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    public void saveAppliance(){
+
     }
 }

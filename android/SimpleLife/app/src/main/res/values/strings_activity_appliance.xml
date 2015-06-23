@@ -7,6 +7,8 @@
     <string name="name_account">Account</string>
     <string name="action_search">search</string>
 
+    <string name="name_which_main">Which main controller?</string>
+
     //add main controller
     <string name="name_main_controller">Main Controller</string>
     <string name="name_connect_to">Connect to SimpleLife</string>
@@ -32,7 +34,7 @@
     //add light
     <string name="step_1of2">Step 1 of 2</string>
     <string name="step_2of2">Step 2 of 2</string>
-    <string name="addlight_step1">"Please type in Arduino's ID number and motion sensor's ID number."</string>
+    <string name="addlight_step1">"Please choose main controller, type in Arduino's ID number and motion sensor's ID number."</string>
     <string name="addlight_arduinoID">Arduino ID number</string>
     <string name="addlight_motion">Motion sensor ID</string>
     <string name="addlight_step2">Name your light.</string>
@@ -41,7 +43,7 @@
     <string name="step_1of3">Step 1 of 3</string>
     <string name="step_2of3">Step 2 of 3</string>
     <string name="step_3of3">Step 3 of 3</string>
-    <string name="addIR_step1">Please choose or type in an Arduino ID.</string>
+    <string name="addIR_step1">Please choose main controller and choose or type in an Arduino ID.</string>
     <string name="addIR_connect">Connect to Arduino</string>
     <string name="addIR_HaveArduinoID">Already have one?</string>
     <string name="addIR_ArduinoID">Arduino ID</string>
@@ -56,6 +58,7 @@
 
     //add other appliance
     <string name="name_other">Others</string>
+    <string name="addOther_step3">Name your appliance.</string>
 
     //profile
     <string name="name_profile">Profile</string>
@@ -110,4 +113,23 @@
     <string name="number_9">9</string>
     <string name="number_0">0</string>
     <string name="number_ok">OK</string>
+
+    //brand
+    <string name="air_brand_1">KOLIN</string>
+    <string name="air_brand_2">DAIKIN</string>
+    <string name="air_brand_3">HITACHI</string>
+    <string name="tv_brand_1">Sony</string>
+    <string name="tv_brand_2">Samsung</string>
+    <string name="tv_brand_3">LG</string>
+
+    //distance
+    <string name="d1">200</string>
+    <string name="d2">300</string>
+    <string name="d3">400</string>
+    <string name="d4">500</string>
+    <string name="d5">600</string>
+    <string name="d6">700</string>
+    <string name="d7">800</string>
+    <string name="d8">900</string>
+    <string name="d9">1000</string>
 </resources>

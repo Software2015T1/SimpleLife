@@ -19,7 +19,7 @@ import android.widget.ImageButton;
  */
 public abstract class FragmentAdd_step extends Fragment {
 
-
+    View view;
     protected OnFragmentInteractionListener mListener;
 
     public FragmentAdd_step() {

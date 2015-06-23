@@ -39,14 +39,15 @@ public class FragmentAddmain_step3 extends FragmentAdd_step {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_addmain_step3, container, false);
+        view = inflater.inflate(R.layout.fragment_addmain_step3, container, false);
 
         ImageButton nextButton = (ImageButton) view.findViewById(R.id.ibtnNext_addmain3);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +67,10 @@ public class FragmentAddmain_step3 extends FragmentAdd_step {
                             String returnCode = inputs.readUTF();
                             if(returnCode.equals("R005"))
                             {
+                                MainController main = (MainController)((Add_MainControllerActivity)getActivity()).getMainController();
+                                EditText mainID = (EditText)view.findViewById(R.id.editTextID_addmain);
+                                main.setMainControlerID(mainID.getText().toString());
+
                                 mListener.onFragmentInteraction("next");
                             }
                             else  if(returnCode.equals("R006"))

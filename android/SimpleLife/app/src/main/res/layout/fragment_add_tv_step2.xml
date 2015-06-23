@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addIR_step2"
-            android:id="@+id/textBrand_addOther"
+            android:id="@+id/textBrand_addTV"
             android:layout_below="@+id/textStep2_addTV"
             android:layout_marginTop="20dp"
             android:textColor="#ffffffff"
@@ -63,7 +63,7 @@
             android:layout_marginTop="5dp"
             android:layout_above="@+id/ibtnNext_addTV2"
             android:layout_marginBottom="5dp"
-            android:layout_below="@+id/textBrand_addOther"
+            android:layout_below="@+id/textBrand_addTV"
             android:layout_marginLeft="20dp" />
 
     </RelativeLayout>

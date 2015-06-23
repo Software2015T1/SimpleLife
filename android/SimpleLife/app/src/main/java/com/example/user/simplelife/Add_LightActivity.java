@@ -1,5 +1,6 @@
 package com.example.user.simplelife;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -15,10 +16,12 @@ import java.util.ArrayList;
 
 public class Add_LightActivity extends Add_Activity{
 
+    private Light appliance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__light);
+        appliance = new Light();
 
         fragmentList = new ArrayList<Fragment>();
         index = 0;
@@ -60,5 +63,40 @@ public class Add_LightActivity extends Add_Activity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public Appliance getAppliance(){
+        return this.appliance;
+    }
+
+    public void saveAppliance(){
+
+        MainController main = ObjectReader.loadMainController(appliance.getMainControllerID());
+        main.addAppliance(appliance);
+        ObjectWriter.WriteAppliance(main,appliance.getMainControllerID());
+
+        CommandCreator cc = new CommandCreator();
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("/AddAppliance");
+        strings.add(UserProfile.email);
+        strings.add(UserProfile.password);
+        strings.add(appliance.getMainControllerID());
+        strings.add(appliance.getType());
+        strings.add(appliance.getDeviceID());
+        strings.add(appliance.getMotionID());
+        if(appliance.getState()){
+            strings.add("off");
+        }
+        else{
+            strings.add("on");
+        }
+        cc.createCommand(strings);
+        cc.sendToServer();
+
+        Intent intent = new Intent(Add_LightActivity.this, ApplianceActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("type", 0);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

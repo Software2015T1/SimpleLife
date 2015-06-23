@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 /**
@@ -36,11 +37,14 @@ public class FragmentAddOther_step3 extends FragmentAdd_step {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_other_step3, container, false);
+        view = inflater.inflate(R.layout.fragment_add_other_step3, container, false);
         Button nextButton = (Button) view.findViewById(R.id.btnDone_addOther);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mListener.onFragmentInteraction("next");
+                Other appliance = (Other)((Add_OtherActivity)getActivity()).getAppliance();
+                EditText name = (EditText)view.findViewById(R.id.editTextName_addOther);
+                appliance.setName(name.getText().toString());
+                mListener.onFragmentInteraction("done");
             }
         });
         return view;

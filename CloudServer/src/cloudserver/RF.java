@@ -8,6 +8,8 @@ package cloudserver;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -18,7 +20,7 @@ public class RF extends Thread
 {
     private ServerSocket server;
     private final String localIP ="127.0.0.1";
-    private final int PORT = 5123;
+    private final int PORT = 5028;
     private Socket _s;
     private RFReceiver rfR;
     private RFSender rfS;
@@ -26,6 +28,7 @@ public class RF extends Thread
     {
         
     }
+    
     public void run()
     {
         try
@@ -53,6 +56,18 @@ public class RF extends Thread
     }
     public static void main(String[] args)
     {
-        
+        RF rf = new RF();
+        rf.run();
+        RFSender sender = rf.getRFSender();
+        //sender.WriteUTF("hello");
+        sender.WriteString("hello\0");
+        System.out.println("Write to client");
+        try
+        {
+          System.in.read();
+        } catch (IOException ex)
+        {
+            System.out.println(ex);
+        }
     }
 }

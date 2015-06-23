@@ -5,8 +5,10 @@
  */
 package cloudserver;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.Socket;
 
 
@@ -33,16 +35,19 @@ public class RFReceiver extends Thread
         {
             System.out.println(ex);
         }
-        while (true)
-        {
+       // while (true)
+       // {
             try
             {
-                String receString = inputs.readUTF();
+                BufferedReader br = new BufferedReader(new InputStreamReader(this._s.getInputStream()));
+                String recString = br.readLine();
+                System.out.println(recString);
             } catch (IOException ex)
             {
-                
+                System.out.println(ex);
             }
-        }
+            
+       // }
 
         
     }

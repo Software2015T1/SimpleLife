@@ -4,14 +4,31 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class IdealTemperatureActivity extends ActionBarActivity {
 
+    private Appliance appliance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ideal_temperature);
+        appliance = (Appliance)getIntent().getSerializableExtra("device");
+        TextView nameView = (TextView)findViewById(R.id.textName_ideal);
+        nameView.setText(appliance.getName());
+        ImageView icon = (ImageView)findViewById(R.id.image_icon_ideal);
+        icon.setImageResource(appliance.getIcon());
+        ImageButton backButton = (ImageButton)findViewById(R.id.ibtnBack_ideal);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

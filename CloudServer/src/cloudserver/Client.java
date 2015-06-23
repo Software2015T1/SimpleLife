@@ -15,7 +15,7 @@ import java.io.*;
 
 public class Client extends Thread
 {
-    public static final int NUMofPAR = 5;
+    public static final int NUMofPAR = 6;
     private final Socket _s;
     public Client(Socket s)
     {
@@ -59,6 +59,7 @@ public class Client extends Thread
                     outs.writeUTF(returnCode);
                     if(returnCode.equals("R008"))
                     System.out.println("Controller connect: "+par[0]+" from: "+_s.getInetAddress());
+                    new Controller(_s, par[0]).start();
                 break;
                 case ADMINISTRATOR_LOGIN:
                     returnCode = CloudServer.userTable.authenticate(par[0],par[1],_s);

@@ -23,9 +23,9 @@
         android:layout_height="30dp"
         android:id="@+id/imageAirIcon_chart"
         android:src="@drawable/air_icon"
-        android:layout_alignTop="@+id/textTitle_AddOther"
-        android:layout_toLeftOf="@+id/textTitle_AddOther"
-        android:layout_toStartOf="@+id/textTitle_AddOther"
+        android:layout_alignTop="@+id/textTitle_chartAir"
+        android:layout_toLeftOf="@+id/textTitle_chartAir"
+        android:layout_toStartOf="@+id/textTitle_chartAir"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp" />
 
@@ -34,10 +34,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/name_air"
-        android:id="@+id/textTitle_AddOther"
-        android:layout_alignTop="@+id/ibtnBack_AddOther"
-        android:layout_alignLeft="@+id/textSubtitle_AddOther"
-        android:layout_alignStart="@+id/textSubtitle_AddOther"
+        android:id="@+id/textTitle_chartAir"
+        android:layout_alignTop="@+id/ibtnBack_chartAir"
+        android:layout_alignLeft="@+id/textSubtitle_chartAir"
+        android:layout_alignStart="@+id/textSubtitle_chartAir"
         android:textColor="#fff9cd05" />
 
     <TextView
@@ -45,9 +45,20 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/name_usage"
-        android:id="@+id/textSubtitle_AddOther"
-        android:layout_below="@+id/textTitle_AddOther"
+        android:id="@+id/textSubtitle_chartAir"
+        android:layout_below="@+id/textTitle_chartAir"
         android:layout_centerHorizontal="true"
         android:textColor="#ff546b7a" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textSubtitle_chartAir"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="70dp"
+        android:id="@+id/layout_chartAir"></LinearLayout>
 
 </RelativeLayout>
