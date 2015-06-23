@@ -1,25 +1,31 @@
+import java.util.Date;
 public class DecisionMaker{
 	private DeviceInfo deviceInfo;
 	private SavingEnergy save;
-	private SafetyIssue safe;
 	private IdealTemp ideal;
 	private RF rf;
 	
 	DecisionMaker(){
-		save =  new SavingEnergyDecider(rf,deviceInfo);
-		safe = new SafetyIssueDecider(rf,deviceInfo);
-		ideal = new IdealTemp(rf,deviceInfo);
+		save =  new SavingEnergy(deviceInfo);
+		ideal = new IdealTemp();
 	}
 	void initial(RF rf,DeviceInfo deviceInfo){
 		this.rf = rf;
 		this.deviceInfo = deviceInfo;
+		save.initial(rf);
 	}
-	boolean AddDevice(String in_id){
-		return save.AddDevice(in_id)&&safe.AddDevice(in_id)&&ideal.AddDevice(in_id);
+	boolean addDevice(String in_id){
+		return save.addDevice(in_id)&&ideal.addDevice(in_id);
+	}
+	boolean change(String in_id,int type,int variable){
+		if(type==1)
+			save.change(in_id,variable);
+		else if(type==1)
+			ideal.change(in_id,variable);
+		return true;
 	}
 	void Notify(String arduinoid){
 		save.Notify(arduinoid,new Date());
-		Safe.Moving(arduinoid);
 	}
 }
 

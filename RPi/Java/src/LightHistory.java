@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import java.util.Date;
 import java.util.Iterator;
 public class LightHistory implements IHistory{
@@ -20,3 +19,4 @@ public class LightHistory implements IHistory{
 	public Iterator createIterator(){
 		return new LightHistoryIterator(jobarray);
 	}
+}

@@ -1,16 +1,19 @@
 import java.util.*;
 public class DeviceController{
 
-	//private Scheduler scheduler;
 	private RPiSocket rPiSocket;
 	private DeviceInfo deviceInfo;
 	private History history;
-	//private RF rf;
+	private DecisionMaker decisionMaker;
+	private Scheduler scheduler;
+	private RF rf;
 	
-	public void initial(RPiSocket rPiSocket,DeviceInfo deviceInfo,History history){
+	public void initial(RPiSocket rPiSocket,DeviceInfo deviceInfo,DecisionMaker decisionMaker, Scheduler scheduler,RF rf){
 		this.deviceInfo = deviceInfo;
 		this.rPiSocket = rPiSocket;
-		this.history = history;
+		this.decisionMaker = decisionMaker;
+		this.scheduler = scheduler;
+		this.rf = rf;
 	} 
 	//TimeSetting [MC ID] [Device type] [Device ID] [day] [start] [end]
 	private int parseWeek(String day){
@@ -19,17 +22,18 @@ public class DeviceController{
 			if (day.equals(week[i-1]))
 				return i;
 		}
-		
 		return 0;
 	}
 	public void controll(String[] cmdArray){
 		if(cmdArray[0].equals("/ControlAppliance")){
-			
-		
+			String[] cmd = new String[2];
+			cmd[0]=cmdArray[6];
+			cmd[1]=cmdArray[7];
+			rf.controll(cmdArray[5],cmd);
 		}
 		else if(cmdArray[0].equals("/TimeSetting")){
-			String day1="Mon",day2="Fri";
-			String time1="20:30",time2="21:30";
+			String day1=cmdArray[6],day2=cmdArray[8];
+			String time1=cmdArray[7],time2=cmdArray[9];
 			String deviceId="light";
 			String[] time1Array = time1.split(":");
 			String[] time2Array = time2.split(":");
@@ -55,27 +59,14 @@ public class DeviceController{
 			c.set(Calendar.SECOND,0);
 			c.set(Calendar.MILLISECOND,0);
 			endDay=c.getTime();
-			System.out.println(startDay.toString());
-			System.out.println(endDay.toString());
 
-			//scheduler.addJob(deviceId,true,startDay);
-			//scheduler.addJob(deviceId,false,endDay);
+			scheduler.addJob(cmdArray[5],true,startDay);
+			scheduler.addJob(cmdArray[5],false,endDay);
 
 		
 		}
-		else if(cmdArray[0].equals("/Chart")){
-			history.chart(1);
-		}
-		else if(cmdArray[0].equals("/ChartInfo")){
-			history.chart(2);
-		}
-		
 	}
-
-
 	public void notify(String notification){
 		rPiSocket.sendCmd(notification);
 	}
-
-
 }
