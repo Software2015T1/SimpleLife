@@ -109,18 +109,7 @@ public class ApplianceFragment extends Fragment {
                 mainControllers.add(ObjectReader.loadMainController(mcName.get(i)));
             }
         }
-        /*
-        MainController mainController = new MainController("MC01","Living room","台北市");
-        Light light = new Light("004","MC01","Living room","Light",false);
-        TV tv = new TV("001","MC01","Living room","TV",false);
-        AirConditioner air = new AirConditioner("002","MC01","Living room","Air",false);
-        Other other = new Other("003","MC01","Living room","Other",false);
-        mainController.addAppliance(light);
-        mainController.addAppliance(tv);
-        mainController.addAppliance(air);
-        mainController.addAppliance(other);
-        mainControllers.add(mainController);
-        */
+
         return mainControllers;
     }
 

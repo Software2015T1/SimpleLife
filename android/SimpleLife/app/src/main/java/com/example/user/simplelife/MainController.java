@@ -8,17 +8,19 @@ public class MainController extends Device{
     private ArrayList<Appliance> appliances;
     private String mainControlerID;
     private String address;
-    private int image = R.drawable.circle_main;
+    private int image;
     public MainController(String mainControlerID,String name,String address) {
         this.type = "Main";
         this.mainControlerID = mainControlerID;
         this.name = name;
         this.address = address;
         this.appliances = new ArrayList<Appliance>();
+        this.image = R.drawable.circle_main;
     }
 
     public MainController(){
         this.type = "Main";
+        this.image = R.drawable.circle_main;
         this.appliances = new ArrayList<Appliance>();
     }
 
@@ -47,7 +49,7 @@ public class MainController extends Device{
     }
 
     public int getImage(){
-        return image;
+        return this.image;
     }
 
     public String getAddress(){
