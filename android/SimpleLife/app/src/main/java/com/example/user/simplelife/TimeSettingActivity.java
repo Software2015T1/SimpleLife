@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -84,6 +85,13 @@ public class TimeSettingActivity extends ActionBarActivity {
             }
         });
 
+        ImageButton backButton = (ImageButton)findViewById(R.id.ibtnBack_time);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void saveData() {
