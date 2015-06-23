@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +22,13 @@ public class ProximitySettingActivity extends ActionBarActivity {
         nameView.setText(appliance.getName());
         ImageView icon = (ImageView)findViewById(R.id.image_icon_proximity);
         icon.setImageResource(appliance.getIcon());
+        ImageButton backButton = (ImageButton)findViewById(R.id.ibtnBack_proximity);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
