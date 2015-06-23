@@ -38,14 +38,6 @@ public class MainActivity extends ActionBarActivity {
             startService(intent);
         }
 
-        Button btnTest = (Button)findViewById(R.id.btnTest);
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(MainActivity.this, GPSTestActivity.class));
-            }
-        });
 
 
 
