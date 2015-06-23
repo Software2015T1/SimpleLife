@@ -5,8 +5,12 @@
  */
 package cloudserver;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 
@@ -27,11 +31,46 @@ public class RFSender
         {
             DataOutputStream outs = new DataOutputStream(this._s.getOutputStream());
             outs.writeUTF(sendCmd);
+            outs.flush();
+
             
         } catch (IOException ex)
         {
-            
+            System.out.println(ex);
         }
         
+    }
+    public void WriteString(String dst)
+    {
+        try
+        {
+//            PrintWriter writer = new PrintWriter(this._s.getOutputStream());
+//            writer.println(dst);
+//            writer.flush();
+            char[] arr = dst.toCharArray();
+            OutputStream outs = this._s.getOutputStream();
+           
+//            for(int i=0;i<arr.length;i++)
+//            {
+//                outs.write(arr[i]);
+//            }
+            outs.write(dst.getBytes("UTF-8"));
+            outs.close();
+        } catch (IOException ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    public void Write(int i)
+    {
+        try
+        {
+            DataOutputStream outs = new DataOutputStream(this._s.getOutputStream());
+            outs.writeChar(i);
+            
+        } catch (IOException ex)
+        {
+            System.out.println(ex);
+        }
     }
 }
