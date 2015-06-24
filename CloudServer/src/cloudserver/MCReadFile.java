@@ -5,7 +5,6 @@
  */
 package cloudserver;
 
-import com.sun.jmx.snmp.SnmpDataTypeEnums;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
