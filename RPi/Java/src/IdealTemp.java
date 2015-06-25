@@ -2,7 +2,7 @@ import java.util.ArrayList;
 public class IdealTemp{
 	ArrayList<IdealTemSetting> ideallist;
 	IdealTemp(){
-		
+		ideallist = new ArrayList<IdealTemSetting>();
 	}
 	boolean addDevice(String in_ID){
 		ideallist.add(new IdealTemSetting(in_ID));

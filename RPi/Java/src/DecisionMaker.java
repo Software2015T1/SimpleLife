@@ -6,12 +6,13 @@ public class DecisionMaker{
 	private RF rf;
 	
 	DecisionMaker(){
-		save =  new SavingEnergy(deviceInfo);
+		
 		ideal = new IdealTemp();
 	}
 	void initial(RF rf,DeviceInfo deviceInfo){
 		this.rf = rf;
 		this.deviceInfo = deviceInfo;
+		save =  new SavingEnergy(deviceInfo);
 		save.initial(rf);
 	}
 	boolean addDevice(String in_id){

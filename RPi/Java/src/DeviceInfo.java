@@ -1,6 +1,7 @@
 import java.util.*;
 public class DeviceInfo{
 	private HashMap map = new HashMap();
+	private HashMap mapId_type = new HashMap();
 	public class Device{
 		protected String deviceId,arduinoId;
 		protected String type;
@@ -91,6 +92,10 @@ public class DeviceInfo{
 			deviceCnt++;
 		}
 		map.put(id,ardId);
+		mapId_type.put(id,type);
+		//System.out.println((String)map.get(id));
+		//System.out.println(getArdIDFromMap(id));
+		//System.out.println("add complete2");
 		
 		
 		
@@ -105,12 +110,21 @@ public class DeviceInfo{
 	boolean getDeviceStatus(int index){
 		return deviceList[index].on;
 	}
-	String getDeviceId(int index){
+	public String getDeviceId(int index){
 		return deviceList[index].deviceId;
 	}
-	String getArdIDFromMap(String deviceId){
-		return (String)map.get(deviceId);
+	public String getArdIDFromMap(String deviceId){
+		String returnString;
+		returnString= new String ((String)map.get(deviceId));
+		return returnString;
 
-	} 
+	}
+	public String getTypeFromMap(String deviceId){
+		String returnString;
+		returnString= new String ((String)mapId_type.get(deviceId));
+		return returnString;
+
+	}
+	
 	
 }

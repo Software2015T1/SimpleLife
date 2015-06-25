@@ -61,8 +61,9 @@ public class RPiSocket{
 		String[] cmdArray = inputCmd.split(" ");		
 		
 		if (cmdArray[0].equals("/AddAppliance")){
+			System.out.printf("add appliance\n");
 			deviceInfo.addDeviceInfo(cmdArray[4],cmdArray[5],cmdArray[6],cmdArray[7]);
-			decisionMaker.addDevice(cmdArray[5]);
+			decisionMaker.addDevice(cmdArray[7]);
 		}
 		else if (cmdArray[0].equals("/ControlAppliance")){
 			deviceController.controll(cmdArray);
@@ -96,4 +97,5 @@ public class RPiSocket{
 		//if (outputCmd.equals("end")) 
 		//	break;
 	}
+	
 }

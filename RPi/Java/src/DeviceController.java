@@ -59,7 +59,7 @@ public class DeviceController{
 			c.set(Calendar.SECOND,0);
 			c.set(Calendar.MILLISECOND,0);
 			endDay=c.getTime();
-
+			
 			scheduler.addJob(cmdArray[5],true,startDay);
 			scheduler.addJob(cmdArray[5],false,endDay);
 
