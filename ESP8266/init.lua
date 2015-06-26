@@ -1,36 +1,6 @@
-<<<<<<< Updated upstream
-_ID = "SimpleLifeLight:LJ0S65SD45"
-print("start runing: ".._ID)
-lightPin = 4
-gpio.mode(lightPin,gpio.OUTPUT)
-
-wifi.setmode(wifi.STATION)
-wifi.sta.connect()
-
-wifiIp = wifi.sta.getip()
-
-if wifiIp == nil then
-    print('not connected to wifi')
-    checkWifiInfoFile()
-else
-    print('connected to wifi, ip='..wifiIp)
-    wifiIp = nil
-    file.open("wifiinfo.txt","r")
-    file.readline()
-    file.readline()
-    ip = file.readline()
-    connectMC(ip)
-    file.close()
-    ip=nil
-end
-
-function checkWifiInfoFile()
-    if file.open("wifiinfo.txt", "r") then
-=======
 function checkWifiInfoFile()
     if file.open("wifiinfo.txt", "r") then
         print("found a wifiinfo.txt file!")
->>>>>>> Stashed changes
         ssid = file.readline()
         pwd = file.readline()
         mcip = file.readline()
@@ -39,11 +9,8 @@ function checkWifiInfoFile()
         connectWifi(ssid,pwd)
         if(wifi.sta.getip()==nil) then
             file.remove("wifiinfo.txt")
-<<<<<<< Updated upstream
-=======
             apMode()
             return
->>>>>>> Stashed changes
         end
         connectMC(mcip)
         ssid=nil
@@ -55,10 +22,7 @@ function checkWifiInfoFile()
 end
 
 function apMode()
-<<<<<<< Updated upstream
-=======
     print("now starting AP")
->>>>>>> Stashed changes
     wifi.setmode(wifi.SOFTAP)
     apcfg={}
     apcfg.ssid=_ID
@@ -66,11 +30,7 @@ function apMode()
     apcfg = nil
 
     server = net.createServer(net.TCP, 30)
-    server:listen(2266, function(c) 
-<<<<<<< Updated upstream
-=======
-        print("connected! client")
->>>>>>> Stashed changes
+    server:listen(2266, function(c)
         c:on("receive", function(c, data) 
             print("received data from client!!")
             print(data)
@@ -102,13 +62,9 @@ end
 function connectWifi(ssid, pwd)
     wifi.sta.config(ssid,pwd)
     wifi.sta.connect()
-<<<<<<< Updated upstream
-    print("wifi connected, ip = "..wifi.sta.getip())
-=======
     if(wifi.sta.getip()) then
         print("wifi connected, ip = "..wifi.sta.getip())
     end
->>>>>>> Stashed changes
 end
 
 function saveWifiToFile(t)
@@ -159,8 +115,6 @@ function parseMC(c)
         return false
     end
 end
-<<<<<<< Updated upstream
-=======
 
 ----------------------------------
 --  CODE STARTS HERE  ------------
@@ -189,5 +143,3 @@ else
     file.close()
     ip=nil
 end
-
->>>>>>> Stashed changes
