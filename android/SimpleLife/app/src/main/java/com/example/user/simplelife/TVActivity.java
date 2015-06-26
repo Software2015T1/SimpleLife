@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -90,6 +91,149 @@ public class TVActivity extends ActionBarActivity {
             }
         });
 
+        Button btnMenuOK = (Button) findViewById(R.id.btnOK_tv);
+        btnMenuOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("menu", "ok");
+            }
+        });
+
+        ImageButton btnMenu = (ImageButton) findViewById(R.id.ibtnMenu_tv);
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               AddCommand("menu", "menu");
+            }
+        });
+
+        ImageButton btnVolumeUp = (ImageButton) findViewById(R.id.ibtnVolumeUp);
+        btnVolumeUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("volume", "up");
+            }
+        });
+
+        ImageButton btnVolumeDown = (ImageButton) findViewById(R.id.ibtnVolumeDown);
+        btnVolumeDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("volume", "down");
+            }
+        });
+
+        ImageButton btnMute = (ImageButton) findViewById(R.id.ibtnMute);
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("volume", "mute");
+            }
+        });
+
+        ImageButton btnChannelUp = (ImageButton) findViewById(R.id.ibtnUp_tv);
+        btnChannelUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "up");
+            }
+        });
+
+        ImageButton btnChannelDown = (ImageButton) findViewById(R.id.ibtnDown_tv);
+        btnChannelDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "down");
+            }
+        });
+
+        ImageButton btnReturn = (ImageButton) findViewById(R.id.ibtnReturn_tv);
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "return");
+            }
+        });
+
+        Button btn1 = (Button) findViewById(R.id.btn1);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "1");
+            }
+        });
+
+        Button btn2 = (Button) findViewById(R.id.btn2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "2");
+            }
+        });
+
+        Button btn3 = (Button) findViewById(R.id.btn3);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "3");
+            }
+        });
+
+        Button btn4 = (Button) findViewById(R.id.btn4);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "4");
+            }
+        });
+
+        Button btn5 = (Button) findViewById(R.id.btn5);
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "5");
+            }
+        });
+
+        Button btn6 = (Button) findViewById(R.id.btn6);
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "6");
+            }
+        });
+
+        Button btn7 = (Button) findViewById(R.id.btn7);
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "7");
+            }
+        });
+
+        Button btn8 = (Button) findViewById(R.id.btn8);
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "8");
+            }
+        });
+
+        Button btn9 = (Button) findViewById(R.id.btn9);
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "9");
+            }
+        });
+
+        Button btn0 = (Button) findViewById(R.id.btn0);
+        btn0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("channel", "0");
+            }
+        });
     }
 
     public void AddCommand(String cmd1, String cmd2) {
