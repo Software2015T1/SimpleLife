@@ -44,30 +44,67 @@ public class TVActivity extends ActionBarActivity {
         btnOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CommandCreator cc = new CommandCreator();
-                ArrayList<String> strings = new ArrayList<String>();
-                strings.add("/ControlAppliance");
-                strings.add(UserProfile.email);
-                strings.add(UserProfile.password);
-                strings.add(appliance.getMainControllerID());
-                strings.add(appliance.getType());
-                strings.add(appliance.getDeviceID());
-                strings.add("onoff");
                 if (appliance.getState()) {
-                    strings.add("off");
+                    AddCommand("onoff", "off");
                     appliance.setState(false);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_tv);
                     btnOn.setImageResource(R.drawable.circle_tv);
                 } else {
-                    strings.add("on");
+                    AddCommand("onoff", "on");
                     appliance.setState(true);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_tv);
                     btnOn.setImageResource(R.drawable.circle_tv_yellow);
                 }
-                cc.createCommand(strings);
-                cc.sendToServer();
             }
         });
+
+        ImageButton btnMenuUp = (ImageButton) findViewById(R.id.ibtnUp_menu_tv);
+        btnMenuUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("menu", "up");
+            }
+        });
+
+        ImageButton btnMenuDown = (ImageButton) findViewById(R.id.ibtnDown_menu_tv);
+        btnMenuDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("menu", "down");
+            }
+        });
+
+        ImageButton btnMenuLeft = (ImageButton) findViewById(R.id.ibtnLeft_menu_tv);
+        btnMenuLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("menu", "left");
+            }
+        });
+
+        ImageButton btnMenuRight = (ImageButton) findViewById(R.id.ibtnRight_menu_tv);
+        btnMenuRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCommand("menu", "right");
+            }
+        });
+
+    }
+
+    public void AddCommand(String cmd1, String cmd2) {
+        CommandCreator cc = new CommandCreator();
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("/ControlAppliance");
+        strings.add(UserProfile.email);
+        strings.add(UserProfile.password);
+        strings.add(appliance.getMainControllerID());
+        strings.add(appliance.getType());
+        strings.add(appliance.getDeviceID());
+        strings.add(cmd1);
+        strings.add(cmd2);
+        cc.createCommand(strings);
+        cc.sendToServer();
     }
 
     @Override
