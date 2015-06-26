@@ -31,7 +31,7 @@ public class SmartHome{
 		System.out.println(deviceInfo.getArdIDFromMap("AC001"));
 		
 		rPiSocket.parseCmd("/ControlAppliance chander password MC001 light lgt001 onoff on");
-		rPiSocket.parseCmd("/TimeSetting chander password MC001 light lgt001 Thu 20:39 Thu 20:40");
+		rPiSocket.parseCmd("/TimeSetting chander password MC001 light lgt001 Fri 16:36 Fri 16:37");
 	}	
 
 }

@@ -11,6 +11,9 @@ public class RF{
         this.deviceInfo = deviceInfo;
         
     } 
+	public void controll(String ID,String[] cmd,int type){
+		System.out.printf("%s %s %s",ID,cmd[0],cmd[1]);
+	}
     public void controll(String ID,String[] cmd){
 		System.out.printf("int RF : deviceId=%s : %s %s\n",ID,cmd[0],cmd[1]);
        /*

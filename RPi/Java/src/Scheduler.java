@@ -2,9 +2,11 @@ import java.util.Date;
 import java.util.ArrayList; 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.*;
 public class Scheduler extends Thread{
 	
 	//http://www.ewdna.com/2011/12/java-timer.html
+	public static Object lock = new Object();
 	private ArrayList<Job> joblist;
 	private volatile boolean running = true;
 	private RF rf;
@@ -16,30 +18,20 @@ public class Scheduler extends Thread{
 		this.rf = rf;
 		this.rPiSocket=rPiSocket;
 	}
-	boolean addJob(String targetID,boolean targetcmd,Date targetdate){
-		Job j = new Job(targetdate,targetID,targetcmd);
+	boolean addJob(String targetID,boolean targetcmd,Date date){
+		Job j = new Job(date,targetID,targetcmd);
 		return addJob(j);
-	}
-	boolean addJob(String targetID,boolean targetcmd,String datestring){
-		Date date = new Date();
-		System.out.println(datestring);
-		try{
-			
-			date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(datestring);
-		}catch(ParseException e){
-			System.out.println("ParseException");
-			e.printStackTrace();
-		}
-		return addJob(targetID,targetcmd,date);
 	}
 	boolean addJob(Job j){
 		int i;
 		Job tmp;
-		System.out.println("add Job");
+		
 		if(new Date().after(j.date))
 			return false;
-		if(joblist.size()==0)
+		if(joblist.size()==0){
 			joblist.add(j);
+			return true;
+		}
 		for(i=0;i<joblist.size();i++){
 			tmp = joblist.get(i);
 			if(tmp.getDate().after(j.date)){
@@ -51,28 +43,28 @@ public class Scheduler extends Thread{
 			joblist.add(j);
 		return true;
 	}
+	boolean deleteJob(String targetID,boolean targetcmd,Date date){
+		Job j = new Job(date,targetID,targetcmd);
+		return deleteJob(j);
+
+	}
 	boolean deleteJob(Job j){
 		joblist.remove(j);
 		return true;
 	}
 	@Override
 	public void run(){
+		
 		while(running){
+			System.out.println("check");
 			try{
-				Thread.sleep(1000);
+				Thread.sleep(500);
 			}catch (InterruptedException e){
 				e.printStackTrace();
 			}
-			System.out.println("check ");
-			if(joblist.size()==0){
-				System.out.println("no Job");
+			if(joblist.size()==0)
 				continue;
-			}
-			//System.out.printf(" job %d %d %d\n",joblist.get(0).getDate().getYear(),joblist.get(0).getDate().getMonth(),joblist.get(0).getDate().getDate());
-			//System.out.println(joblist.get(0).getDate().getTime());
-			
-			if(Math.abs(new Date().getTime()- joblist.get(0).getDate().getTime())<120*1000){
-				
+			if(Math.abs(new Date().getTime()- joblist.get(0).getDate().getTime())<30*1000){
 				Job j = joblist.get(0);
 				String[] cmd = new String[2];
 				cmd[0]="onoff";
@@ -81,8 +73,13 @@ public class Scheduler extends Thread{
 				else 
 					cmd[1]="off";
 				rf.controll(j.getID(),cmd);
-				//rPiSocket.sendCmd(cmd[0]);
-				joblist.remove(0);
+				Calendar c = Calendar.getInstance();
+				c.setTime(j.getDate());
+				c.set(Calendar.DATE,c.get(Calendar.DATE)+7);
+				Date date = c.getTime();
+				addJob(j.getID(),j.getCmd(),date);
+					//rPiSocket.sedndCmd(cmd[0]);
+				joblist.remove(j);
 			}
 		}
 	}
