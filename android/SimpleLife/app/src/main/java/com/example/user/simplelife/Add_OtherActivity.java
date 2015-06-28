@@ -78,6 +78,7 @@ public class Add_OtherActivity extends Add_Activity{
         strings.add(UserProfile.password);
         strings.add(appliance.getMainControllerID());
         strings.add(appliance.getType());
+        strings.add(appliance.getArduinoID());
         strings.add(appliance.getDeviceID());
         if(appliance.getState()){
             strings.add("off");

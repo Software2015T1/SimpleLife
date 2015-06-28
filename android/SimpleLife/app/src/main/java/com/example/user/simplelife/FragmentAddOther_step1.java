@@ -62,13 +62,19 @@ public class FragmentAddOther_step1 extends FragmentAdd_step {
                     }
                 }
                 Spinner spinner2 = (Spinner)view.findViewById(R.id.spinner_addOther);
+
                 String andrunoID = spinner2.getSelectedItem().toString();
                 EditText audinoText = (EditText)view.findViewById(R.id.editTextID_addOther);
                 if(!audinoText.getText().toString().equals("")){
                     andrunoID = audinoText.getText().toString();
                 }
 
-                appliance.setDeviceID(andrunoID);
+                appliance.setArduinoID(andrunoID);
+
+                MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
+                Integer noAppliance = mc.getAppliances().size();
+                String deviceID = noAppliance.toString();
+                appliance.setDeviceID(deviceID);
                 mListener.onFragmentInteraction("next");
             }
         });
@@ -92,8 +98,8 @@ public class FragmentAddOther_step1 extends FragmentAdd_step {
             MainController main = ObjectReader.loadMainController(ids.get(i));
             ArrayList<Appliance> appliances = main.getAppliances();
             for(int j=0 ;j<appliances.size();j++){
-                if(appliances.get(j).getType().equals("Light")){
-                    String id = appliances.get(j).getDeviceID();
+                if(!appliances.get(j).getType().equals("Light")){
+                    String id = appliances.get(j).getArduinoID();
                     if(hasArduino(id) == false){
                         arduino.add(id);
                     }

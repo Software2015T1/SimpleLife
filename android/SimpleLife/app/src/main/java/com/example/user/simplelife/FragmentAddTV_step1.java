@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -68,7 +69,13 @@ public class FragmentAddTV_step1 extends FragmentAdd_step {
                     andrunoID = audinoText.getText().toString();
                 }
 
-                appliance.setDeviceID(andrunoID);
+                appliance.setArduinoID(andrunoID);
+
+                MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
+                Integer noAppliance = mc.getAppliances().size();
+                String deviceID = noAppliance.toString();
+                appliance.setDeviceID(deviceID);
+                Toast.makeText(getActivity(), deviceID, Toast.LENGTH_LONG);
                 mListener.onFragmentInteraction("next");
             }
         });
@@ -92,8 +99,8 @@ public class FragmentAddTV_step1 extends FragmentAdd_step {
             MainController main = ObjectReader.loadMainController(ids.get(i));
             ArrayList<Appliance> appliances = main.getAppliances();
             for(int j=0 ;j<appliances.size();j++){
-                if(appliances.get(j).getType().equals("Light")){
-                    String id = appliances.get(j).getDeviceID();
+                if(!appliances.get(j).getType().equals("Light")){
+                    String id = appliances.get(j).getArduinoID();
                     if(hasArduino(id) == false){
                         arduino.add(id);
                     }

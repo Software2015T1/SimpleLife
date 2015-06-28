@@ -54,7 +54,7 @@ public class FragmentAddLight_step1 extends FragmentAdd_step {
 
                 Light appliance = (Light)((Add_LightActivity)getActivity()).getAppliance();
                 EditText audinoID = (EditText)view.findViewById(R.id.editText_ArduinoID_addlight);
-                appliance.setDeviceID(audinoID.getText().toString());
+                appliance.setArduinoID(audinoID.getText().toString());
                 EditText motionID = (EditText)view.findViewById(R.id.editText_motionID_addlight);
                 appliance.setMotionID(motionID.getText().toString());
                 Spinner spinner = (Spinner)view.findViewById(R.id.spinner_whichMain_addLight);
@@ -65,7 +65,10 @@ public class FragmentAddLight_step1 extends FragmentAdd_step {
                         appliance.setMainControllerName(names.get(i));
                     }
                 }
-
+                MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
+                Integer noAppliance = mc.getAppliances().size();
+                String deviceID = noAppliance.toString();
+                appliance.setDeviceID(deviceID);
 
 
             }

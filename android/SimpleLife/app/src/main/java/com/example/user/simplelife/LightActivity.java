@@ -1,5 +1,6 @@
 package com.example.user.simplelife;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.w3c.dom.ProcessingInstruction;
+import org.w3c.dom.Text;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -23,7 +27,8 @@ public class LightActivity extends ActionBarActivity {
     private ListView listView;
     private Light_ListAdapter adapter;
     private Light appliance;
-
+    private static int PROXIMITY_CHANGE=0;
+    private static int TIME_SETTING=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +55,8 @@ public class LightActivity extends ActionBarActivity {
                     case 1:
                         intent = new Intent(LightActivity.this,ProximitySettingActivity.class);
                         intent.putExtra("device", appliance);
-                        startActivity(intent);
+                        //startActivity(intent);
+                        startActivityForResult(intent,PROXIMITY_CHANGE);
                         break;
                     case 2:
                         intent = new Intent(LightActivity.this,EnergySaverActivity.class);
@@ -126,4 +132,23 @@ public class LightActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        View v = null;
+        if(requestCode==PROXIMITY_CHANGE)
+        {   v = listView.getChildAt(1-listView.getFirstVisiblePosition());}
+        else if(requestCode==TIME_SETTING)
+        {   v=listView.getChildAt(0-listView.getFirstVisiblePosition());}
+        if(v==null)return;
+        Bundle bundle = null;
+        switch (resultCode)
+        {
+            case Activity.RESULT_OK:
+                String text = data.getStringExtra(ProximitySettingActivity.GETPROXTEXT);
+                ((TextView)v.findViewById(R.id.text_listitem_light)).setText(text);
+                break;
+        }
+    }
+
 }

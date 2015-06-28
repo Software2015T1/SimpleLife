@@ -82,6 +82,7 @@ public class Add_LightActivity extends Add_Activity{
         strings.add(UserProfile.password);
         strings.add(appliance.getMainControllerID());
         strings.add(appliance.getType());
+        strings.add(appliance.getArduinoID());
         strings.add(appliance.getDeviceID());
         strings.add(appliance.getMotionID());
         if(appliance.getState()){

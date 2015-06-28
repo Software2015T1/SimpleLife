@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -61,15 +62,27 @@ public class FragmentAddAir_step1 extends FragmentAdd_step {
                         appliance.setMainControllerName(names.get(i));
                     }
                 }
+                String arduinoID="";
                 Spinner spinner2 = (Spinner)view.findViewById(R.id.spinner_addAir);
-                String andrunoID = spinner2.getSelectedItem().toString();
+                Object selItem = spinner2.getSelectedItem();
+                if(selItem!=null)
+                {
+                    arduinoID = selItem.toString();
+                }
                 EditText audinoText = (EditText)view.findViewById(R.id.editTextID_addAir);
                 if(!audinoText.getText().toString().equals("")){
-                    andrunoID = audinoText.getText().toString();
+                    arduinoID = audinoText.getText().toString();
                 }
-
-                appliance.setDeviceID(andrunoID);
-
+                if(arduinoID.equals(""))
+                {
+                    Toast.makeText(getActivity(),"Arduino Id can't be null",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                appliance.setArduinoID(arduinoID);
+                MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
+                Integer noAppliance = mc.getAppliances().size();
+                String deviceID = noAppliance.toString();
+                appliance.setDeviceID(deviceID);
                 mListener.onFragmentInteraction("next");
             }
         });
@@ -93,8 +106,8 @@ public class FragmentAddAir_step1 extends FragmentAdd_step {
             MainController main = ObjectReader.loadMainController(ids.get(i));
             ArrayList<Appliance> appliances = main.getAppliances();
             for(int j=0 ;j<appliances.size();j++){
-                if(appliances.get(j).getType().equals("Light")){
-                    String id = appliances.get(j).getDeviceID();
+                if(!appliances.get(j).getType().equals("Light")){
+                    String id = appliances.get(j).getArduinoID();
                     if(hasArduino(id) == false){
                         arduino.add(id);
                     }

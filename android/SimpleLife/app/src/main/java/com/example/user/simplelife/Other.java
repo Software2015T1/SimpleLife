@@ -6,8 +6,8 @@ package com.example.user.simplelife;
 public class Other extends Appliance {
 
     private TimeSetting timeSetting;
-    public Other(String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
-        super("Other",deviceID,mainControllerID,mainControllerName,name,state);
+    public Other(String arduinoID, String mainControllerID,String mainControllerName,String name,boolean state,String deviceID){
+        super("Other",arduinoID,mainControllerID,mainControllerName,name,state,deviceID);
         image = R.drawable.circle_other_white;
     }
     public Other(){

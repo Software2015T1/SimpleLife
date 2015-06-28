@@ -9,8 +9,8 @@ public class Light extends Appliance{
     private ProximitySetting proximitySetting;
     private EnergySaver energySaver;
 
-    public Light(String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
-        super("Light",deviceID,mainControllerID,mainControllerName,name,state);
+    public Light(String arduinoID, String mainControllerID,String mainControllerName,String name,boolean state,String deviceID){
+        super("Light",arduinoID,mainControllerID,mainControllerName,name,state,deviceID);
         image = R.drawable.circle_light;
         icon = R.drawable.light_icon;
     }

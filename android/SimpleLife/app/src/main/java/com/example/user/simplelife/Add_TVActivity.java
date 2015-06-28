@@ -88,6 +88,7 @@ public class Add_TVActivity extends Add_Activity{
         strings.add(UserProfile.password);
         strings.add(appliance.getMainControllerID());
         strings.add(appliance.getType());
+        strings.add(appliance.getArduinoID());
         strings.add(appliance.getDeviceID());
         strings.add(appliance.getBrand());
         if(appliance.getState()){
