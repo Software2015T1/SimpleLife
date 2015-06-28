@@ -37,7 +37,9 @@
         android:layout_alignLeft="@+id/imageCircle_Main"
         android:layout_alignStart="@+id/imageCircle_Main"
         android:layout_marginTop="5dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_alignRight="@+id/imageCircle_Main"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
