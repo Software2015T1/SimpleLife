@@ -24,7 +24,7 @@ public class ChartLightActivity extends Chart {
 
     private LinearLayout chartLayout;
     private View vChart;
-    private String[][] lightUsage = { {"ADFU1","20"},{"MBPW2","19"},{"ABCDE","17"} };
+    private String[][] lightUsage = { {"ADFU1","20"},{"MBPW2","19"},{"Living Room","17"} };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class ChartLightActivity extends Chart {
             vChart = drawChart("Hours", lightUsage);
             chartLayout.removeAllViews();
             //llBarChart.addView(vChart);
-            chartLayout.addView(vChart, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1300));
+            chartLayout.addView(vChart);
 
         }catch(Exception e){
 

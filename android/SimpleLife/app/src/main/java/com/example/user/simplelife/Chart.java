@@ -32,7 +32,7 @@ public class Chart extends Activity{
         //Renderer.setBackgroundColor(Color.BLACK);			//設定圖內圍背景顏色
         Renderer.setMarginsColor(Color.WHITE);				//設定圖外圍背景顏色
         Renderer.setTextTypeface(null, Typeface.NORMAL);		//設定文字style
-        Renderer.setMargins(new int[]{50, 70, 300, 50});       //設定圖外圍邊界大小(上 左 下 右)
+        Renderer.setMargins(new int[]{30, 50, 100, 30});       //設定圖外圍邊界大小(上 左 下 右)
         Renderer.setShowLegend(false);                        //設定不顯示標籤
 
         Renderer.setShowGrid(true);							//設定網格
@@ -46,10 +46,10 @@ public class Chart extends Activity{
 
         //Renderer.setXTitle(XTitle);						//設定X軸文字
         Renderer.setYTitle(YTitle);						   //設定Y軸文字
-        Renderer.setAxisTitleTextSize(40);
+        Renderer.setAxisTitleTextSize(30);
         Renderer.setXLabelsColor(Color.argb(255, 84, 107, 122));				//設定X軸文字顏色
         Renderer.setYLabelsColor(0, Color.argb(255, 84, 107, 122));			//設定Y軸文字顏色
-        Renderer.setLabelsTextSize(40);                     //設定文字大小
+        Renderer.setLabelsTextSize(30);                     //設定文字大小
         Renderer.setXLabelsAlign(Paint.Align.CENTER);				//設定X軸文字置中
         Renderer.setYLabelsAlign(Paint.Align.CENTER);				//設定Y軸文字置中
         Renderer.setXLabelsAngle(65); 						//設定X軸文字傾斜度

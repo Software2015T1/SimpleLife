@@ -123,13 +123,13 @@
     <string name="tv_brand_3">LG</string>
 
     //distance
-    <string name="d1">200</string>
-    <string name="d2">300</string>
-    <string name="d3">400</string>
-    <string name="d4">500</string>
-    <string name="d5">600</string>
-    <string name="d6">700</string>
-    <string name="d7">800</string>
-    <string name="d8">900</string>
-    <string name="d9">1000</string>
+    <string name="d1">200m</string>
+    <string name="d2">300m</string>
+    <string name="d3">400m</string>
+    <string name="d4">500m</string>
+    <string name="d5">600m</string>
+    <string name="d6">700m</string>
+    <string name="d7">800m</string>
+    <string name="d8">900m</string>
+    <string name="d9">1000m</string>
 </resources>

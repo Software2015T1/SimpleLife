@@ -56,7 +56,8 @@ public class AddFavoriteActivity extends Activity {
                 R.drawable.light_icon, R.drawable.air_icon, R.drawable.tv_icon, R.drawable.other_icon_white
         };
 
-        String childNames[] = {"living room","kitchen"
+        String childNames[] = {
+                "living room","kitchen"
         };
 
         ArrayList<Expandable_Parent> list = new ArrayList<>();
