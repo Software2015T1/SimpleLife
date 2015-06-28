@@ -1,23 +1,64 @@
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-public class RF{
-    //private MCReadFile mCReadFile;
-    //private MCWriteFile mCWriteFile;
-
+import java.util.ArrayList;
+public class RF extends Thread{
     private DeviceInfo deviceInfo;
-    public void initial(DeviceInfo deviceInfo){
-        this.deviceInfo = deviceInfo;
-        
-    } 
-	public void controll(String ID,String[] cmd,int type){
-		System.out.printf("%s %s %s",ID,cmd[0],cmd[1]);
+	private Socket client;
+	private volatile boolean running = true;
+	private ArrayList<RFclient>clientlist;
+	private Socket tmp_client;
+	ServerSocket server;
+	RFclient c;
+	public RF(){
+		System.out.println("build RF connection and waiting");
+		clientlist = new ArrayList<RFclient>();
+		go();
 	}
-    public void controll(String ID,String[] cmd){
+	private void go(){
+		try{
+			server = new ServerSocket(5566); 
+		}catch (IOException e){
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void run(){
+		while(running){
+			try{
+				tmp_client = server.accept();
+				System.out.println("building connection");
+				clientlist.add(new RFclient(tmp_client));
+				System.out.println("building connection"+client);
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+    public void initial(DeviceInfo deviceInfo){
+        this.deviceInfo = deviceInfo;		
+    } 
+	public int getIndex(String ID){
+		for(int i=0;i<clientlist.size();i++){
+			c = clientlist.get(i);
+			if(ID.equals(c.arID))
+				return i;
+		}
+		return -1;
+	}
+    public boolean controll(String ID,String[] cmd){
 		System.out.printf("int RF : deviceId=%s : %s %s\n",ID,cmd[0],cmd[1]);
-       /*
-		String ardID = deviceInfo.getArdIDFromMap(ID);
+		int index = getIndex(ID);  
+		if(index==-1)return false;
+		boolean sendcmd;
+		if(cmd[1].equals("off"))
+            sendcmd = false;
+        else if(cmd[1].equals("on"));
+            sendcmd = true;
+		c = clientlist.get(index);
+		c.sendLight(sendcmd);
+		/*
+		String arID = deviceInfo.getArdIDFromMap(ID);
         String type = deviceInfo.getTypeFromMap(ID);
         String flag;//p or i
         String act;
@@ -27,13 +68,8 @@ public class RF{
                 act="0";
             else if(cmd[1].equals("on"));
                 act="1";
-        }
-
-        String total = ardID+flag+act;
-        mCWriteFile.write(total);
-
-*/
-	return;
+        }*/
+		return true;
     }
     
 }
