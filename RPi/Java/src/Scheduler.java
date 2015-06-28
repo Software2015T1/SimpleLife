@@ -56,7 +56,7 @@ public class Scheduler extends Thread{
 	public void run(){
 		
 		while(running){
-			System.out.println("check");
+         //System.out.println("scheduler check");
 			try{
 				Thread.sleep(500);
 			}catch (InterruptedException e){

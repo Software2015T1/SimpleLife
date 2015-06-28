@@ -18,8 +18,8 @@
         android:background="#00000000" />
 
     <ImageButton
-        android:layout_width="30pt"
-        android:layout_height="30pt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/ibtnCircle_air"
         android:layout_alignTop="@+id/ibtnBack_air"
         android:layout_toRightOf="@+id/ibtnBack_air"
@@ -39,7 +39,9 @@
         android:layout_alignLeft="@+id/ibtnCircle_air"
         android:layout_alignStart="@+id/ibtnCircle_air"
         android:layout_marginTop="5dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_alignRight="@+id/ibtnCircle_air"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -164,7 +166,8 @@
                 android:layout_height="30dp"
                 android:id="@+id/imageDirection_air"
                 android:src="@drawable/wind_direction_text"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:visibility="visible" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -190,7 +193,8 @@
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:id="@+id/imageStrength_air"
-                android:src="@drawable/wind_strength_text" />
+                android:src="@drawable/wind_strength_text"
+                android:visibility="visible" />
 
             <LinearLayout
                 android:orientation="horizontal"

@@ -23,6 +23,9 @@ import java.util.GregorianCalendar;
 public class TimeSettingActivity extends ActionBarActivity {
 
     private Appliance appliance;
+    private Light light;
+    private Other other;
+    private AirConditioner air;
     private TimePickerDialog timePickerDialog;
     private TimePickerDialog timePickerDialog2;
     private Button doSetOnTime;
@@ -37,13 +40,24 @@ public class TimeSettingActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_setting);
         appliance = (Appliance)getIntent().getSerializableExtra("device");
+        if(appliance.getType().equals("Air"))
+        {
+            air = (AirConditioner)appliance;
+        }
+        else if(appliance.getType().equals("Light"))
+        {
+            light = (Light)appliance;
+        }
+        else if(appliance.getType().equals("Other"))
+        {
+            other = (Other)appliance;
+        }
         TextView nameView = (TextView)findViewById(R.id.textName_time);
         nameView.setText(appliance.getName());
         ImageView icon = (ImageView)findViewById(R.id.image_icon_time);
         icon.setImageResource(appliance.getIcon());
 
         setSpinnerView();
-
         GregorianCalendar calendar = new GregorianCalendar();
         doSetOnTime = (Button) findViewById(R.id.btnOnTimeChoose);
         doSetOnTime.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +95,32 @@ public class TimeSettingActivity extends ActionBarActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveData();
+                String txtOnTime = onTime.getSelectedItem().toString();
+                String txtOffTime = offTime.getSelectedItem().toString();
+                Time on = new Time(OnMinute, OnHour, txtOnTime);
+                Time off = new Time(OffMinute, OffHour, txtOffTime);
+                Boolean state = true;
+                Switch notify = (Switch) findViewById(R.id.switchNotif_time);
+                TimeSetting ts = new TimeSetting(on, off, state, notify.isChecked());
+                if(light!=null)
+                {
+                    light.setTimeSetting(ts);
+                    appliance = light;
+                }
+                else if(other!=null)
+                {
+                    other.setTimeSetting(ts);
+                    appliance = other;
+                }
+                else if(air!=null)
+                {
+                    air.setTimeSetting(ts);
+                    appliance = air;
+                }
+                MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
+                mc.setAppliance(appliance);
+                ObjectWriter.WriteAppliance(mc,appliance.getMainControllerID());
+                finish();
             }
         });
 
@@ -94,15 +133,6 @@ public class TimeSettingActivity extends ActionBarActivity {
         });
     }
 
-    private void saveData() {
-        String txtOnTime = onTime.getSelectedItem().toString();
-        String txtOffTime = offTime.getSelectedItem().toString();
-        Time on = new Time(OnMinute, OnHour, txtOnTime);
-        Time off = new Time(OffMinute, OffHour, txtOffTime);
-        Boolean state = true;
-        Switch notify = (Switch) findViewById(R.id.switchNotif_time);
-        TimeSetting ts = new TimeSetting(on, off, state, notify.isChecked());
-    }
 
     public void setSpinnerView(){
         ArrayList<String> onTimeList = new ArrayList<>();

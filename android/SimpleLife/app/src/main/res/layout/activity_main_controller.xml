@@ -18,8 +18,8 @@
         android:background="#00000000" />
 
     <ImageView
-        android:layout_width="30pt"
-        android:layout_height="30pt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/imageCircle_Main"
         android:layout_alignTop="@+id/ibtnBack_maincontroller"
         android:layout_toRightOf="@+id/ibtnBack_maincontroller"
@@ -37,7 +37,9 @@
         android:layout_alignLeft="@+id/imageCircle_Main"
         android:layout_alignStart="@+id/imageCircle_Main"
         android:layout_marginTop="5dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_alignRight="@+id/imageCircle_Main"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"

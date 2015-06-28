@@ -1,10 +1,11 @@
 package com.example.user.simplelife;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by bostenkg5 on 2015/6/22.
  */
-public class MainController extends Device{
+public class MainController extends Device implements Serializable{
     private ArrayList<Appliance> appliances;
     private String mainControlerID;
     private String address;
@@ -58,5 +59,18 @@ public class MainController extends Device{
 
     public void setAppliances(ArrayList<Appliance> appliances){
         this.appliances = appliances;
+    }
+
+    public void setAppliance(Appliance app)
+    {
+       String deviceID = app.getDeviceID();
+       for(int i =0 ;i<this.appliances.size();i++)
+       {
+           if(this.appliances.get(i).deviceID.equals(deviceID))
+           {
+               this.appliances.set(i,app);
+               break;
+           }
+       }
     }
 }

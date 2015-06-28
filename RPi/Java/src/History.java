@@ -9,6 +9,15 @@ public class History{
 		light = l;
 		AC = ac;
 	}
+	void addItem(String type,String id,String[] cmd){
+		boolean curcmd = true;
+		if(cmd[1].equals("off"))
+			curcmd = false;
+		if(type.equals("Light"))
+			light.addItem(new Date(),id,curcmd);
+		else if(type.equals("AC"))
+			AC.addItem(new Date(),id,curcmd);
+	}
 	void chart(int cmd){
 		Date To = new Date();
 		Calendar c = Calendar.getInstance();
@@ -23,20 +32,16 @@ public class History{
 		else if (cmd==2)
 			getData(AC.createIterator(),From,To);
 	}
-	private void getData(Iterator i){
-		Date cur_date = new Date();
-	}
+	
 	private double getData(Iterator i,Date From,Date To){
 		caldata = new CalData();
 		while(i.hasNext()){
 			Job j = (Job)i.next();
 			Date tmp_date = j.getDate();
-			if(tmp_date.after(From)&&tmp_date.before(To)){
+			if(tmp_date.after(From)&&tmp_date.before(To))
 				caldata.addItem(j);
-			}
-			else if(tmp_date.after(To)){
+			else if(tmp_date.after(To))
 				break;
-			}
 		}
 		return caldata.getTime();
 	}

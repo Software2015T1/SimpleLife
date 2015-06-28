@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 public class SmartHome{
 	public static RPiSocket rPiSocket = new RPiSocket("MC01");
@@ -20,7 +21,7 @@ public class SmartHome{
 		decisionMaker.initial(rf,deviceInfo);
 		//deviceController.controll(cmdArray);
 		scheduler.start();
-
+		rf.start();
 		//rPiSocket.sendCmd("YA!");
 		//deviceController.notify("open the light\n");
 		//System.out.printf("add appliance\n");
@@ -31,7 +32,7 @@ public class SmartHome{
 		System.out.println(deviceInfo.getArdIDFromMap("AC001"));
 		
 		rPiSocket.parseCmd("/ControlAppliance chander password MC001 light lgt001 onoff on");
-		rPiSocket.parseCmd("/TimeSetting chander password MC001 light lgt001 Fri 16:36 Fri 16:37");
+		rPiSocket.parseCmd("/TimeSetting chander password MC001 light lgt001 Sun 18:37 Sun 18:38");
 	}	
 
 }

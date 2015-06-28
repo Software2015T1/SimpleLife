@@ -17,8 +17,8 @@ public class AirConditioner extends Appliance{
     private int direction_id;
     private String brand;
 
-    public AirConditioner( String deviceID, String mainControllerID,String mainControllerName,String name,boolean state){
-        super("AC",deviceID,mainControllerID,mainControllerName,name,state);
+    public AirConditioner( String arduinoID, String mainControllerID,String mainControllerName,String name,boolean state,String deviceID){
+        super("AC",arduinoID,mainControllerID,mainControllerName,name,state,deviceID);
         image = R.drawable.circle_air;
         icon = R.drawable.air_icon;
         temperature  = 25;

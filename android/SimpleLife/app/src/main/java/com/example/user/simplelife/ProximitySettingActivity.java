@@ -1,5 +1,7 @@
 package com.example.user.simplelife;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +25,7 @@ public class ProximitySettingActivity extends ActionBarActivity {
     private Appliance appliance;
     private Light light;
     private AirConditioner air;
+    public static final String GETPROXTEXT="Prox";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,37 +58,40 @@ public class ProximitySettingActivity extends ActionBarActivity {
         Button delButton = (Button)findViewById(R.id.btnDelete_proximity);
         delButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v){
-                    /*
-                    if(appliance.type.equals("Light")){
-                        light.setProximitySetting(null);
-                        appliance = (Appliance)light;
-                    }
-                    else{
-                        air.setProximitySetting(null);
-                        appliance = (Appliance)air;
-                    }
-                    MainController main = ObjectReader.loadMainController(appliance.getMainControllerID());
-                    ArrayList<Appliance> appliances = main.getAppliances();
-                    for(int i=0;i<appliances.size();i++){
-                        Appliance app = appliances.get(i);
-                        if(appliance.getDeviceID().equals(app.getDeviceID())){
-                            appliances.set(i,appliance);
-                            break;
-                        }
-                    }
-                    ObjectWriter.WriteAppliance(main,main.getMainControlerID());
-                    */
-                    finish();
+            if(appliance.type.equals("Light")){
+                light.setProximitySetting(null);
+                appliance = (Appliance)light;
+            }
+            else{
+                air.setProximitySetting(null);
+                appliance = (Appliance)air;
+            }
+            MainController main = ObjectReader.loadMainController(appliance.getMainControllerID());
+            ArrayList<Appliance> appliances = main.getAppliances();
+            for(int i=0;i<appliances.size();i++){
+                Appliance app = appliances.get(i);
+                if(appliance.getDeviceID().equals(app.getDeviceID())){
+                    appliances.set(i,appliance);
+                    break;
                 }
-        });
+            }
+            ObjectWriter.WriteAppliance(main, main.getMainControlerID());
+            Intent intent = new Intent();
+            String putText = "Proximity Setting";
+            intent.putExtra(GETPROXTEXT,putText);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+                    }
+            });
 
         Button saveButton = (Button)findViewById(R.id.btnSave_proximity);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
+
                 Spinner spinner = (Spinner)findViewById(R.id.spinner_distance);
-                int d = Integer.parseInt(spinner.getSelectedItem().toString());
+                String distanceM = spinner.getSelectedItem().toString();
+                int d = Integer.parseInt(distanceM.substring(0,distanceM.indexOf('m')));
                 Switch mySwitch = (Switch)findViewById(R.id.switchNotif_proximity);
 
                 ProximitySetting ps = new ProximitySetting(d,true,mySwitch.isChecked());
@@ -106,8 +112,11 @@ public class ProximitySettingActivity extends ActionBarActivity {
                         break;
                     }
                 }
-                ObjectWriter.WriteAppliance(main,main.getMainControlerID());
-                */
+                ObjectWriter.WriteAppliance(main, appliance.getMainControllerID());
+                Intent intent = new Intent();
+                String putText = "Close to: "+distanceM;
+                intent.putExtra(GETPROXTEXT,putText);
+                setResult(Activity.RESULT_OK, intent);
                 finish();
             }
         });

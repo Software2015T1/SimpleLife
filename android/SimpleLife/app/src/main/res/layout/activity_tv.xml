@@ -18,8 +18,8 @@
         android:background="#00000000" />
 
     <ImageButton
-        android:layout_width="30pt"
-        android:layout_height="30pt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/ibtnCircle_tv"
         android:layout_alignTop="@+id/ibtnBack_tv"
         android:layout_toRightOf="@+id/ibtnBack_tv"
@@ -39,7 +39,9 @@
         android:layout_alignLeft="@+id/ibtnCircle_tv"
         android:layout_alignStart="@+id/ibtnCircle_tv"
         android:layout_marginTop="5dp"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_alignRight="@+id/ibtnCircle_tv"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
