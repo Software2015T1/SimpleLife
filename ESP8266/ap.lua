@@ -85,3 +85,23 @@ function saveWifiToFile(t)
     file.writeline(t.mcip)
     file.close()
 end
+-------------------------------------------------
+wifi.setmode(wifi.STATION)
+wifi.sta.connect()
+
+wifiIp = wifi.sta.getip()
+
+if wifiIp == nil then
+    print('not connected to wifi')
+    checkWifiInfoFile()
+else
+    print('connected to wifi, ip='..wifiIp)
+    wifiIp = nil
+    file.open("wifiinfo.txt","r")
+    file.readline()
+    file.readline()
+    ip = file.readline()
+    connectMC(ip)
+    file.close()
+    ip=nil
+end
