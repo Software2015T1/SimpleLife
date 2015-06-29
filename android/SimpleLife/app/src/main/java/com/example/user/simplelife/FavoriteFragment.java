@@ -35,9 +35,10 @@ public class FavoriteFragment extends Fragment {
         list = (ListView) view.findViewById(R.id.listView_favorite);
         adapter = new Favorite_ListAdapter(getActivity());
         ArrayList favorites = null;
-        if(new File("sdcard/FAVORITE.fav").exists())
-        favorites = (ArrayList<String>)ObjectReader.loadObject("FAVORITE.fav");
-        adapter.setDeviceName(favorites);
+        if(new File("sdcard/FAVORITE.fav").exists()) {
+            favorites = (ArrayList<String>) ObjectReader.loadObject("FAVORITE.fav");
+            adapter.setDeviceName(favorites);
+        }
         list.setAdapter(adapter);
 
 
