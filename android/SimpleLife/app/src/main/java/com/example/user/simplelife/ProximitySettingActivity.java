@@ -114,7 +114,7 @@ public class ProximitySettingActivity extends ActionBarActivity {
                 }
                 ObjectWriter.WriteAppliance(main, appliance.getMainControllerID());
                 Intent intent = new Intent();
-                String putText = "Close to: "+distanceM;
+                String putText = "Turns on when you are " + distanceM + " from home.";
                 intent.putExtra(getString(R.string.Get_ListView_Text),putText);
                 setResult(Activity.RESULT_OK, intent);
                 finish();

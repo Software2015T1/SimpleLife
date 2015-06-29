@@ -123,7 +123,9 @@ public class TimeSettingActivity extends ActionBarActivity {
                 mc.setAppliance(appliance);
                 ObjectWriter.WriteAppliance(mc, appliance.getMainControllerID());
                 Intent intent = new Intent();
-                String text = "Turns on every "+ts.getStartTime().getDate()+" to "+ts.getEndTime().getDate();
+                String text = "Turns on every "+ts.getStartTime().getDate() + " " +
+                ts.getStartTime().getHour() + " : " + ts.getStartTime().getMinute() + " to "+
+                        ts.getEndTime().getDate() + " " + ts.getEndTime().getHour() + " : " + ts.getEndTime().getMinute();
                 setResult(Activity.RESULT_OK,intent);
                 intent.putExtra(getString(R.string.Get_ListView_Text),text);
 

@@ -13,7 +13,7 @@
 
         <TextView android:text="TextView"
             android:id="@+id/text_listitem_light"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
@@ -21,7 +21,8 @@
             android:layout_marginBottom="15dip"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:textColor="#ffffffff">
+            android:textColor="#ffffffff"
+            android:layout_marginRight="40dp">
         </TextView>
 
         <ImageView
@@ -29,11 +30,11 @@
             android:layout_height="23dp"
             android:id="@+id/image_listitem_light"
             android:src="@drawable/right_icon2"
-            android:layout_marginRight="10dp"
             android:layout_marginEnd="35dp"
             android:layout_alignBottom="@+id/text_listitem_light"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="0dp" />
     </RelativeLayout>
 
 </LinearLayout>
