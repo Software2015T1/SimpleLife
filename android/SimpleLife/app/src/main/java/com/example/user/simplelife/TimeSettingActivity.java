@@ -1,6 +1,8 @@
 package com.example.user.simplelife;
 
+import android.app.Activity;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -119,7 +121,12 @@ public class TimeSettingActivity extends ActionBarActivity {
                 }
                 MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
                 mc.setAppliance(appliance);
-                ObjectWriter.WriteAppliance(mc,appliance.getMainControllerID());
+                ObjectWriter.WriteAppliance(mc, appliance.getMainControllerID());
+                Intent intent = new Intent();
+                String text = "Turns on every "+ts.getStartTime().getDate()+" to "+ts.getEndTime().getDate();
+                setResult(Activity.RESULT_OK,intent);
+                intent.putExtra(getString(R.string.Get_ListView_Text),text);
+
                 finish();
             }
         });
@@ -128,6 +135,36 @@ public class TimeSettingActivity extends ActionBarActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+            }
+        });
+
+        Button btnDelete = (Button)findViewById(R.id.btnDelete_time);
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(light!=null)
+                {
+                    light.setTimeSetting(null);
+                    appliance = light;
+                }
+                else if(other!=null)
+                {
+                    other.setTimeSetting(null);
+                    appliance = other;
+                }
+                else if(air!=null)
+                {
+                    air.setTimeSetting(null);
+                    appliance = air;
+                }
+                MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
+                mc.setAppliance(appliance);
+                ObjectWriter.WriteAppliance(mc, appliance.getMainControllerID());
+                Intent intent = new Intent();
+                String text = "Time Setting";
+                setResult(Activity.RESULT_OK, intent);
+                intent.putExtra(getString(R.string.Get_ListView_Text), text);
                 finish();
             }
         });

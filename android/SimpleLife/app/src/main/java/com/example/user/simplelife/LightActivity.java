@@ -29,6 +29,7 @@ public class LightActivity extends ActionBarActivity {
     private Light appliance;
     private static int PROXIMITY_CHANGE=0;
     private static int TIME_SETTING=1;
+    public static final String GETTEXT ="getText";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +51,8 @@ public class LightActivity extends ActionBarActivity {
                     case 0:
                         Intent intent = new Intent(LightActivity.this,TimeSettingActivity.class);
                         intent.putExtra("device", appliance);
-                        startActivity(intent);
+                        //startActivity(intent);
+                        startActivityForResult(intent,TIME_SETTING);
                         break;
                     case 1:
                         intent = new Intent(LightActivity.this,ProximitySettingActivity.class);
@@ -145,9 +147,10 @@ public class LightActivity extends ActionBarActivity {
         switch (resultCode)
         {
             case Activity.RESULT_OK:
-                String text = data.getStringExtra(ProximitySettingActivity.GETPROXTEXT);
+                String text = data.getStringExtra(getString(R.string.Get_ListView_Text));
                 ((TextView)v.findViewById(R.id.text_listitem_light)).setText(text);
                 break;
+
         }
     }
 

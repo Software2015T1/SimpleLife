@@ -78,7 +78,7 @@ public class ProximitySettingActivity extends ActionBarActivity {
             ObjectWriter.WriteAppliance(main, main.getMainControlerID());
             Intent intent = new Intent();
             String putText = "Proximity Setting";
-            intent.putExtra(GETPROXTEXT,putText);
+            intent.putExtra(getString(R.string.Get_ListView_Text),putText);
             setResult(Activity.RESULT_OK, intent);
             finish();
                     }
@@ -115,7 +115,7 @@ public class ProximitySettingActivity extends ActionBarActivity {
                 ObjectWriter.WriteAppliance(main, appliance.getMainControllerID());
                 Intent intent = new Intent();
                 String putText = "Close to: "+distanceM;
-                intent.putExtra(GETPROXTEXT,putText);
+                intent.putExtra(getString(R.string.Get_ListView_Text),putText);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }

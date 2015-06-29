@@ -1,9 +1,11 @@
 package com.example.user.simplelife;
 
+import java.io.Serializable;
+
 /**
  * Created by bostenkg5 on 2015/6/22.
  */
-public class Time {
+public class Time implements Serializable{
     private int minute;
     private int hour;
     private String date;

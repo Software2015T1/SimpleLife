@@ -30,4 +30,5 @@
     <string name="title_activity_chart_light">ChartLightActivity</string>
     <string name="title_activity_chart_air">ChartAirActivity</string>
     <string name="title_activity_gpstest">GPSTestActivity</string>
+    <string name="Get_ListView_Text">GET_Text</string>
 </resources>
