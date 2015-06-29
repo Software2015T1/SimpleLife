@@ -1,5 +1,6 @@
 package com.example.user.simplelife;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,7 +18,8 @@ import java.util.ArrayList;
 
 
 public class AirConditionerActivity extends ActionBarActivity {
-
+    private static int PROXIMITY_CHANGE=0;
+    private static int TIME_SETTING=1;
     private ListView listView;
     private Air_ListAdapter adapter;
     private AirConditioner appliance;
@@ -40,20 +42,39 @@ public class AirConditionerActivity extends ActionBarActivity {
 
         listView = (ListView) findViewById(R.id.listView_air);
         adapter = new Air_ListAdapter(this);
+
+        TimeSetting timeSetting = appliance.getTimeSetting();
+        ProximitySetting proxSetting = appliance.getProximitySetting();
+        if(timeSetting!=null)
+        {
+            //change text in listview
+            String text ="set text!"+timeSetting.getStartTime().getDate();
+            adapter.setList(0,text);
+
+        }
+        if(proxSetting!=null)
+        {
+            //do something
+            String text ="Close to: "+proxSetting.getDistance();
+            adapter.setList(1,text);
+
+        }
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
                     case 0:
-                        Intent intent = new Intent(AirConditionerActivity.this,TimeSettingActivity.class);
+                        Intent intent = new Intent(AirConditionerActivity.this, TimeSettingActivity.class);
                         intent.putExtra("device", appliance);
-                        startActivity(intent);
+                        //startActivity(intent);
+                        startActivityForResult(intent,TIME_SETTING);
                         break;
                     case 1:
                         intent = new Intent(AirConditionerActivity.this,ProximitySettingActivity.class);
                         intent.putExtra("device", appliance);
-                        startActivity(intent);
+                        //startActivity(intent);
+                        startActivityForResult(intent,PROXIMITY_CHANGE);
                         break;
                     case 2:
                         intent = new Intent(AirConditionerActivity.this,EnergySaverActivity.class);
@@ -285,6 +306,26 @@ public class AirConditionerActivity extends ActionBarActivity {
         else if(direction.equals("90")){
             d.setImageResource(R.drawable.arrow_down_white);
             auto.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode,Intent data)
+    {
+        View v = null;
+        if(requestCode==PROXIMITY_CHANGE)
+        {   v = listView.getChildAt(1-listView.getFirstVisiblePosition());}
+        else if(requestCode==TIME_SETTING)
+        {   v=listView.getChildAt(0-listView.getFirstVisiblePosition());}
+        if(v==null)return;
+        Bundle bundle = null;
+        switch (resultCode)
+        {
+            case Activity.RESULT_OK:
+                String text = data.getStringExtra(getString(R.string.Get_ListView_Text));
+                ((TextView)v.findViewById(R.id.text_listitem_light)).setText(text);
+                break;
+
         }
     }
 }

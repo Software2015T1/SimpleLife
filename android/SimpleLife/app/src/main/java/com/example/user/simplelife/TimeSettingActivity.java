@@ -42,7 +42,7 @@ public class TimeSettingActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_setting);
         appliance = (Appliance)getIntent().getSerializableExtra("device");
-        if(appliance.getType().equals("Air"))
+        if(appliance.getType().equals("AC"))
         {
             air = (AirConditioner)appliance;
         }

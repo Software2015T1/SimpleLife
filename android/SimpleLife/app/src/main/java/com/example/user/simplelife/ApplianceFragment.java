@@ -3,6 +3,7 @@ package com.example.user.simplelife;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
 import android.support.v7.internal.widget.AdapterViewCompat;
@@ -22,8 +23,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 /**
@@ -57,6 +61,8 @@ public class ApplianceFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mainControllers = getMainControllers();
+                devices = getDevices();
 
                 if (position == gridView.getCount() - 1) {
                     Intent intent = new Intent(getActivity(), AddProductActivity.class);
@@ -154,6 +160,22 @@ public class ApplianceFragment extends Fragment {
         add_item.put("image",R.drawable.plus_button);
         add_item.put("text", "Add Product");
         items.add(add_item);
+    }
+    public ArrayList<Device> getDevices()
+    {
+        mainControllers = getMainControllers();
+        ArrayList<Device> devices = new ArrayList<>();
+        for (int i = 0; i < mainControllers.size(); i++) {
+            MainController main = mainControllers.get(i);
+            devices.add(main);
+
+            ArrayList<Appliance> appliances = main.getAppliances();
+            for (int j = 0 ; j < appliances.size(); j++){
+                Appliance appliance = appliances.get(j);
+                devices.add(appliance);
+            }
+        }
+        return devices;
     }
 
 }

@@ -89,7 +89,6 @@ public class AppUser
                             {
                                 try
                                 {
-                                    s.getOutputStream().write(0);
                                     CloudServer.userTable.AddMC(par[3],par[2]);
                                     outs.writeUTF("R005");
                                     System.out.println("user: "+par[0]+" add MC: "+par[2]);
@@ -118,12 +117,13 @@ public class AppUser
                             {
                                 try
                                 {
-                                    s.getOutputStream().write(0);
+                                   
                                     new Fowarder().send(command,s);
                                     outs.writeUTF("R016");
                                     System.out.println("user: "+par[0]+" add appliance: "+par[4]);
                                 } catch (Exception e)
                                 {
+                                    System.out.println(e);
                                     outs.writeUTF("R017");
                                     break;
                                 }
