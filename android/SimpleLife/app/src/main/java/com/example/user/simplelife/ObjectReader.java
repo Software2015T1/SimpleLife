@@ -33,7 +33,28 @@ public class ObjectReader {
         }
         return mc;
     }
-
+    public static Object loadObject(String filename)
+    {
+        FileInputStream fs = null;
+        ArrayList<String> s = null;
+        try {
+            fs = new FileInputStream(ObjectWriter.ObjectDirectory+"/"+filename);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            ObjectInputStream oi = new ObjectInputStream(fs);
+            try {
+                s =(ArrayList<String>) oi.readObject();
+                oi.close();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return s;
+    }
     public static ArrayList<String> loadMC(String filename)
     {
         FileInputStream fs = null;

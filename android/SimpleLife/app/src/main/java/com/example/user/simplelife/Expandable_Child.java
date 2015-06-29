@@ -37,4 +37,8 @@ public class Expandable_Child {
     {
         this.checked = checked;
     }
+    public void toggle()
+    {
+        this.checked = !this.checked;
+    }
 }

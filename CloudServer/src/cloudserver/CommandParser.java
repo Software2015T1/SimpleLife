@@ -20,6 +20,7 @@ enum MissionType
     ADMINISTRATOR_LOGIN,
     USER_CHANGEPASSWORD,
     ADD_APPLIANCE,
+    TIME_SETTING,
     None,
 }
 public class CommandParser
@@ -80,6 +81,12 @@ public class CommandParser
                          par[4] = cmd[5];
                          if(cmd.length>6)par[5]=cmd[6];
                          type=MissionType.ADD_APPLIANCE;
+                        break;
+                    case "/TimeSetting":
+                        par[0] = cmd[1];
+                        par[1] = cmd[2];
+                        par[2] = cmd[3];
+                        type=MissionType.TIME_SETTING;
                         break;
                 }
             }

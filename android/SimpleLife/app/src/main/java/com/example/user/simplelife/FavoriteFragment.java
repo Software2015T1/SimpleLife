@@ -11,6 +11,10 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by User on 2015/6/14.
  */
@@ -30,7 +34,13 @@ public class FavoriteFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_favorite, container, false);
         list = (ListView) view.findViewById(R.id.listView_favorite);
         adapter = new Favorite_ListAdapter(getActivity());
+        ArrayList favorites = null;
+        if(new File("sdcard/FAVORITE.fav").exists())
+        favorites = (ArrayList<String>)ObjectReader.loadObject("FAVORITE.fav");
+        adapter.setDeviceName(favorites);
         list.setAdapter(adapter);
+
+
 
         ImageButton btn = (ImageButton) view.findViewById(R.id.ibtnAddFavorite);
         btn.setOnClickListener(new View.OnClickListener() {

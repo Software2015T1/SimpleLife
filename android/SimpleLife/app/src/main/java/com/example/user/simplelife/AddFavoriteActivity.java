@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class AddFavoriteActivity extends Activity {
         listAdapter = new ExpandListAdapter (AddFavoriteActivity.this, expListItems);
         listView.setAdapter(listAdapter);
 
+
         ImageButton btnBack = (ImageButton) findViewById(R.id.ibtnBack_addfavorite);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +42,18 @@ public class AddFavoriteActivity extends Activity {
                 Intent intent = new Intent(AddFavoriteActivity.this, ApplianceActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("type", 1);
+                ArrayList<String> temp = new ArrayList<>();
+                for(int i=0;i<expListItems.size();i++)
+                {
+                    ArrayList<Expandable_Child> childs = expListItems.get(i).getItems();
+                    for(int j=0;j<childs.size();j++)
+                    {
+                        Expandable_Child child = childs.get(j);
+                        if(child.isChecked())temp.add(child.getName());
+                    }
+                }
+                //bundle.putSerializable("Favorite",temp);
+                ObjectWriter.WriteObject(temp,"FAVORITE.fav");
                 intent.putExtras(bundle);
                 startActivity(intent);
             }

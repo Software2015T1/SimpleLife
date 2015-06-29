@@ -48,4 +48,26 @@ public class ObjectWriter {
             e.printStackTrace();
         }
     }
+    public static void WriteObject(Object src,String filename){
+        FileOutputStream fs =null;
+        try
+        {
+            fs = new FileOutputStream(ObjectDirectory+"/"+filename);
+        }
+        catch (FileNotFoundException ex)
+        {
+
+        }
+        ObjectOutputStream outs = null;
+        try
+        {
+            outs = new ObjectOutputStream(fs);
+            outs.writeObject(src);
+            outs.close();
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 }

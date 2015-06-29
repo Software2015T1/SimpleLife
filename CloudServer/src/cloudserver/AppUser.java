@@ -139,10 +139,29 @@ public class AppUser
                             outs.writeUTF("R007");
                         }
                         break;
+                    case TIME_SETTING:
+                        if(CloudServer.userTable.authenticate(par[0], par[1]))
+                        {
+                            Socket _s = cstable.getControllerSocket(par[2]);
+                            try
+                            {
+                                new Fowarder().send(command, _s);
+                                outs.writeUTF("R016");
+                            }
+                            catch(Exception ex)
+                            {
+                                System.out.println(ex);
+                            }
+                        }
+                        else
+                        {
+                        }
+                        break;
                     case None:
                         outs.writeUTF("R999");
                         break; 
                 }
+                
             } catch (IOException ex)
             {
                 System.out.println(ex.toString());

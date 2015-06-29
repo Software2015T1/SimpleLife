@@ -7,15 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckBox;
+import android.widget.ExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 /**
  * Created by User on 2015/6/20.
  */
-public class ExpandListAdapter extends BaseExpandableListAdapter {
+public class ExpandListAdapter extends BaseExpandableListAdapter implements ExpandableListAdapter {
 
     private Context context;
     private ArrayList<Expandable_Parent> groups;
@@ -60,9 +62,26 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
         TextView txtChild = (TextView) convertView.findViewById(R.id.textWhere_addfavorite);
         txtChild.setText(child.getName());
         Log.v("fuck you", child.getName());
+
+        CheckBox box = (CheckBox)convertView.findViewById(R.id.checkBox_addfavorite);
+        box.setChecked(child.isChecked());
+        box.setOnClickListener(new Child_CheckBox_Click(groupPosition,childPosition));
         return convertView;
     }
-
+    public class Child_CheckBox_Click implements View.OnClickListener
+    {
+        private  int groupPosition,childPosition;
+        public  Child_CheckBox_Click(int groupPosition,int childPosition)
+        {
+            this.groupPosition = groupPosition;
+            this.childPosition = childPosition;
+        }
+        @Override
+        public void onClick(View v) {
+            groups.get(groupPosition).getItems().get(childPosition).toggle();
+            notifyDataSetChanged();
+        }
+    }
     @Override
     public int getChildrenCount(int groupPosition) {
         ArrayList<Expandable_Child> childList = groups.get(groupPosition).getItems();
