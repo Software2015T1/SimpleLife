@@ -53,4 +53,8 @@ public class Light_ListAdapter extends BaseAdapter {
     private String[] list = new String[] {
             "Time Setting","Proximity Setting","Energy Saver"
     };
+    public void setList(int index,String text)
+    {
+        list[index]= text;
+    }
 }

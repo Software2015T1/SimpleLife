@@ -104,14 +104,7 @@ public class ProximitySettingActivity extends ActionBarActivity {
                     appliance = (Appliance)air;
                 }
                 MainController main = ObjectReader.loadMainController(appliance.getMainControllerID());
-                ArrayList<Appliance> appliances = main.getAppliances();
-                for(int i=0;i<appliances.size();i++){
-                    Appliance app = appliances.get(i);
-                    if(appliance.getDeviceID().equals(app.getDeviceID())){
-                        appliances.set(i,appliance);
-                        break;
-                    }
-                }
+                main.setAppliance(appliance);
                 ObjectWriter.WriteAppliance(main, appliance.getMainControllerID());
                 Intent intent = new Intent();
                 String putText = "Turns on when you are " + distanceM + " from home.";

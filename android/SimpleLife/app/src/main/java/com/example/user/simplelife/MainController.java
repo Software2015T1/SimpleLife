@@ -73,4 +73,17 @@ public class MainController extends Device implements Serializable{
            }
        }
     }
+
+    public Appliance getApplianceByDeviceID(String deviceID)
+    {
+        for(int i=0;i<this.appliances.size();i++)
+        {
+            Appliance app = this.appliances.get(i);
+            if(app.getDeviceID().equals(deviceID))
+            {
+                return  app;
+            }
+        }
+        return null;
+    }
 }

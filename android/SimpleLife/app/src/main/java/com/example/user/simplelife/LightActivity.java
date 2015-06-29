@@ -29,7 +29,6 @@ public class LightActivity extends ActionBarActivity {
     private Light appliance;
     private static int PROXIMITY_CHANGE=0;
     private static int TIME_SETTING=1;
-    public static final String GETTEXT ="getText";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,28 +39,46 @@ public class LightActivity extends ActionBarActivity {
         nameText.setText(appliance.getName());
         TextView contentText = (TextView)findViewById(R.id.textContent_light);
         contentText.setText("Connected to \n" + appliance.getMainControllerName());
-
         listView = (ListView) findViewById(R.id.listView_light);
         adapter = new Light_ListAdapter(this);
+
+        TimeSetting timeSetting = appliance.getTimeSetting();
+        ProximitySetting proxSetting = appliance.getProximitySetting();
+        if(timeSetting!=null)
+        {
+            //change text in listview
+            String text ="set text!"+timeSetting.getStartTime().getDate();
+            adapter.setList(0,text);
+
+        }
+        if(proxSetting!=null)
+        {
+            //do something
+            String text ="Close to: "+proxSetting.getDistance();
+            adapter.setList(1,text);
+
+        }
         listView.setAdapter(adapter);
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch(position){
+                switch (position) {
                     case 0:
-                        Intent intent = new Intent(LightActivity.this,TimeSettingActivity.class);
+                        Intent intent = new Intent(LightActivity.this, TimeSettingActivity.class);
                         intent.putExtra("device", appliance);
                         //startActivity(intent);
-                        startActivityForResult(intent,TIME_SETTING);
+                        startActivityForResult(intent, TIME_SETTING);
                         break;
                     case 1:
-                        intent = new Intent(LightActivity.this,ProximitySettingActivity.class);
+                        intent = new Intent(LightActivity.this, ProximitySettingActivity.class);
                         intent.putExtra("device", appliance);
                         //startActivity(intent);
-                        startActivityForResult(intent,PROXIMITY_CHANGE);
+                        startActivityForResult(intent, PROXIMITY_CHANGE);
                         break;
                     case 2:
-                        intent = new Intent(LightActivity.this,EnergySaverActivity.class);
+                        intent = new Intent(LightActivity.this, EnergySaverActivity.class);
                         intent.putExtra("device", appliance);
                         startActivity(intent);
                         break;
@@ -111,6 +128,8 @@ public class LightActivity extends ActionBarActivity {
                 cc.sendToServer();
             }
         });
+
+
     }
 
     @Override
