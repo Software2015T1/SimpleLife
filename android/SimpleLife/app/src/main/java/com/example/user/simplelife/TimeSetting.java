@@ -3,7 +3,7 @@ package com.example.user.simplelife;
 /**
  * Created by bostenkg5 on 2015/6/22.
  */
-public class TimeSetting extends Function{
+public class TimeSetting extends Function implements Cloneable{
     private Time startTime;
     private Time endTime;
     private boolean state;
@@ -29,4 +29,11 @@ public class TimeSetting extends Function{
     public Time getEndTime(){
         return endTime;
     }
+
+    @Override
+    protected Object clone()
+    {
+        return new TimeSetting(this.startTime,this.endTime,this.state,this.notify);
+    }
+
 }

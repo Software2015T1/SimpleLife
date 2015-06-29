@@ -150,21 +150,23 @@ public class TimeSettingActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 TimeSetting ts = new TimeSetting(null, null, false, false);
-                if(light!=null)
+
+                if(light != null)
                 {
-                    ts = light.getTimeSetting();
+                    ts =(TimeSetting) light.getTimeSetting().clone();
                     light.setTimeSetting(null);
                     appliance = light;
                 }
-                else if(other!=null)
+                else if(other != null)
                 {
-                    ts = other.getTimeSetting();
+                    ts =(TimeSetting) other.getTimeSetting().clone();
+
                     other.setTimeSetting(null);
                     appliance = other;
                 }
-                else if(air!=null)
+                else if(air != null)
                 {
-                    ts = air.getTimeSetting();
+                    ts =(TimeSetting)air.getTimeSetting().clone();
                     air.setTimeSetting(null);
                     appliance = air;
                 }
