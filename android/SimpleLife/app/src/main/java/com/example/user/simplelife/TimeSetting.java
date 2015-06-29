@@ -16,7 +16,7 @@ public class TimeSetting extends Function{
         this.notify = notify;
     }
 
-    public void getStartTime(Time startTime){
+    public void setStartTime(Time startTime){
         this.startTime = startTime;
     }
     public void setEndTime(Time endTime){

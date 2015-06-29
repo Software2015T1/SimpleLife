@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.internal.app.WindowDecorActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -123,12 +124,15 @@ public class TimeSettingActivity extends ActionBarActivity {
                 mc.setAppliance(appliance);
                 ObjectWriter.WriteAppliance(mc, appliance.getMainControllerID());
                 Intent intent = new Intent();
-                String text = "Turns on every "+ts.getStartTime().getDate() + " " +
-                ts.getStartTime().getHour() + " : " + ts.getStartTime().getMinute() + " to "+
-                        ts.getEndTime().getDate() + " " + ts.getEndTime().getHour() + " : " + ts.getEndTime().getMinute();
-                setResult(Activity.RESULT_OK,intent);
-                intent.putExtra(getString(R.string.Get_ListView_Text),text);
 
+                String[] minute = setMinute(ts);
+                String text = "Turns on every "+ts.getStartTime().getDate() + "\n" +
+                ts.getStartTime().getHour() + " : " + minute[0] + " to " +
+                        ts.getEndTime().getDate() + " " + ts.getEndTime().getHour() + " : " + minute[1];
+                setResult(Activity.RESULT_OK,intent);
+                intent.putExtra(getString(R.string.Get_ListView_Text), text);
+
+                sendCommand(ts);
                 finish();
             }
         });
@@ -145,18 +149,22 @@ public class TimeSettingActivity extends ActionBarActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TimeSetting ts = new TimeSetting(null, null, false, false);
                 if(light!=null)
                 {
+                    ts = light.getTimeSetting();
                     light.setTimeSetting(null);
                     appliance = light;
                 }
                 else if(other!=null)
                 {
+                    ts = other.getTimeSetting();
                     other.setTimeSetting(null);
                     appliance = other;
                 }
                 else if(air!=null)
                 {
+                    ts = air.getTimeSetting();
                     air.setTimeSetting(null);
                     appliance = air;
                 }
@@ -167,9 +175,48 @@ public class TimeSettingActivity extends ActionBarActivity {
                 String text = "Time Setting";
                 setResult(Activity.RESULT_OK, intent);
                 intent.putExtra(getString(R.string.Get_ListView_Text), text);
+
+                sendCommand(ts);
                 finish();
             }
         });
+    }
+
+    private String[] setMinute(TimeSetting timeSetting) {
+        String[] strings = new String[2];
+        if(timeSetting.getStartTime().getMinute() < 10) {
+            strings[0] = "0" + timeSetting.getStartTime().getMinute();
+        }
+        else {
+            strings[0] = Integer.toString(timeSetting.getStartTime().getMinute());
+        }
+        if(timeSetting.getEndTime().getMinute() < 10) {
+            strings[1] = "0" + timeSetting.getEndTime().getMinute();
+        }
+        else {
+            strings[1] = Integer.toString(timeSetting.getEndTime().getMinute());
+        }
+        return strings;
+    }
+
+    private void sendCommand(TimeSetting timeSetting) {
+        String[] minute = setMinute(timeSetting);
+
+        CommandCreator cc = new CommandCreator();
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("/TimeSetting");
+        strings.add(UserProfile.email);
+        strings.add(UserProfile.password);
+        strings.add(appliance.getMainControllerID());
+        strings.add(appliance.getType());
+        strings.add(appliance.getDeviceID());
+        strings.add(timeSetting.getStartTime().getDate().substring(0,3));
+        strings.add(timeSetting.getStartTime().getHour() + ":" + minute[0]);
+        strings.add(timeSetting.getEndTime().getDate().substring(0,3));
+        strings.add(timeSetting.getEndTime().getHour() + ":" + minute[1]);
+
+        cc.createCommand(strings);
+        cc.sendToServer();
     }
 
 

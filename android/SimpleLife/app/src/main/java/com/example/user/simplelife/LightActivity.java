@@ -47,14 +47,17 @@ public class LightActivity extends ActionBarActivity {
         if(timeSetting!=null)
         {
             //change text in listview
-            String text ="set text!"+timeSetting.getStartTime().getDate();
+            String[] minute = setMinute(timeSetting);
+            String text = "Turns on every "+ timeSetting.getStartTime().getDate() + "\n" +
+                    timeSetting.getStartTime().getHour() + " : " + minute[0] + " to " +
+                    timeSetting.getEndTime().getDate() + " " + timeSetting.getEndTime().getHour() + " : " + minute[1];
             adapter.setList(0,text);
 
         }
         if(proxSetting!=null)
         {
             //do something
-            String text ="Close to: "+proxSetting.getDistance();
+            String text ="Turns on when you are " + proxSetting.getDistance() + " from home.";
             adapter.setList(1,text);
 
         }
@@ -130,6 +133,23 @@ public class LightActivity extends ActionBarActivity {
         });
 
 
+    }
+
+    private String[] setMinute(TimeSetting timeSetting) {
+        String[] strings = new String[2];
+        if(timeSetting.getStartTime().getMinute() < 10) {
+            strings[0] = "0" + timeSetting.getStartTime().getMinute();
+        }
+        else {
+            strings[0] = Integer.toString(timeSetting.getStartTime().getMinute());
+        }
+        if(timeSetting.getEndTime().getMinute() < 10) {
+            strings[1] = "0" + timeSetting.getEndTime().getMinute();
+        }
+        else {
+            strings[1] = Integer.toString(timeSetting.getEndTime().getMinute());
+        }
+        return strings;
     }
 
     @Override
