@@ -21,23 +21,21 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginBottom="15dip"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:textColor="#ffffffff">
+            android:textColor="#ffffffff"
+            android:layout_marginBottom="15dp">
         </TextView>
 
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/switch1"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:checked="false"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dip" />
+            android:layout_alignBaseline="@+id/textView_listitem_favorite"
+            android:layout_alignBottom="@+id/textView_listitem_favorite"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
