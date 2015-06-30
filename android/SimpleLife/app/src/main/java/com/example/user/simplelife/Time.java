@@ -28,10 +28,10 @@ public class Time implements Serializable{
     public void setMinute(int minute){
         this.minute = minute;
     }
-    public void getHour(int hour){
+    public void setHour(int hour){
         this.hour = hour;
     }
-    public void getDate(String date){
+    public void setDate(String date){
         this.date = date;
     }
 }
