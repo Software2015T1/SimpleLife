@@ -19,11 +19,8 @@ public class RFclient extends Thread{
 				e.printStackTrace();
 		}
 	}
-	public void sendLight(boolean cmd){
-		if(cmd)
-			out.println("on");
-		else
-			out.println("off");
+	public void sendLight(String cmd){
+		out.println(cmd);
 		out.flush();
 	}
 	@Override

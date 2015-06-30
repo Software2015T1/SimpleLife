@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.*;
+import java.io.*;
 public class SmartHome{
 	public static RPiSocket rPiSocket = new RPiSocket("MC01");
 	public static DeviceController deviceController = new DeviceController();
@@ -11,6 +12,13 @@ public class SmartHome{
 	public static RF rf = new RF();
 	
 	public static void main(String argv[]){
+        try{
+            ObjectInputStream ois = new ObjectInputStream( new FileInputStream("../DeviceInfo.object"));
+            deviceInfo = (DeviceInfo)ois.readObject();
+            ois.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 		Calendar cal = Calendar.getInstance();
     	int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
     	//String[] cmdArray = {"/TimeSetting","111"}; 
@@ -22,6 +30,7 @@ public class SmartHome{
 		//deviceController.controll(cmdArray);
 		scheduler.start();
 		rf.start();
+        rf.initial(deviceInfo);
 		//rPiSocket.sendCmd("YA!");
 		//deviceController.notify("open the light\n");
 		//System.out.printf("add appliance\n");

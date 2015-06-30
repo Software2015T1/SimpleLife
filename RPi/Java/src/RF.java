@@ -51,18 +51,15 @@ public class RF extends Thread{
 	}
     public boolean controll(String ID,String[] cmd){
 		System.out.printf("int RF : deviceId=%s : %s %s\n",ID,cmd[0],cmd[1]);
-		int index = getIndex(ID);  
-		if(index==-1)return false;
-		boolean sendcmd;
-		if(cmd[1].equals("off"))
-            sendcmd = false;
-        else if(cmd[1].equals("on"));
-            sendcmd = true;
-		c = clientlist.get(index);
-		c.sendLight(sendcmd);
-		/*
 		String arID = deviceInfo.getArdIDFromMap(ID);
         String type = deviceInfo.getTypeFromMap(ID);
+
+		int index = getIndex(ID);  
+		if(index==-1)return false;
+		c = clientlist.get(index);
+        if(type=="Light")
+    		c.sendLight(cmd[1]);
+		/*
         String flag;//p or i
         String act;
         if(type.equals("Light")){

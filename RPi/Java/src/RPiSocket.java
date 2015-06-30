@@ -63,6 +63,14 @@ public class RPiSocket{
 		if (cmdArray[0].equals("/AddAppliance")){
 			System.out.printf("add appliance\n");
 			deviceInfo.addDeviceInfo(cmdArray[4],cmdArray[5],cmdArray[6],cmdArray[7]);
+            try{
+               ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("../DeviceInfo.object"));
+                oos.writeObject(deviceInfo);
+                oos.flush();
+                oos.close();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
 			decisionMaker.addDevice(cmdArray[7]);
 		}
 		else if (cmdArray[0].equals("/ControlAppliance")){

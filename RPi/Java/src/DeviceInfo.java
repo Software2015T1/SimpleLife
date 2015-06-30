@@ -1,8 +1,9 @@
 import java.util.*;
-public class DeviceInfo{
+import java.io.*;
+public class DeviceInfo implements Serializable{
 	private HashMap<String,String> map = new HashMap<String,String>();
 	private HashMap<String,String> mapId_type = new HashMap<String,String>();
-	public class Device{
+	public class Device implements Serializable{
 		protected String deviceId,arduinoId;
 		protected String type;
 		protected boolean on;
@@ -114,15 +115,19 @@ public class DeviceInfo{
 		return deviceList[index].deviceId;
 	}
 	public String getArdIDFromMap(String deviceId){
-		String returnString;
-		returnString= new String ((String)map.get(deviceId));
-		return returnString;
+		String returnString = map.get(deviceId);
+        if (returnString!=null)
+            return returnString;
+        else 
+            return null;
 
 	}
 	public String getTypeFromMap(String deviceId){
-		String returnString;
-		returnString= new String ((String)mapId_type.get(deviceId));
-		return returnString;
+		String returnString = mapId_type.get(deviceId);
+        if (returnString!=null)
+    		return returnString;
+        else 
+            return null;
 
 	}
 	
