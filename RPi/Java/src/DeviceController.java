@@ -36,7 +36,7 @@ public class DeviceController{
 		int durationNowtoDay1=(parseWeek(day1)-dayOfWeek+7)%7;
     		
 		Date[] cmdDay = new Date[3];
-    	Calendar c = Calendar.getInstance(); 
+    		Calendar c = Calendar.getInstance(); 
 		c.setTime(new Date());
 			
 		c.add(Calendar.DATE,durationNowtoDay1);
@@ -61,8 +61,13 @@ public class DeviceController{
 	public void controll(String[] cmdArray){
 		if(cmdArray[0].equals("/ControlAppliance")){
 			String[] cmd = new String[2];
-			cmd[0]=cmdArray[6];
-			cmd[1]=cmdArray[7];
+			if(cmdArray[4].equals("Light")){
+				cmd[0]="onoff";
+				cmd[1]=cmdArray[6];
+			}else{
+				cmd[0]=cmdArray[6];
+				cmd[1]=cmdArray[7];
+			}
 			rf.controll(cmdArray[5],cmd);
 		}
 		else if(cmdArray[0].equals("/TimeSetting")){

@@ -1,7 +1,7 @@
 import java.util.*;
 public class DeviceInfo{
-	private HashMap map = new HashMap();
-	private HashMap mapId_type = new HashMap();
+	private HashMap<String,String> map = new HashMap<String,String>();
+	private HashMap<String,String> mapId_type = new HashMap<String,String>();
 	public class Device{
 		protected String deviceId,arduinoId;
 		protected String type;

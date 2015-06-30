@@ -15,7 +15,7 @@ public class SmartHome{
     	int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
     	//String[] cmdArray = {"/TimeSetting","111"}; 
 		rPiSocket.initial(deviceInfo,deviceController,history,decisionMaker);
-		//rPiSocket.start();
+		rPiSocket.start();
 		deviceController.initial(rPiSocket,deviceInfo,decisionMaker,scheduler,rf);
 		scheduler.initial(rf,rPiSocket);
 		decisionMaker.initial(rf,deviceInfo);
@@ -25,14 +25,14 @@ public class SmartHome{
 		//rPiSocket.sendCmd("YA!");
 		//deviceController.notify("open the light\n");
 		//System.out.printf("add appliance\n");
-		rPiSocket.parseCmd("/AddAppliance chander password MC001 light AD001 lgt001 MS001");
+		/*rPiSocket.parseCmd("/AddAppliance chander password MC001 light AD001 lgt001 MS001");
 		System.out.println("add complete1");
 		rPiSocket.parseCmd("/AddAppliance chander password MC001 TV AD002 TV001 Sony");
 		rPiSocket.parseCmd("/AddAppliance chander password MC001 AC AD001 AC001 LC");
 		System.out.println(deviceInfo.getArdIDFromMap("AC001"));
 		
 		rPiSocket.parseCmd("/ControlAppliance chander password MC001 light lgt001 onoff on");
-		rPiSocket.parseCmd("/TimeSetting chander password MC001 light lgt001 Sun 18:37 Sun 18:38");
+		rPiSocket.parseCmd("/TimeSetting chander password MC001 light lgt001 Sun 18:37 Sun 18:38");*/
 	}	
 
 }
