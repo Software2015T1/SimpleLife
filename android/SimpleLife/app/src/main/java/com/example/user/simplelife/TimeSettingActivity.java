@@ -37,6 +37,7 @@ public class TimeSettingActivity extends ActionBarActivity {
     private Integer OffHour, OffMinute;
     private Spinner onTime;
     private Spinner offTime;
+    private TimeSetting tss = new TimeSetting(null, null, false, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +47,17 @@ public class TimeSettingActivity extends ActionBarActivity {
         if(appliance.getType().equals("AC"))
         {
             air = (AirConditioner)appliance;
+            tss = air.getTimeSetting();
         }
         else if(appliance.getType().equals("Light"))
         {
             light = (Light)appliance;
+            tss = light.getTimeSetting();
         }
         else if(appliance.getType().equals("Other"))
         {
             other = (Other)appliance;
+            tss = other.getTimeSetting();
         }
         TextView nameView = (TextView)findViewById(R.id.textName_time);
         nameView.setText(appliance.getName());
@@ -61,8 +65,14 @@ public class TimeSettingActivity extends ActionBarActivity {
         icon.setImageResource(appliance.getIcon());
 
         setSpinnerView();
+
         GregorianCalendar calendar = new GregorianCalendar();
         doSetOnTime = (Button) findViewById(R.id.btnOnTimeChoose);
+
+        if(tss != null) {
+            String[] minute = setMinute(tss);
+            doSetOnTime.setText(tss.getStartTime().getHour() + " : " + minute[0]);
+        }
         doSetOnTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +89,10 @@ public class TimeSettingActivity extends ActionBarActivity {
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE), false);
 
         doSetOffTime = (Button) findViewById(R.id.btnOffTimeChoose);
+        if(tss != null) {
+            String[] minute = setMinute(tss);
+            doSetOffTime.setText(tss.getEndTime().getHour() + " : " + minute[1]);
+        }
         doSetOffTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,7 +146,7 @@ public class TimeSettingActivity extends ActionBarActivity {
                 setResult(Activity.RESULT_OK,intent);
                 intent.putExtra(getString(R.string.Get_ListView_Text), text);
 
-                sendCommand(ts);
+                sendCommand("/TimeSetting", ts);
                 finish();
             }
         });
@@ -178,7 +192,7 @@ public class TimeSettingActivity extends ActionBarActivity {
                 setResult(Activity.RESULT_OK, intent);
                 intent.putExtra(getString(R.string.Get_ListView_Text), text);
 
-                sendCommand(ts);
+                sendCommand("/TimeSettingRemove", ts);
                 finish();
             }
         });
@@ -201,12 +215,12 @@ public class TimeSettingActivity extends ActionBarActivity {
         return strings;
     }
 
-    private void sendCommand(TimeSetting timeSetting) {
+    private void sendCommand(String command, TimeSetting timeSetting) {
         String[] minute = setMinute(timeSetting);
 
         CommandCreator cc = new CommandCreator();
         ArrayList<String> strings = new ArrayList<String>();
-        strings.add("/TimeSetting");
+        strings.add(command);
         strings.add(UserProfile.email);
         strings.add(UserProfile.password);
         strings.add(appliance.getMainControllerID());
@@ -247,6 +261,56 @@ public class TimeSettingActivity extends ActionBarActivity {
         offTime = (Spinner) findViewById(R.id.spinner_offTime);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,offTimeList);
         offTime.setAdapter(adapter2);
+
+        if(tss != null) {
+            switch (tss.getStartTime().getDate()) {
+                case "Monday":
+                    onTime.setSelection(0);
+                    break;
+                case "Tuesday":
+                    onTime.setSelection(1);
+                    break;
+                case "Wednesday":
+                    onTime.setSelection(2);
+                    break;
+                case "Thursday":
+                    onTime.setSelection(3);
+                    break;
+                case "Friday":
+                    onTime.setSelection(4);
+                    break;
+                case "Saturday":
+                    onTime.setSelection(5);
+                    break;
+                case "Sunday":
+                    onTime.setSelection(6);
+                    break;
+            }
+            switch (tss.getEndTime().getDate()) {
+                case "Monday":
+                    offTime.setSelection(0);
+                    break;
+                case "Tuesday":
+                    offTime.setSelection(1);
+                    break;
+                case "Wednesday":
+                    offTime.setSelection(2);
+                    break;
+                case "Thursday":
+                    offTime.setSelection(3);
+                    break;
+                case "Friday":
+                    offTime.setSelection(4);
+                    break;
+                case "Saturday":
+                    offTime.setSelection(5);
+                    break;
+                case "Sunday":
+                    offTime.setSelection(6);
+                    break;
+            }
+        }
+
     }
 
 
