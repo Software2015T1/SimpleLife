@@ -24,8 +24,8 @@ public class RPiSocket{
 		@Override
 		public void run(){
 			try{
-				System.out.println("step1\n");
 				while(s!=null){
+                    System.out.println("wait from server");
 					String input = in.readUTF();
 					System.out.println("from sever: "+input);
 					if(input.equals("end")) 

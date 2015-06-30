@@ -25,13 +25,13 @@ public class RF extends Thread{
 	@Override
 	public void run(){
 		while(running){
-         System.out.println("RF is our God.");
 			try{
 				tmp_client = server.accept();
 				System.out.println("building connection");
-            c = new RFclient(tmp_client);
-            c.start();
+                c = new RFclient(tmp_client,this);
+                c.start();
 				clientlist.add(c);
+                System.out.println("size="+clientlist.size());
 				System.out.println("building connection"+tmp_client);
 			}catch(IOException e){
 				e.printStackTrace();
@@ -53,8 +53,9 @@ public class RF extends Thread{
 		System.out.printf("int RF : deviceId=%s : %s %s\n",ID,cmd[0],cmd[1]);
 		String arID = deviceInfo.getArdIDFromMap(ID);
         String type = deviceInfo.getTypeFromMap(ID);
-
-		int index = getIndex(ID);  
+        System.out.println("arID="+arID+"type"+type);
+		int index = getIndex(arID);  
+        System.out.println("index"+index);
 		if(index==-1)return false;
 		c = clientlist.get(index);
         if(type=="Light")

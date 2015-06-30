@@ -10,8 +10,10 @@ public class RFclient extends Thread{
 	boolean flag;
 	private volatile boolean running = true;
 	String readStr;
-	public RFclient(Socket c){
+    private RF rf;
+	public RFclient(Socket c,RF rf){
 		socket = c;
+        this.rf = rf;
 		try{
 			in = new BufferedReader(new InputStreamReader(c.getInputStream()));
 			out = new PrintWriter(c.getOutputStream());
@@ -20,25 +22,26 @@ public class RFclient extends Thread{
 		}
 	}
 	public void sendLight(String cmd){
+        System.out.println("success");
 		out.println(cmd);
 		out.flush();
 	}
 	@Override
 	public void run(){
 		while(running){
-         System.out.println("test");
+         System.out.println("client read");
 			try{
 				readStr = in.readLine(); 
-            System.out.println("read"+readStr);
 			}catch (IOException e){
 				e.printStackTrace();
 			}
-				String[] cmdArray = readStr.split(" ");
-				if(cmdArray[0].equals("id"))
-					this.arID = cmdArray[1];
-				System.out.println("end listen");
-				System.out.println("from client:"+readStr); 
-			
+			String[] cmdArray = readStr.split(" ");
+			if(cmdArray[0].equals("id"))
+				this.arID = cmdArray[1];
+            else if(cmdArray[0].equals("MOTION01")){
+                this.sendLight(cmdArray[1]);
+            }
+			System.out.println("from client:"+readStr); 
 		}
 	}
 	void terminate() {
