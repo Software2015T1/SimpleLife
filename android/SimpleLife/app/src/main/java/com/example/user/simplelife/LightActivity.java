@@ -57,7 +57,7 @@ public class LightActivity extends ActionBarActivity {
         if(proxSetting!=null)
         {
             //do something
-            String text ="Turns on when you are " + proxSetting.getDistance() + " from home.";
+            String text ="Turns on when you are " + proxSetting.getDistance() + "m from home.";
             adapter.setList(1,text);
 
         }
