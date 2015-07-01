@@ -63,7 +63,7 @@ public class FragmentAddOther_step1 extends FragmentAdd_step {
                 }
                 Spinner spinner2 = (Spinner)view.findViewById(R.id.spinner_addOther);
 
-                String andrunoID = spinner2.getSelectedItem().toString();
+                String andrunoID ="";// spinner2.getSelectedItem().toString();
                 EditText audinoText = (EditText)view.findViewById(R.id.editTextID_addOther);
                 if(!audinoText.getText().toString().equals("")){
                     andrunoID = audinoText.getText().toString();

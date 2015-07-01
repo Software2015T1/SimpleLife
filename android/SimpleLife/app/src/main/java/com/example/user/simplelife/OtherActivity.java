@@ -48,24 +48,45 @@ public class OtherActivity extends ActionBarActivity {
         btnOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+         //       CommandCreator cc = new CommandCreator();
+         //       ArrayList<String> strings = new ArrayList<String>();
+         //       strings.add("/ControlAppliance");
+         //       strings.add(UserProfile.email);
+         //       strings.add(UserProfile.password);
+         //       strings.add(appliance.getMainControllerID());
+         //       strings.add(appliance.getType());
+         //       strings.add(appliance.getDeviceID());
+         //       if (appliance.getState()) {
+         //           strings.add("off");
+         //           appliance.setState(false);
+         //           ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_other);
+         //           btnOn.setImageResource(R.drawable.circle_other_white);
+         //       } else {
+         //           strings.add("on");
+         //           appliance.setState(true);
+         //           ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_other);
+         //           btnOn.setImageResource(R.drawable.circle_other_yellow);
+         //       }
+         //       cc.createCommand(strings);
+         //       cc.sendToServer();
                 CommandCreator cc = new CommandCreator();
                 ArrayList<String> strings = new ArrayList<String>();
-                strings.add("/ControlAppliance");
+                strings.add("/IRControl");
                 strings.add(UserProfile.email);
                 strings.add(UserProfile.password);
-                strings.add(appliance.getMainControllerID());
-                strings.add(appliance.getType());
-                strings.add(appliance.getDeviceID());
-                if (appliance.getState()) {
+                if(appliance.getState())
+                {
                     strings.add("off");
                     appliance.setState(false);
                     ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_other);
                     btnOn.setImageResource(R.drawable.circle_other_white);
-                } else {
-                    strings.add("on");
-                    appliance.setState(true);
-                    ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_other);
-                    btnOn.setImageResource(R.drawable.circle_other_yellow);
+                }
+                else
+                {
+                   strings.add("on");
+                   appliance.setState(true);
+                   ImageButton btnOn = (ImageButton) findViewById(R.id.ibtnCircle_other);
+                   btnOn.setImageResource(R.drawable.circle_other_yellow);
                 }
                 cc.createCommand(strings);
                 cc.sendToServer();
