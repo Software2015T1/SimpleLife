@@ -1,6 +1,13 @@
 import java.util.*;
 import java.io.*;
 import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jssc.SerialPort;
+import jssc.SerialPortEvent;
+import jssc.SerialPortEventListener;
+import jssc.SerialPortException;
+import rpi.Rpi;
 public class RPiSocket{
 	private DeviceInfo deviceInfo;
 	private DeviceController deviceController;
@@ -90,7 +97,31 @@ public class RPiSocket{
 		}
                 else if(cmdArray[0].equals("/IRControl"))
                 {
-                    cmdArray[1].equals("on");
+                    SerialPort sport =sport = new SerialPort("/dev/ttyACM0");
+                    try {
+                        System.out.println("Port opened: "+sport.openPort());
+                        sport.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
+                    } catch (SerialPortException ex) {
+                        Logger.getLogger(RPiSocket.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    //sport.addEventListener(new Rpi.PortReader(),SerialPort.MASK_RXCHAR);
+                    try
+                    {
+                        if(cmdArray[1].equals("on"))
+                        {
+                            sport.writeInt('o');
+                            System.out.println("on");
+                        }
+                        else if(cmdArray[1].equals("off"))
+                        {
+                            sport.writeInt('f');
+                            System.out.println("off");
+                        }
+                    }
+                    catch(SerialPortException ex)
+                    {
+                        System.out.println(ex.toString());
+                    }
                 }
 	
 	}
