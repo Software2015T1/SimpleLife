@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author Smith
  */
-public class IRMC 
+public  class IRMC 
 {
     private  Socket _s;
      DataInputStream inputs;

@@ -158,9 +158,10 @@ public class AppUser
                         }
                         break;
                     case IR_CONTROL:
-                        IRMC irmc = Client.irmc;
+                        Socket s = CloudServer.csTable.getControllerSocket("MC01");
+                        //IRMC irmc = Client.irmc;
                         command = par[0]+" "+par[1];
-                        irmc.writeUTF(command);
+                        new Fowarder().send(command,s);
                         outs.writeUTF("R018");
                         break;
                     case None:
