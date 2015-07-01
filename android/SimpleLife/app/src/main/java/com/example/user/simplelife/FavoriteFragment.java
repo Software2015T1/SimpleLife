@@ -31,12 +31,14 @@ public class FavoriteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_favorite, container, false);
         list = (ListView) view.findViewById(R.id.listView_favorite);
+        if(new File("sdcard/MC_ID").exists())
         adapter = new Favorite_ListAdapter(getActivity());
         ArrayList favorites = null;
         if(new File("sdcard/FAVORITE.fav").exists()) {
             favorites = (ArrayList<String>) ObjectReader.loadObject("FAVORITE.fav");
             adapter.setDeviceName(favorites);
         }
+        if(adapter!=null)
         list.setAdapter(adapter);
 
 

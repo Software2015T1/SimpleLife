@@ -16,9 +16,8 @@ import java.io.*;
 public class CloudServer
 {
 
-
     public final static int PORT =1028;
-    public final static String IP_ADDRESS = "140.112.53.245";
+    public final static String IP_ADDRESS = "192.168.43.106";
     public static UserTable userTable;
     public static ControllerSocketTable csTable;
     public static void main(String[] args)

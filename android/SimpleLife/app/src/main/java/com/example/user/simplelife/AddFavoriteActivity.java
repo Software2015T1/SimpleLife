@@ -31,7 +31,9 @@ public class AddFavoriteActivity extends Activity {
 
         listView = (ExpandableListView) findViewById(R.id.expandableListView);
         expListItems = prepareListData();
+        if(expListItems!=null)
         listAdapter = new ExpandListAdapter (AddFavoriteActivity.this, expListItems);
+        if(listAdapter!=null)
         listView.setAdapter(listAdapter);
 
 
@@ -78,72 +80,62 @@ public class AddFavoriteActivity extends Activity {
 
 
         ArrayList<Expandable_Parent> list = new ArrayList<>();
-        ArrayList<String> mclist = ObjectReader.loadMC("MC_ID");
-        ArrayList<Appliance> appliances = new ArrayList<>();
-        for(int i=0;i<mclist.size();i++)
-        {
-            String mcName = mclist.get(i);
-            MainController mc = ObjectReader.loadMainController(mcName);
-            ArrayList<Appliance> temp = mc.getAppliances();
-            for(int j=0;j<temp.size();j++)appliances.add(j,temp.get(j));
+        ArrayList<String> mclist=null;
+        if(new File("sdcard/MC_ID").exists()) {
+            mclist = ObjectReader.loadMC("MC_ID");
+            ArrayList<Appliance> appliances = new ArrayList<>();
+            for (int i = 0; i < mclist.size(); i++) {
+                String mcName = mclist.get(i);
+                MainController mc = ObjectReader.loadMainController(mcName);
+                ArrayList<Appliance> temp = mc.getAppliances();
+                for (int j = 0; j < temp.size(); j++) appliances.add(j, temp.get(j));
+            }
+            for (int i = 0; i < parentNames.length; i++) {
+                Expandable_Parent parent = new Expandable_Parent();
+                ArrayList<Expandable_Child> chList;
+                parent.setImage(images[i]);
+                parent.setName(parentNames[i]);
+                chList = new ArrayList<>();
+                String pName = parentNames[i];
+                ArrayList<String> childNames = null;
+                if (pName.equals("Light")) {
+                    ArrayList<String> tempS = new ArrayList<>();
+                    for (int k = 0; k < appliances.size(); k++) {
+                        Appliance app = appliances.get(k);
+                        if (app.getType().equals("Light")) tempS.add(app.getName());
+                    }
+                    childNames = tempS;
+                } else if (pName.equals("Air Conditioner")) {
+                    ArrayList<String> tempS = new ArrayList<>();
+                    for (int k = 0; k < appliances.size(); k++) {
+                        Appliance app = appliances.get(k);
+                        if (app.getType().equals("AC")) tempS.add(app.getName());
+                    }
+                    childNames = tempS;
+                } else if (pName.equals("Television")) {
+                    ArrayList<String> tempS = new ArrayList<>();
+                    for (int k = 0; k < appliances.size(); k++) {
+                        Appliance app = appliances.get(k);
+                        if (app.getType().equals("TV")) tempS.add(app.getName());
+                    }
+                    childNames = tempS;
+                } else if (pName.equals("Other")) {
+                    ArrayList<String> tempS = new ArrayList<>();
+                    for (int k = 0; k < appliances.size(); k++) {
+                        Appliance app = appliances.get(k);
+                        if (app.getType().equals("Other")) tempS.add(app.getName());
+                    }
+                    childNames = tempS;
+                }
+                for (int j = 0; j < childNames.size(); j++) {
+                    Expandable_Child child = new Expandable_Child();
+                    child.setName(childNames.get(j));
+                    chList.add(child);
+                }
+                parent.setItems(chList);
+                list.add(parent);
+            }
         }
-        for (int i = 0; i < parentNames.length ;i++) {
-            Expandable_Parent parent = new Expandable_Parent();
-            ArrayList<Expandable_Child> chList;
-            parent.setImage(images[i]);
-            parent.setName(parentNames[i]);
-            chList = new ArrayList<>();
-            String pName = parentNames[i];
-            ArrayList<String> childNames = null;
-            if(pName.equals("Light"))
-            {
-                ArrayList<String> tempS = new ArrayList<>();
-                for(int k=0;k<appliances.size();k++)
-                {
-                    Appliance app = appliances.get(k);
-                    if(app.getType().equals("Light"))tempS.add(app.getName());
-                }
-                childNames = tempS;
-            }
-            else if(pName.equals("Air Conditioner"))
-            {
-                ArrayList<String> tempS = new ArrayList<>();
-                for(int k=0;k<appliances.size();k++)
-                {
-                    Appliance app = appliances.get(k);
-                    if(app.getType().equals("AC"))tempS.add(app.getName());
-                }
-                childNames = tempS;
-            }
-            else if(pName.equals("Television"))
-            {
-                ArrayList<String> tempS = new ArrayList<>();
-                for(int k=0;k<appliances.size();k++)
-                {
-                    Appliance app = appliances.get(k);
-                    if(app.getType().equals("TV"))tempS.add(app.getName());
-                }
-                childNames = tempS;
-            }
-            else if(pName.equals("Other"))
-            {
-                ArrayList<String> tempS = new ArrayList<>();
-                for(int k=0;k<appliances.size();k++)
-                {
-                    Appliance app = appliances.get(k);
-                    if(app.getType().equals("Other"))tempS.add(app.getName());
-                }
-                childNames = tempS;
-            }
-            for(int j = 0; j < childNames.size(); j++) {
-                Expandable_Child child = new Expandable_Child();
-                child.setName(childNames.get(j));
-                chList.add(child);
-            }
-            parent.setItems(chList);
-            list.add(parent);
-        }
-
         return list;
 
     }

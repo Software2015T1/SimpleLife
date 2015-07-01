@@ -87,9 +87,11 @@ public class RPiSocket{
 		}
 		else if (cmdArray[0].equals("/WifiSetting")){
 			String ssid,password,keytype;
-
-
 		}
+                else if(cmdArray[0].equals("/IRControl"))
+                {
+                    cmdArray[1].equals("on");
+                }
 	
 	}
 	public void sendCmd(String outputCmd){

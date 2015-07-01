@@ -27,7 +27,7 @@ public class Rpi
      * @param args the command line arguments
      */
     static SerialPort sport ;
-    private static final String IP = "140.112.53.245";
+    private static final String IP = "192.168.1.94";
     private static final int PORT = 1028;
     public static void main(String[] args)
     {
