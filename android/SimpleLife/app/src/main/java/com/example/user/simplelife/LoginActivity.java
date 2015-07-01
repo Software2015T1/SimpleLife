@@ -294,7 +294,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                                 new AlertDialog.Builder(LoginActivity.this).setMessage("Server not response, try later....").show();
                             }
                         });
-
+                        Log.e("aaa","xd"+e.toString());
                         e.printStackTrace();
                     }
                     dialog.dismiss();
