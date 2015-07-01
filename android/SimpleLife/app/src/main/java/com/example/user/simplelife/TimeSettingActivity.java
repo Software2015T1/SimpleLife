@@ -165,25 +165,21 @@ public class TimeSettingActivity extends ActionBarActivity {
             public void onClick(View v) {
                 TimeSetting ts = new TimeSetting(null, null, false, false);
 
-                if(light != null)
-                {
-                    ts =(TimeSetting) light.getTimeSetting().clone();
-                    light.setTimeSetting(null);
-                    appliance = light;
-                }
-                else if(other != null)
-                {
-                    ts =(TimeSetting) other.getTimeSetting().clone();
+                    if (light != null) {
+                        ts = (TimeSetting) light.getTimeSetting().clone();
+                        light.setTimeSetting(null);
+                        appliance = light;
+                    } else if (other != null) {
+                        ts = (TimeSetting) other.getTimeSetting().clone();
 
-                    other.setTimeSetting(null);
-                    appliance = other;
-                }
-                else if(air != null)
-                {
-                    ts =(TimeSetting)air.getTimeSetting().clone();
-                    air.setTimeSetting(null);
-                    appliance = air;
-                }
+                        other.setTimeSetting(null);
+                        appliance = other;
+                    } else if (air != null) {
+                        ts = (TimeSetting) air.getTimeSetting().clone();
+                        air.setTimeSetting(null);
+                        appliance = air;
+                    }
+
                 MainController mc = ObjectReader.loadMainController(appliance.getMainControllerID());
                 mc.setAppliance(appliance);
                 ObjectWriter.WriteAppliance(mc, appliance.getMainControllerID());

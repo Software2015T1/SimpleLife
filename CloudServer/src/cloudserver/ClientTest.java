@@ -41,6 +41,7 @@ public class ClientTest {
                 System.out.print("Input commandPar: ");
                 String par = br.readLine();
                 cmd = cmd+" "+account+" "+password+" "+par;
+                //cmd = cmd+" "+par;
                 System.out.println(cmd);
                 outs.writeUTF(cmd);
                 String returnCode = inputs.readUTF();

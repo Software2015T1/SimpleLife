@@ -17,6 +17,7 @@ public class Client extends Thread
 {
     public static final int NUMofPAR = 10;
     private final Socket _s;
+    public static IRMC irmc ;
     public Client(Socket s)
     {
         this._s = s;
@@ -70,6 +71,11 @@ public class Client extends Thread
                     }
                     new Administrator(_s).start();
                 break;
+                case IR_MAIN_LOGIN:
+                    irmc = new IRMC(_s);
+                    System.out.println("IRMC start");
+                    break;
+                    
                 case None:
                     outs.writeUTF("R999");
                 break; 

@@ -188,6 +188,7 @@ public class LightActivity extends ActionBarActivity {
             case Activity.RESULT_OK:
                 String text = data.getStringExtra(getString(R.string.Get_ListView_Text));
                 ((TextView)v.findViewById(R.id.text_listitem_light)).setText(text);
+
                 break;
 
         }

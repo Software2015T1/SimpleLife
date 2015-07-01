@@ -21,6 +21,8 @@ enum MissionType
     USER_CHANGEPASSWORD,
     ADD_APPLIANCE,
     TIME_SETTING,
+    IR_MAIN_LOGIN,
+    IR_CONTROL,
     None,
 }
 public class CommandParser
@@ -87,6 +89,15 @@ public class CommandParser
                         par[1] = cmd[2];
                         par[2] = cmd[3];
                         type=MissionType.TIME_SETTING;
+                        break;
+                    case "/IRMCLogin":
+                        par[0] = cmd[1];
+                        type = MissionType.IR_MAIN_LOGIN;
+                        break;
+                    case "/IRControl":
+                        par[0]=cmd[0];
+                        par[1]=cmd[3];
+                        type = MissionType.IR_CONTROL;
                         break;
                 }
             }
